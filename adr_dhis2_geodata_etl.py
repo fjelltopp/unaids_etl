@@ -1,3 +1,4 @@
+import json
 import os
 import io
 
@@ -37,6 +38,8 @@ def extract_geo_data(df):
     cords.columns = ['lat', 'long']
     df = pd.concat([df, cords], axis=1, sort=False)
     df['geoshape'] = df[df['featureType'] == 'POLYGON']['coordinates']
+    __convert_str_to_list(df, 'geoshape')
+    __fillna_with_empty_list(df, 'geoshape')
     df = df.drop(['featureType', 'coordinates'], axis=1)
 
     return df
@@ -95,8 +98,46 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
-    pass
+    area_df = df[df['admin_level'] <= 2][['id', 'name', 'admin_level', 'geoshape']]
+    features = []
+    for i, area in area_df.iterrows():
+        features.append({
+            "type": "Feature",
+            "geometry": __prepare_geometry(area.geoshape),
+            "properties": __prepare_properties(area)
+        })
+    geojson = {
+        "type": "FeatureCollection",
+        "features": features
+    }
+    with open('output/areas.json', 'w') as f:
+        f.write(json.dumps(geojson))
     return df
+
+
+def __fillna_with_empty_list(df, column_name):
+    for i in df.loc[df[column_name].isnull(), column_name].index:
+        df.at[i, column_name] = []
+
+
+def __convert_str_to_list(df, column_name):
+    df[column_name] = df[df[column_name].apply(type) == str][column_name].apply(json.loads)
+
+
+def __prepare_geometry(coordinates:str) -> dict:
+    return {
+        "type": "Polygon",
+        "coordinates": coordinates
+    }
+
+def __prepare_properties(area:pd.Series) -> dict:
+    return {
+        "properties" : {
+            "area_id": area.id,
+            "name": area.name,
+            "level": area.admin_level
+        }
+    }
 
 
 if __name__ == '__main__':
@@ -108,6 +149,7 @@ if __name__ == '__main__':
         .pipe(sort_by_admin_level)
         .pipe(create_index_column)
         .pipe(extract_parent)
-        .pipe(save_location_hierarchy)
-        .pipe(save_facilities_list)
+        # .pipe(save_location_hierarchy)
+        # .pipe(save_facilities_list)
+        .pipe(save_area_geometries)
     )
