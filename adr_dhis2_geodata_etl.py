@@ -28,8 +28,6 @@ def extract_ancestors(df):
     col_count = len(list(org_name_path))
     for i in range(1, col_count):
         df.insert(0, f'region_{i}', org_name_path.iloc[:, -i])
-    # df.insert(0, 'District', org_name_path.iloc[:, -2])
-    # df.insert(0, 'Region', org_name_path.iloc[:, -3])
     return df
 
 
@@ -43,34 +41,36 @@ def extract_geo_data(df):
     __convert_str_to_list(df, 'geoshape')
     __fillna_with_empty_list(df, 'geoshape')
 
-    def __flip_coordinates(cords):
-        if type(cords) == list and len(cords):
-            nested_list = any([type(item) == list for item in cords])
-            if nested_list:
-                for item in cords:
-                    __flip_coordinates(item)
-            else:
-                swap = cords[0]
-                cords[0] = cords[1]
-                cords[1] = swap
-        return cords
-
-    def __flatten(cords):
-        nested_list = any([type(item) == list for item in cords])
-        is_cord = all([type(item) != list for sublist in cords for item in sublist])
-        if not len(cords):
-            return cords
-        if nested_list and not is_cord:
-            flat = [item for sublist in cords for item in sublist]
-            # return __flatten(flat)
-            return flat
-        else:
-            return cords
-
-    # df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
+    if bool(os.environ.get("FLIP_COORDS")):
+        df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
     df['geoshape'] = df['geoshape'].apply(__flatten)
 
     return df
+
+
+def __flip_coordinates(cords):
+    # to be used if you want to flip coords in nested collection
+    # e.g. polygon: [[[12.0, -2], [12.0, -2.5], ... ], [[12,3], [...]]]
+    if type(cords) == list and len(cords):
+        nested_list = any([type(item) == list for item in cords])
+        if nested_list:
+            for item in cords:
+                __flip_coordinates(item)
+        else:
+            swap = cords[0]
+            cords[0] = cords[1]
+            cords[1] = swap
+    return cords
+
+
+def __flatten(cords):
+    nested_list = any([type(item) == list for item in cords])
+    is_cord = all([type(item) != list for sublist in cords for item in sublist])
+    if len(cords) and nested_list and not is_cord:
+        flatten_list = [item for sublist in cords for item in sublist]
+        return flatten_list
+    else:
+        return cords
 
 
 def extract_admin_level(df:pd.DataFrame) -> pd.DataFrame:
