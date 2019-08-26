@@ -17,7 +17,7 @@ def get_dhis2_org_data(pickle_path=None):
         df.to_pickle(pickle_path)
     return df
 
-def get_dhis2_org_data_from_picke(pickle_path):
+def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
 
 def extract_ancestors(df):
@@ -38,9 +38,37 @@ def extract_geo_data(df):
     cords.columns = ['lat', 'long']
     df = pd.concat([df, cords], axis=1, sort=False)
     df['geoshape'] = df[df['featureType'] == 'POLYGON']['coordinates']
+    df = df.drop(['featureType', 'coordinates'], axis=1)
+
     __convert_str_to_list(df, 'geoshape')
     __fillna_with_empty_list(df, 'geoshape')
-    df = df.drop(['featureType', 'coordinates'], axis=1)
+
+    def __flip_coordinates(cords):
+        if type(cords) == list and len(cords):
+            nested_list = any([type(item) == list for item in cords])
+            if nested_list:
+                for item in cords:
+                    __flip_coordinates(item)
+            else:
+                swap = cords[0]
+                cords[0] = cords[1]
+                cords[1] = swap
+        return cords
+
+    def __flatten(cords):
+        nested_list = any([type(item) == list for item in cords])
+        is_cord = all([type(item) != list for sublist in cords for item in sublist])
+        if not len(cords):
+            return cords
+        if nested_list and not is_cord:
+            flat = [item for sublist in cords for item in sublist]
+            # return __flatten(flat)
+            return flat
+        else:
+            return cords
+
+    # df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
+    df['geoshape'] = df['geoshape'].apply(__flatten)
 
     return df
 
@@ -98,20 +126,21 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
-    area_df = df[df['admin_level'] <= 2][['id', 'name', 'admin_level', 'geoshape']]
-    features = []
-    for i, area in area_df.iterrows():
-        features.append({
-            "type": "Feature",
-            "geometry": __prepare_geometry(area.geoshape),
-            "properties": __prepare_properties(area)
-        })
-    geojson = {
-        "type": "FeatureCollection",
-        "features": features
-    }
-    with open('output/areas.json', 'w') as f:
-        f.write(json.dumps(geojson))
+    for level in [1, 2]:
+        area_df = df[df['admin_level'] == level][['id', 'name', 'admin_level', 'geoshape']]
+        features = []
+        for i, area in area_df.iterrows():
+            features.append({
+                "type": "Feature",
+                "geometry": __prepare_geometry(area.geoshape),
+                "properties": __prepare_properties(area)
+            })
+        geojson = {
+            "type": "FeatureCollection",
+            "features": features
+        }
+        with open(f'output/areas_admin{level}.json', 'w') as f:
+            f.write(json.dumps(geojson))
     return df
 
 
@@ -132,24 +161,23 @@ def __prepare_geometry(coordinates:str) -> dict:
 
 def __prepare_properties(area:pd.Series) -> dict:
     return {
-        "properties" : {
-            "area_id": area.id,
-            "name": area.name,
-            "level": area.admin_level
-        }
+        "area_id": area['id'],
+        "name": area['name'],
+        "level": area['admin_level']
     }
 
 
 if __name__ == '__main__':
 
-    # get_dhis2_org_data('orgs.pickle')
-    df = (get_dhis2_org_data_from_picke('orgs.pickle')
+    df = (
+        get_dhis2_org_data()
+        # get_dhis2_org_data_from_pickle('orgs.pickle')
         .pipe(extract_geo_data)
         .pipe(extract_admin_level)
         .pipe(sort_by_admin_level)
         .pipe(create_index_column)
         .pipe(extract_parent)
-        # .pipe(save_location_hierarchy)
-        # .pipe(save_facilities_list)
+        .pipe(save_location_hierarchy)
+        .pipe(save_facilities_list)
         .pipe(save_area_geometries)
     )
