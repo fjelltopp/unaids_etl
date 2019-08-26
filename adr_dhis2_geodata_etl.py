@@ -111,7 +111,7 @@ def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
     lh_df['pepfar_id'] = ''
     if not os.path.exists('output'):
         os.makedirs('output')
-    lh_df.to_csv("output/location_hierarchy.csv")
+    lh_df.to_csv("output/location_hierarchy.csv", index=False)
     return df
 
 
@@ -119,9 +119,9 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
     fl_df = df[df['admin_level'] > 2].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'dhis2_id'])
     fl_df['type'] = 'health facility'
     fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'dhis2_id']
-    fl_df.to_csv("output/facility_list.csv")
     if not os.path.exists('output'):
         os.makedirs('output')
+    fl_df.to_csv("output/facility_list.csv", index=False)
     return df
 
 
