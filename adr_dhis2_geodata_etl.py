@@ -6,6 +6,8 @@ import pandas as pd
 import requests
 from requests.auth import HTTPBasicAuth
 
+AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
+
 def get_dhis2_org_data(pickle_path=None):
     username = os.environ.get("DHIS2_USERNAME")
     password = os.environ.get("DHIS2_PASSWORD")
@@ -20,15 +22,15 @@ def get_dhis2_org_data(pickle_path=None):
 def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
 
-def extract_ancestors(df):
-    org_path = df['path'].str.split('/', expand=True)
-    id_to_name_dict = df[['id', 'name']].set_index('id')['name'].to_dict()
-    org_name_path = org_path.replace(id_to_name_dict)
-
-    col_count = len(list(org_name_path))
-    for i in range(1, col_count):
-        df.insert(0, f'region_{i}', org_name_path.iloc[:, -i])
-    return df
+# def extract_ancestors(df):
+#     org_path = df['path'].str.split('/', expand=True)
+#     id_to_name_dict = df[['id', 'name']].set_index('id')['name'].to_dict()
+#     org_name_path = org_path.replace(id_to_name_dict)
+#
+#     col_count = len(list(org_name_path))
+#     for i in range(1, col_count):
+#         df.insert(0, f'region_{i}', org_name_path.iloc[:, -i])
+#     return df
 
 
 def extract_geo_data(df):
@@ -102,11 +104,11 @@ def create_index_column(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def sort_by_admin_level(df:pd.DataFrame) -> pd.DataFrame:
-    return df.sort_values(by='admin_level')
+    return df.sort_values(by='admin_level').reset_index()
 
 
 def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
-    lh_df = df[df['admin_level'] <= 2][['id', 'name', 'admin_level', 'parent_id', 'dhis2_id']]
+    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'dhis2_id']]
     lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'dhis2_id']
     lh_df['pepfar_id'] = ''
     if not os.path.exists('output'):
@@ -116,7 +118,7 @@ def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > 2].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'dhis2_id'])
+    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'dhis2_id'])
     fl_df['type'] = 'health facility'
     fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'dhis2_id']
     if not os.path.exists('output'):
@@ -126,7 +128,7 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
-    for level in [1, 2]:
+    for level in range(1, AREAS_ADMIN_LEVEL + 1):
         area_df = df[df['admin_level'] == level][['id', 'name', 'admin_level', 'geoshape']]
         features = []
         for i, area in area_df.iterrows():
@@ -170,8 +172,8 @@ def __prepare_properties(area:pd.Series) -> dict:
 if __name__ == '__main__':
 
     df = (
-        get_dhis2_org_data()
-        # get_dhis2_org_data_from_pickle('orgs.pickle')
+        get_dhis2_org_data("resources/orgs.pickle")
+        # get_dhis2_org_data_from_pickle("resources/orgs.pickle")
         .pipe(extract_geo_data)
         .pipe(extract_admin_level)
         .pipe(sort_by_admin_level)
