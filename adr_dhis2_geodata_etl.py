@@ -170,7 +170,7 @@ def __prepare_geometry(coordinates:str) -> dict:
 
 def __prepare_properties(area:pd.Series) -> dict:
     return {
-        "area_id": area['id'],
+        "area_id": str(area['id']),
         "name": area['name'],
         "level": area['admin_level']
     }
