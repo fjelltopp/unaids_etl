@@ -176,22 +176,36 @@ def __prepare_properties(area:pd.Series) -> dict:
     }
 
 
+def __get_init_df():
+    if not os.path.exists(OUTPUT_DIR_NAME):
+        os.makedirs(OUTPUT_DIR_NAME)
+    if args.pickle:
+        pickle_path = f"{OUTPUT_DIR_NAME}/orgs.pickle"
+        if os.path.exists(pickle_path):
+            return get_dhis2_org_data_from_pickle(pickle_path)
+        else:
+            return get_dhis2_org_data(f"{OUTPUT_DIR_NAME}/orgs.pickle")
+    else:
+        return get_dhis2_org_data()
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pull geo data from a DHIS2 to be uploaded into ADR.')
     argv = sys.argv[1:]
     parser.add_argument('-e', '--env-file',
                         default='.env',
                         help='env file to read config from')
+    parser.add_argument('-p', '--pickle',
+                        dest='pickle',
+                        action='store_true',
+                        help='fetch data from local pickle instead http call to DHIS2')
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
     AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
     OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-    df = (
-        # get_dhis2_org_data(f"{OUTPUT_DIR_NAME}/orgs.pickle")
-        get_dhis2_org_data_from_pickle(f"{OUTPUT_DIR_NAME}/orgs.pickle")
+
+    (__get_init_df()
         .pipe(extract_geo_data)
         .pipe(convert_cords_str_to_int)
         .pipe(extract_admin_level)
