@@ -1,6 +1,8 @@
+import argparse
 import json
 import os
 import io
+import sys
 
 import pandas as pd
 import requests
@@ -183,7 +185,14 @@ def __prepare_properties(area:pd.Series) -> dict:
 
 
 if __name__ == '__main__':
-    load_dotenv('env/mwi.env')
+    parser = argparse.ArgumentParser(description='Pull geo data from a DHIS2 to be uploaded into ADR.')
+    argv = sys.argv[1:]
+    parser.add_argument('-e', '--env-file',
+                        default='.env',
+                        help='env file to read config from')
+    args = parser.parse_args()
+
+    load_dotenv(args.env_file)
     AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
     OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
     if not os.path.exists(OUTPUT_DIR_NAME):
