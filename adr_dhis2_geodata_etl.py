@@ -57,7 +57,7 @@ def extract_geo_data(df):
 def convert_cords_str_to_int(df:pd.DataFrame) -> pd.DataFrame:
     for cord in ['lat', 'long']:
         if df[cord].dtype != pd.np.float64:
-            df[cord] = df[cord].str.strip('\"').str.strip('\'').astype(float)
+            df[cord] = df[cord].str.strip('\"').str.strip('\'').astype(float, errors='ignore')
     return df
 
 
