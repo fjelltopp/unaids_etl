@@ -50,6 +50,13 @@ def extract_geo_data(df):
     return df
 
 
+def convert_cords_str_to_int(df:pd.DataFrame) -> pd.DataFrame:
+    for cord in ['lat', 'long']:
+        if df[cord].dtype != pd.np.float64:
+            df[cord] = df[cord].str.strip('\"').str.strip('\'').astype(float)
+    return df
+
+
 def __flip_coordinates(cords):
     # to be used if you want to flip coords in nested collection
     # e.g. polygon: [[[12.0, -2], [12.0, -2.5], ... ], [[12,3], [...]]]
@@ -172,15 +179,16 @@ def __prepare_properties(area:pd.Series) -> dict:
 
 
 if __name__ == '__main__':
-    load_dotenv()
+    load_dotenv('env/mwi.env')
     AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
     OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
     df = (
-        get_dhis2_org_data(f"{OUTPUT_DIR_NAME}/orgs.pickle")
-        # get_dhis2_org_data_from_pickle(f"{OUTPUT_DIR_NAME}/orgs.pickle")
+        # get_dhis2_org_data(f"{OUTPUT_DIR_NAME}/orgs.pickle")
+        get_dhis2_org_data_from_pickle(f"{OUTPUT_DIR_NAME}/orgs.pickle")
         .pipe(extract_geo_data)
+        .pipe(convert_cords_str_to_int)
         .pipe(extract_admin_level)
         .pipe(sort_by_admin_level)
         .pipe(create_index_column)
