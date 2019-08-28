@@ -92,10 +92,14 @@ def extract_admin_level(df:pd.DataFrame) -> pd.DataFrame:
 def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
     def get_parent_id(path):
-        if len(path) < 2:
+        if len(path) < 1:
+            return ''
+        elif len(path) == 1:
             return path[0]
-        else:
+        elif len(path) <= AREAS_ADMIN_LEVEL:
             return path[-2]
+        else:
+            return path[AREAS_ADMIN_LEVEL]
     parent_ids: pd.Series = paths.apply(get_parent_id)
     parent_df = pd.DataFrame(parent_ids)
     parent_df.columns = ['parent_dhis2_id']
