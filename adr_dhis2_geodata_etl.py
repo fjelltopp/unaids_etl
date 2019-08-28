@@ -26,16 +26,6 @@ def get_dhis2_org_data(pickle_path=None):
 def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
 
-# def extract_ancestors(df):
-#     org_path = df['path'].str.split('/', expand=True)
-#     id_to_name_dict = df[['id', 'name']].set_index('id')['name'].to_dict()
-#     org_name_path = org_path.replace(id_to_name_dict)
-#
-#     col_count = len(list(org_name_path))
-#     for i in range(1, col_count):
-#         df.insert(0, f'region_{i}', org_name_path.iloc[:, -i])
-#     return df
-
 
 def extract_geo_data(df):
     cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
