@@ -23,7 +23,6 @@ def get_dhis2_org_data(pickle_path=None):
         df.to_pickle(pickle_path)
     return df
 
-
 def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
 
@@ -131,7 +130,7 @@ def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'long', 'lat', 'type', 'dhis2_id'])
+    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'dhis2_id'])
     fl_df['type'] = 'health facility'
     fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'dhis2_id']
     if not os.path.exists(OUTPUT_DIR_NAME):
