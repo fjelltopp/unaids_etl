@@ -7,6 +7,8 @@ import io
 import sys
 from collections import Sequence
 from itertools import chain, count
+import shapely.wkt
+import geojson
 
 import pandas as pd
 import requests
@@ -37,24 +39,43 @@ def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
 
 
 def extract_geo_data(df):
-    cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
-    cords.columns = ['long', 'lat']
-    df = pd.concat([df, cords], axis=1, sort=False)
-    df['geoshape'] = df['coordinates']
-    df = df.drop(['coordinates'], axis=1)
-    # only (multi)polygons in geoshape column
-    def __remove_points_from_geoshape(row):
-        if row.featureType in  ['POINT', 'NONE']:
-            return []
-        return row.geoshape
-    df['geoshape'] = df.apply(__remove_points_from_geoshape, axis=1)
+    if 'featureType' in list(df):
+        cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
+        cords.columns = ['long', 'lat']
+        df = pd.concat([df, cords], axis=1, sort=False)
+        df['geoshape'] = df['coordinates']
+        df = df.drop(['coordinates'], axis=1)
+        # only (multi)polygons in geoshape column
+        def __remove_points_from_geoshape(row):
+            if row.featureType in  ['POINT', 'NONE']:
+                return []
+            return row.geoshape
+        df['geoshape'] = df.apply(__remove_points_from_geoshape, axis=1)
 
-    __convert_str_to_list(df, 'geoshape')
-    __fillna_with_empty_list(df, 'geoshape')
+        __convert_str_to_list(df, 'geoshape')
+        __fillna_with_empty_list(df, 'geoshape')
 
-    if bool(os.environ.get("FLIP_COORDS")):
-        df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
-    df['geoshape'] = df.apply(__flatten, axis=1)
+        if bool(os.environ.get("FLIP_COORDS")):
+            df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
+        df['geoshape'] = df.apply(__flatten, axis=1)
+    else:
+        # deal with WKT geometry
+        def __extract_geoshape(row):
+            if not pd.isnull(row['geometry']):
+                geometry_str = row['geometry']
+
+                shape = shapely.wkt.loads(geometry_str)
+                __geojson = geojson.Feature(geometry=shape, properties={})
+                geometry = __geojson.geometry
+                if geometry.type == 'Point':
+                    row['lat'] = str(geometry.coordinates[0])
+                    row['long'] = str(geometry.coordinates[1])
+                row['geojson'] = str(__geojson)
+            return row
+        df['geojson'] = ''
+        df['lat'] = ''
+        df['long'] = ''
+        return df.apply(__extract_geoshape, axis=1)
 
     return df
 
@@ -161,23 +182,45 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
     for level in range(1, AREAS_ADMIN_LEVEL + 1):
-        area_df = df[df['admin_level'] == level][['id', 'name', 'admin_level', 'featureType', 'geoshape']]
+        is_geojson = 'geojson' in list(df)
         features = []
-        for i, area in area_df.iterrows():
-            features.append({
-                "type": "Feature",
-                "geometry": __prepare_geometry(area),
-                "properties": __prepare_properties(area)
-            })
-        geojson = {
+        area_level_df = df[df['admin_level'] == level]
+        if not is_geojson:
+            area_df = area_level_df[['id', 'name', 'admin_level', 'featureType', 'geoshape']]
+            for i, area in area_df.iterrows():
+                features.append({
+                    "type": "Feature",
+                    "geometry": __prepare_geometry(area),
+                    "properties": __prepare_properties(area)
+                })
+        else:
+            area_df = area_level_df[['id', 'name', 'admin_level', 'geojson']]
+            for i, area in area_df.iterrows():
+                try:
+                    item_gj = json.loads(area['geojson'])
+                except json.decoder.JSONDecodeError:
+                    item_gj = __empty_polygon()
+                item_gj['properties'] = __prepare_properties(area)
+                features.append(item_gj)
+        geojson_str = {
             "type": "FeatureCollection",
             "features": features
         }
         if not os.path.exists(OUTPUT_DIR_NAME):
             os.makedirs(OUTPUT_DIR_NAME)
         with open(f'{OUTPUT_DIR_NAME}/areas_admin{level}.json', 'w') as f:
-            f.write(json.dumps(geojson))
+            f.write(json.dumps(geojson_str))
     return df
+
+
+def __empty_polygon():
+    return {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": []
+        }
+    }
 
 
 def __fillna_with_empty_list(df, column_name):

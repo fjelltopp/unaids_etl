@@ -1,4 +1,6 @@
 -e git+git@github.com:fjelltopp/etl.git@master#egg=etl
 fuzzywuzzy
 pandas
+shapely
+geojson
 python-dotenv
