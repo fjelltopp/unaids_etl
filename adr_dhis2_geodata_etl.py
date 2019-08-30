@@ -28,6 +28,13 @@ def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
 
 
+def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
+    df = pd.read_csv(csv_path)
+    if pickle_path:
+        df.to_pickle(pickle_path)
+    return df
+
+
 def extract_geo_data(df):
     cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
     cords.columns = ['lat', 'long']
@@ -180,12 +187,18 @@ def __prepare_properties(area:pd.Series) -> dict:
 def __get_init_df():
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
+
+    if args.csv:
+        pickle_path = f"{OUTPUT_DIR_NAME}/orgs.pickle"
+        return get_dhis2_org_data_from_csv(args.csv, pickle_path)
+
     if args.pickle:
         pickle_path = f"{OUTPUT_DIR_NAME}/orgs.pickle"
         if os.path.exists(pickle_path):
             return get_dhis2_org_data_from_pickle(pickle_path)
         else:
             return get_dhis2_org_data(f"{OUTPUT_DIR_NAME}/orgs.pickle")
+
     else:
         return get_dhis2_org_data()
 
@@ -200,6 +213,9 @@ if __name__ == '__main__':
                         dest='pickle',
                         action='store_true',
                         help='fetch data from local pickle instead http call to DHIS2')
+    parser.add_argument('-c', '--csv-file',
+                        dest='csv',
+                        help='Fetch data from a CSV file')
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
