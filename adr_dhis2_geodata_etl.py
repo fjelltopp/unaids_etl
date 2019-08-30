@@ -36,7 +36,7 @@ def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
 
 def extract_geo_data(df):
     cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
-    cords.columns = ['lat', 'long']
+    cords.columns = ['long', 'lat']
     df = pd.concat([df, cords], axis=1, sort=False)
     df['geoshape'] = df[df['featureType'] == 'POLYGON']['coordinates']
     df = df.drop(['featureType', 'coordinates'], axis=1)
