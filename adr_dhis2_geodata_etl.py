@@ -5,6 +5,8 @@ import json
 import os
 import io
 import sys
+from collections import Sequence
+from itertools import chain, count
 
 import pandas as pd
 import requests
@@ -38,15 +40,21 @@ def extract_geo_data(df):
     cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
     cords.columns = ['long', 'lat']
     df = pd.concat([df, cords], axis=1, sort=False)
-    df['geoshape'] = df[df['featureType'] == 'POLYGON']['coordinates']
-    df = df.drop(['featureType', 'coordinates'], axis=1)
+    df['geoshape'] = df['coordinates']
+    df = df.drop(['coordinates'], axis=1)
+    # only (multi)polygons in geoshape column
+    def __remove_points_from_geoshape(row):
+        if row.featureType in  ['POINT', 'NONE']:
+            return []
+        return row.geoshape
+    df['geoshape'] = df.apply(__remove_points_from_geoshape, axis=1)
 
     __convert_str_to_list(df, 'geoshape')
     __fillna_with_empty_list(df, 'geoshape')
 
     if bool(os.environ.get("FLIP_COORDS")):
         df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
-    df['geoshape'] = df['geoshape'].apply(__flatten)
+    df['geoshape'] = df.apply(__flatten, axis=1)
 
     return df
 
@@ -73,14 +81,26 @@ def __flip_coordinates(cords):
     return cords
 
 
-def __flatten(cords):
-    nested_list = any([type(item) == list for item in cords])
-    is_cord = all([type(item) != list for sublist in cords for item in sublist])
-    if len(cords) and nested_list and not is_cord:
-        flatten_list = [item for sublist in cords for item in sublist]
-        return flatten_list
+def __depth(seq):
+    for level in count():
+        if not seq:
+            return level
+        seq = list(chain.from_iterable(s for s in seq if isinstance(s, Sequence)))
+
+
+def __flatten(row):
+    cords = row['geoshape']
+    if row['featureType'] == "MULTI_POLYGON":
+        depth_limit = 4
     else:
-        return cords
+        depth_limit = 3
+    if __depth(cords) > depth_limit:
+        nested_list = any([type(item) == list for item in cords])
+        is_cord = all([type(item) != list for sublist in cords for item in sublist])
+        if len(cords) and nested_list and not is_cord:
+            flatten_list = [item for sublist in cords for item in sublist]
+            return flatten_list
+    return cords
 
 
 def extract_admin_level(df:pd.DataFrame) -> pd.DataFrame:
@@ -141,12 +161,12 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
     for level in range(1, AREAS_ADMIN_LEVEL + 1):
-        area_df = df[df['admin_level'] == level][['id', 'name', 'admin_level', 'geoshape']]
+        area_df = df[df['admin_level'] == level][['id', 'name', 'admin_level', 'featureType', 'geoshape']]
         features = []
         for i, area in area_df.iterrows():
             features.append({
                 "type": "Feature",
-                "geometry": __prepare_geometry(area.geoshape),
+                "geometry": __prepare_geometry(area),
                 "properties": __prepare_properties(area)
             })
         geojson = {
@@ -169,10 +189,15 @@ def __convert_str_to_list(df, column_name):
     df[column_name] = df[df[column_name].apply(type) == str][column_name].apply(json.loads)
 
 
-def __prepare_geometry(coordinates:str) -> dict:
+def __prepare_geometry(area:pd.Series) -> dict:
+    type = area['featureType']
+    if type == 'MULTI_POLYGON':
+        type = 'MultiPolygon'
+    else:
+        type = 'Polygon'
     return {
-        "type": "Polygon",
-        "coordinates": coordinates
+        "type": type,
+        "coordinates": area['geoshape']
     }
 
 def __prepare_properties(area:pd.Series) -> dict:
@@ -222,9 +247,9 @@ if __name__ == '__main__':
     OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
 
     (__get_init_df()
+        .pipe(extract_admin_level)
         .pipe(extract_geo_data)
         .pipe(convert_cords_str_to_int)
-        .pipe(extract_admin_level)
         .pipe(sort_by_admin_level)
         .pipe(create_index_column)
         .pipe(extract_parent)
