@@ -183,9 +183,9 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
     incorrect_geojson_areas = defaultdict(list)
+    features = []
     for level in range(1, AREAS_ADMIN_LEVEL + 1):
         is_geojson = 'geojson' in list(df)
-        features = []
         area_level_df = df[df['admin_level'] == level]
         if not is_geojson:
             area_df = area_level_df[['id', 'name', 'admin_level', 'featureType', 'geoshape', 'dhis2_id']]
@@ -209,16 +209,19 @@ def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
                     continue
                 item_gj['properties'] = __prepare_properties(area)
                 features.append(item_gj)
-        geojson_str = {
-            "type": "FeatureCollection",
-            "features": features
-        }
-        if not os.path.exists(OUTPUT_DIR_NAME):
-            os.makedirs(OUTPUT_DIR_NAME)
-        with open(f'{OUTPUT_DIR_NAME}/areas_admin{level}.json', 'w') as f:
-            f.write(json.dumps(geojson_str))
+    geojson_str = {
+        "type": "FeatureCollection",
+        "features": features
+    }
+
+    if not os.path.exists(OUTPUT_DIR_NAME):
+        os.makedirs(OUTPUT_DIR_NAME)
+    with open(f'{OUTPUT_DIR_NAME}/areas.json', 'w') as f:
+        f.write(json.dumps(geojson_str))
+
     with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors.json', 'w') as f:
         f.write(json.dumps(incorrect_geojson_areas, indent=2))
+
     return df
 
 
