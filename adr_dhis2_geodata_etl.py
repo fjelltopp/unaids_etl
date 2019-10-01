@@ -5,10 +5,11 @@ import json
 import os
 import io
 import sys
-from collections import Sequence
+from collections import Sequence, defaultdict
 from itertools import chain, count
 import shapely.wkt
 import geojson
+import etl
 
 import pandas as pd
 import requests
@@ -161,8 +162,8 @@ def sort_by_admin_level(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
-    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'dhis2_id']]
-    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'dhis2_id']
+    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'dhis2_id', 'sort_order']]
+    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'dhis2_id', 'sort_order']
     lh_df['pepfar_id'] = ''
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
@@ -171,9 +172,9 @@ def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'dhis2_id'])
+    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'dhis2_id', 'sort_order'])
     fl_df['type'] = 'health facility'
-    fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'dhis2_id']
+    fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'dhis2_id', 'sort_order']
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
     fl_df.to_csv(f"{OUTPUT_DIR_NAME}/facility_list.csv", index=False)
@@ -181,25 +182,31 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
+    incorrect_geojson_areas = defaultdict(list)
     for level in range(1, AREAS_ADMIN_LEVEL + 1):
         is_geojson = 'geojson' in list(df)
         features = []
         area_level_df = df[df['admin_level'] == level]
         if not is_geojson:
-            area_df = area_level_df[['id', 'name', 'admin_level', 'featureType', 'geoshape']]
-            for i, area in area_df.iterrows():
+            area_df = area_level_df[['id', 'name', 'admin_level', 'featureType', 'geoshape', 'dhis2_id']]
+            valid_area_df = area_df[area_df['featureType'] != 'NONE']
+            for i, area in valid_area_df.iterrows():
                 features.append({
                     "type": "Feature",
                     "geometry": __prepare_geometry(area),
                     "properties": __prepare_properties(area)
                 })
+            error_area_df = area_df[area_df['featureType'] == 'NONE']
+            for i, area in error_area_df.iterrows():
+                incorrect_geojson_areas[f"admin_{level}"].append(__prepare_properties_error(area))
         else:
-            area_df = area_level_df[['id', 'name', 'admin_level', 'geojson']]
+            area_df = area_level_df[['id', 'name', 'admin_level', 'geojson', 'dhis2_id']]
             for i, area in area_df.iterrows():
                 try:
                     item_gj = json.loads(area['geojson'])
                 except json.decoder.JSONDecodeError:
-                    item_gj = __empty_polygon()
+                    incorrect_geojson_areas[f"admin_{level}"].append( __prepare_properties_error(area))
+                    continue
                 item_gj['properties'] = __prepare_properties(area)
                 features.append(item_gj)
         geojson_str = {
@@ -210,6 +217,8 @@ def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
             os.makedirs(OUTPUT_DIR_NAME)
         with open(f'{OUTPUT_DIR_NAME}/areas_admin{level}.json', 'w') as f:
             f.write(json.dumps(geojson_str))
+    with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors.json', 'w') as f:
+        f.write(json.dumps(incorrect_geojson_areas, indent=2))
     return df
 
 
@@ -248,6 +257,13 @@ def __prepare_properties(area:pd.Series) -> dict:
         "area_id": str(area['id']),
         "name": area['name'],
         "level": area['admin_level']
+    }
+
+def __prepare_properties_error(area:pd.Series) -> dict:
+    return {
+        "area_id": str(area['id']),
+        "name": area['name'],
+        "dhis2_id": area['dhis2_id']
     }
 
 
@@ -296,6 +312,7 @@ if __name__ == '__main__':
         .pipe(sort_by_admin_level)
         .pipe(create_index_column)
         .pipe(extract_parent)
+        .pipe(etl.add_empty_column('sort_order'))
         .pipe(save_location_hierarchy)
         .pipe(save_facilities_list)
         .pipe(save_area_geometries)
