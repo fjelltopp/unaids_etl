@@ -196,15 +196,14 @@ def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
         is_geojson = 'geojson' in list(df)
         area_level_df = df[df['admin_level'] == level]
         if not is_geojson:
-            area_df = area_level_df[['id', 'name', 'admin_level', 'featureType', 'geoshape', 'dhis2_id']]
-            valid_area_df = area_df[area_df['featureType'] != 'NONE']
+            valid_area_df = area_level_df[area_level_df['geoshape'].apply(lambda x: len(x)) > 0]
             for i, area in valid_area_df.iterrows():
                 features.append({
                     "type": "Feature",
                     "geometry": __prepare_geometry(area),
                     "properties": __prepare_properties(area)
                 })
-            error_area_df = area_df[area_df['featureType'] == 'NONE']
+            error_area_df = area_level_df[area_level_df['geoshape'].apply(lambda x: len(x)) == 0]
             for i, area in error_area_df.iterrows():
                 incorrect_geojson_areas[f"admin_{level}"].append(__prepare_properties_error(area))
         else:
