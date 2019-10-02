@@ -221,6 +221,17 @@ def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
 
     with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors.json', 'w') as f:
         f.write(json.dumps(incorrect_geojson_areas, indent=2))
+    with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors.txt', 'w') as f:
+        w_ = [9, 13, 13, 45]
+        separation_line_ = f"|{'':-^{w_[0]}}+{'':-^{w_[1]}}+{'':-^{w_[2]}}+{'':-^{w_[3]}}|\n"
+        f.write(separation_line_)
+        f.write(f"|{'area_id': ^{w_[0]}}|{'dhis2_id': ^{w_[1]}}|{'admin_level': ^{w_[2]}}|{'name': ^{w_[3]}}|\n")
+        f.write(separation_line_)
+        for admin_level, areas in incorrect_geojson_areas.items():
+            for area in areas:
+                line = f"|{area['area_id']: >{w_[0]}}|{area['dhis2_id']: ^{w_[1]}}|{admin_level: ^{w_[2]}}|{area['name']: <{w_[3]}}|\n"
+                f.write(line)
+        f.write(separation_line_)
 
     return df
 
