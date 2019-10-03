@@ -239,6 +239,12 @@ def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
                 line = f"|{area['area_id']: >{w_[0]}}|{area['dhis2_id']: ^{w_[1]}}|{admin_level: ^{w_[2]}}|{area['name']: <{w_[3]}}|\n"
                 f.write(line)
         f.write(separation_line_)
+    with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors_markdown.txt', 'w') as f:
+        for admin_level, areas in incorrect_geojson_areas.items():
+            for area in areas:
+                line = f"1. area id: {area['area_id']}, name: {area['name']}, dhis2_id: {area['dhis2_id']}\n"
+                f.write(line)
+
 
     return df
 
