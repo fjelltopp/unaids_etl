@@ -139,10 +139,11 @@ def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
             return ''
         elif len(path) == 1:
             return path[0]
-        elif len(path) <= AREAS_ADMIN_LEVEL:
-            return path[-2]
-        else:
+        # parent id must be within AREAS_ADMIN_LEVEL
+        elif len(path) > AREAS_ADMIN_LEVEL + 1:
             return path[AREAS_ADMIN_LEVEL]
+        else:
+            return path[-2]
     parent_ids: pd.Series = paths.apply(get_parent_id)
     parent_df = pd.DataFrame(parent_ids)
     parent_df.columns = ['parent_dhis2_id']
