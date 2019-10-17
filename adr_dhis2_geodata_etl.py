@@ -42,6 +42,7 @@ def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
 def extract_geo_data(df):
     if 'featureType' in list(df):
         cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
+        cords, df = _drop_faulty_facilities(cords, df)
         cords.columns = ['long', 'lat']
         df = pd.concat([df, cords], axis=1, sort=False)
         df['geoshape'] = df['coordinates']
@@ -79,6 +80,18 @@ def extract_geo_data(df):
         return df.apply(__extract_geoshape, axis=1)
 
     return df
+
+
+def _drop_faulty_facilities(cords, df):
+    faulty_cords = cords.dropna()
+    if not os.path.exists(OUTPUT_DIR_NAME):
+        os.makedirs(OUTPUT_DIR_NAME)
+    df.loc[faulty_cords.index].to_csv(f"{OUTPUT_DIR_NAME}/dropped_facilities.csv", index=False)
+    cords = cords.drop(faulty_cords.index)
+    if len(list(cords)) > 2:
+        cords = cords.drop([2, 3], axis=1)
+    df = df.drop(faulty_cords.index)
+    return cords, df
 
 
 def convert_cords_str_to_int(df:pd.DataFrame) -> pd.DataFrame:
