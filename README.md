@@ -27,6 +27,7 @@ ETL scripts to be used in UNAIDS.
 
         AREAS_ADMIN_LEVEL - level to which consider location as areas, deeper levels will be considered facilities
         OUTPUT_DIR_NAME - name of the subdirectory in `./outputs` where script's artefacts will be stored
+        SUBTREE_ORG_NAME - comma separated list of names that should be exported separatelly as subtrees, e.g. 'Uganda,Kenya,Malawi,Tanzania,Zambia,Zimbabwe'
         ```
         Example config file `play.env`:
         ```

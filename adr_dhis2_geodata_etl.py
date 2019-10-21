@@ -327,13 +327,32 @@ def __get_init_df():
         return get_dhis2_org_data()
 
 def extract_location_subtree(df:pd.DataFrame) -> pd.DataFrame:
-    root_row = df[df['name'] == SUBTREE_ORG_NAME]
-    root_id = root_row['id'].item()
+    root_candidates = df[df['name'] == SUBTREE_ORG_NAME].pipe(
+        extract_admin_level
+    ).sort_values(by='admin_level')
+    root_id = root_candidates.iloc[0]['id']
     subtree_indexes = df.path.apply(lambda x: root_id in x)
     df = df.loc[subtree_indexes]
     lstrip_path_colum = f"/{root_id}" + df['path'].str.split(root_id, expand=True)[1]
     df['path'] = lstrip_path_colum
     return df
+
+
+def run_pipeline():
+    (__get_init_df()
+     .pipe(extract_location_subtree)
+     .pipe(extract_admin_level)
+     .pipe(extract_geo_data)
+     .pipe(convert_cords_str_to_int)
+     .pipe(sort_by_admin_level)
+     .pipe(create_index_column)
+     .pipe(extract_parent)
+     .pipe(etl.add_empty_column('sort_order'))
+     .pipe(save_location_hierarchy)
+     .pipe(save_facilities_list)
+     .pipe(save_area_geometries)
+     )
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pull geo data from a DHIS2 to be uploaded into ADR.')
@@ -353,18 +372,10 @@ if __name__ == '__main__':
     load_dotenv(args.env_file)
     AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
     SUBTREE_ORG_NAME = os.environ.get("SUBTREE_ORG_NAME")
-    OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
-
-    (__get_init_df()
-        .pipe(extract_location_subtree)
-        .pipe(extract_admin_level)
-        .pipe(extract_geo_data)
-        .pipe(convert_cords_str_to_int)
-        .pipe(sort_by_admin_level)
-        .pipe(create_index_column)
-        .pipe(extract_parent)
-        .pipe(etl.add_empty_column('sort_order'))
-        .pipe(save_location_hierarchy)
-        .pipe(save_facilities_list)
-        .pipe(save_area_geometries)
-    )
+    if SUBTREE_ORG_NAME:
+        for subtree_org_name in SUBTREE_ORG_NAME.split(','):
+            OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}/{subtree_org_name}"
+            SUBTREE_ORG_NAME = subtree_org_name
+            run_pipeline()
+    else:
+        run_pipeline()
