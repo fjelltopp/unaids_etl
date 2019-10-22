@@ -337,6 +337,12 @@ def extract_location_subtree(df:pd.DataFrame) -> pd.DataFrame:
     df['path'] = lstrip_path_colum
     return df
 
+def validate_admin_level(df:pd.DataFrame) -> pd.DataFrame:
+    df['is_leaf'] = ''
+    for i, row in df.iterrows():
+        has_children = len(df[df['parent_id'] == row['id']]) > 0
+        df.loc[i, 'is_leaf'] = not has_children
+    return df
 
 def run_pipeline():
     (__get_init_df()
@@ -347,6 +353,7 @@ def run_pipeline():
      .pipe(sort_by_admin_level)
      .pipe(create_index_column)
      .pipe(extract_parent)
+     # .pipe(validate_admin_level)
      .pipe(etl.add_empty_column('sort_order'))
      .pipe(save_location_hierarchy)
      .pipe(save_facilities_list)
@@ -370,12 +377,15 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
-    AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
+    AREAS_ADMIN_LEVEL = os.environ.get("AREAS_ADMIN_LEVEL", 2)
     SUBTREE_ORG_NAME = os.environ.get("SUBTREE_ORG_NAME")
     if SUBTREE_ORG_NAME:
-        for subtree_org_name in SUBTREE_ORG_NAME.split(','):
+        admin_levels = AREAS_ADMIN_LEVEL.split(',')
+        for subtree_org_name, area_level in zip(SUBTREE_ORG_NAME.split(','), admin_levels):
             OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}/{subtree_org_name}"
             SUBTREE_ORG_NAME = subtree_org_name
+            AREAS_ADMIN_LEVEL = int(area_level)
             run_pipeline()
     else:
+        AREAS_ADMIN_LEVEL = int(AREAS_ADMIN_LEVEL)
         run_pipeline()
