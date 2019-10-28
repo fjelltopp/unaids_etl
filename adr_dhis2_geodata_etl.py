@@ -33,7 +33,7 @@ def get_dhis2_org_data_from_pickle(pickle_path):
 
 
 def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, dtype=str)
     if pickle_path:
         df.to_pickle(pickle_path)
     return df
@@ -42,6 +42,7 @@ def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
 def extract_geo_data(df):
     if 'featureType' in list(df):
         cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
+        cords = cords.astype(float, errors='ignore')
         cords, df = _drop_faulty_facilities(cords, df)
         cords.columns = ['long', 'lat']
         df = pd.concat([df, cords], axis=1, sort=False)
@@ -83,7 +84,8 @@ def extract_geo_data(df):
 
 
 def _drop_faulty_facilities(cords, df):
-    faulty_cords = cords.dropna()
+    cords_isna = cords.isna()
+    faulty_cords = cords_isna[cords_isna[0] | cords_isna[1]]
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
     df.loc[faulty_cords.index].to_csv(f"{OUTPUT_DIR_NAME}/dropped_facilities.csv", index=False)
