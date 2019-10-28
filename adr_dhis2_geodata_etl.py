@@ -163,9 +163,27 @@ def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     parent_df = pd.DataFrame(parent_ids)
     parent_df.columns = ['parent_dhis2_id']
     df['parent_id'] = parent_df.merge(df, how='left', left_on='parent_dhis2_id', right_on='dhis2_id')['id']
-
     return df
 
+def save_locations_in_wide_format(df:pd.DataFrame) -> pd.DataFrame:
+    ancestors = df['path'].str.lstrip('/').str.split('/', expand=True)
+    ancestor_col_names = [f"admin_{i}" for i in list(ancestors)]
+    ancestors.columns = ancestor_col_names
+    id_to_name = df[['dhis2_id', 'name']]
+    ancestors = ancestors[ancestors[list(ancestors)[-1]].notnull()]
+    for column in list(ancestors):
+        ancestors[f'{column}_name'] = ancestors[column].apply(lambda x: __get_name(x, id_to_name))
+    if not os.path.exists(OUTPUT_DIR_NAME):
+        os.makedirs(OUTPUT_DIR_NAME)
+    ancestors.to_csv(f"{OUTPUT_DIR_NAME}/locations_wide.csv", index=False)
+    return df
+
+def __get_name(dhis2_id, ids_map):
+    values = ids_map[ids_map['dhis2_id'] == dhis2_id]['name'].values
+    if len(values) > 0:
+        return values[0]
+    else:
+        return
 
 def create_index_column(df:pd.DataFrame) -> pd.DataFrame:
     df['dhis2_id'] = df['id']
@@ -329,6 +347,8 @@ def __get_init_df():
         return get_dhis2_org_data()
 
 def extract_location_subtree(df:pd.DataFrame) -> pd.DataFrame:
+    if not SUBTREE_ORG_NAME:
+        return df
     root_candidates = df[df['name'] == SUBTREE_ORG_NAME].pipe(
         extract_admin_level
     ).sort_values(by='admin_level')
@@ -357,6 +377,7 @@ def run_pipeline():
      .pipe(extract_parent)
      # .pipe(validate_admin_level)
      .pipe(etl.add_empty_column('sort_order'))
+     .pipe(save_locations_in_wide_format)
      .pipe(save_location_hierarchy)
      .pipe(save_facilities_list)
      .pipe(save_area_geometries)
@@ -389,5 +410,6 @@ if __name__ == '__main__':
             AREAS_ADMIN_LEVEL = int(area_level)
             run_pipeline()
     else:
+        OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
         AREAS_ADMIN_LEVEL = int(AREAS_ADMIN_LEVEL)
         run_pipeline()
