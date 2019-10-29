@@ -178,6 +178,7 @@ def save_locations_in_wide_format(df:pd.DataFrame) -> pd.DataFrame:
     ancestors.to_csv(f"{OUTPUT_DIR_NAME}/locations_wide.csv", index=False)
     return df
 
+
 def __get_name(dhis2_id, ids_map):
     values = ids_map[ids_map['dhis2_id'] == dhis2_id]['name'].values
     if len(values) > 0:
@@ -185,9 +186,27 @@ def __get_name(dhis2_id, ids_map):
     else:
         return
 
-def create_index_column(df:pd.DataFrame) -> pd.DataFrame:
+
+def create_index_column(df: pd.DataFrame) -> pd.DataFrame:
+    paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
     df['dhis2_id'] = df['id']
-    df['id'] = df.index + 1
+    iso_code = os.environ.get('OUTPUT_DIR_NAME', 'default')
+    cache = {}
+
+    def create_cache(path):
+        list(map(
+            lambda x: cache.setdefault(x[0]+1, set()).add(x[1]),
+            enumerate(path)
+        ))
+
+    def create_index(path):
+        index = map(lambda x: str(cache[x[0]+1][x[1]]), enumerate(path))
+        return iso_code + "-".join(list(index))[1:]
+
+    paths.apply(create_cache)
+    for key, value in cache.items():
+        cache[key] = {k: v+1 for (v, k) in enumerate(value)}
+    df['id'] = paths.apply(create_index)
     return df
 
 
