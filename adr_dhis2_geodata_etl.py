@@ -10,6 +10,7 @@ from itertools import chain, count
 import shapely.wkt
 import geojson
 import etl
+import errno
 
 import pandas as pd
 import requests
@@ -439,6 +440,8 @@ if __name__ == '__main__':
                         help='Fetch data from a CSV file')
     args = parser.parse_args()
 
+    if not os.path.exists(args.env_file):
+        raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), args.env_file)
     load_dotenv(args.env_file)
     SUBTREE_ORG_CONFIGS = json.loads(os.environ.get("SUBTREE_ORG_CONFIGS", "{}"))
 
