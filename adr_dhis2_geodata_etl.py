@@ -451,17 +451,18 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
+    SUBTREE_ORG_CONFIGS = json.loads(os.environ.get("SUBTREE_ORG_CONFIGS", "{}"))
 
-    AREAS_ADMIN_LEVEL = os.environ.get("AREAS_ADMIN_LEVEL", 2)
-    SUBTREE_ORG_NAME = os.environ.get("SUBTREE_ORG_NAME")
-    if SUBTREE_ORG_NAME:
-        admin_levels = AREAS_ADMIN_LEVEL.split(',')
-        for subtree_org_name, area_level in zip(SUBTREE_ORG_NAME.split(','), admin_levels):
-            OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}/{subtree_org_name}"
-            SUBTREE_ORG_NAME = subtree_org_name
-            AREAS_ADMIN_LEVEL = int(area_level)
+    if SUBTREE_ORG_CONFIGS:
+        for subtree_config in SUBTREE_ORG_CONFIGS:
+            OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}/{subtree_config['name']}"
+            SUBTREE_ORG_NAME = subtree_config['name']
+            AREAS_ADMIN_LEVEL = int(subtree_config['areas_admin_level'])
+            ISO_CODE = subtree_config['iso_code']
             run_pipeline()
     else:
         OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
-        AREAS_ADMIN_LEVEL = int(AREAS_ADMIN_LEVEL)
+        SUBTREE_ORG_NAME = os.environ.get("SUBTREE_ORG_NAME", False)
+        AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
+        ISO_CODE = os.environ.get("ISO_CODE", os.environ.get('OUTPUT_DIR_NAME', 'XXX'))
         run_pipeline()
