@@ -207,28 +207,17 @@ def sort_by_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values(by='admin_level').reset_index()
 
 
-<<<<<<< HEAD
-def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
+def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
     lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order']]
     lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order']
-=======
-def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
-    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order', 'dhis2_id']]
-    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order', 'dhis2_id']
->>>>>>> Some PEP8 changes.
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
     lh_df.to_csv(f"{OUTPUT_DIR_NAME}/location_hierarchy.csv", index=False)
     return df
 
 
-<<<<<<< HEAD
-def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order'])
-=======
 def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order', 'dhis2_id'])
->>>>>>> Some PEP8 changes.
+    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order'])
     fl_df['type'] = 'health facility'
     fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'sort_order']
     if not os.path.exists(OUTPUT_DIR_NAME):
@@ -237,8 +226,7 @@ def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-<<<<<<< HEAD
-def save_dhis2_ids(df:pd.DataFrame) -> pd.DataFrame:
+def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'dhis2_id']]
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
@@ -246,10 +234,7 @@ def save_dhis2_ids(df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def save_ids_mapping(df:pd.DataFrame) -> pd.DataFrame:
-=======
 def save_ids_mapping(df: pd.DataFrame) -> pd.DataFrame:
->>>>>>> Some PEP8 changes.
     fl_df = df.reindex(columns=['id', 'dhis2_id'])
     fl_df['pepfar_id'] = ''
     fl_df.columns = ["area_id", "dhis2_id", "pepfar_id"]
