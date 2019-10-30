@@ -196,8 +196,8 @@ def sort_by_admin_level(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
-    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order', 'dhis2_id']]
-    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order', 'dhis2_id']
+    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order']]
+    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order']
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
     lh_df.to_csv(f"{OUTPUT_DIR_NAME}/location_hierarchy.csv", index=False)
@@ -205,13 +205,22 @@ def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
 
 
 def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order', 'dhis2_id'])
+    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order'])
     fl_df['type'] = 'health facility'
-    fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'sort_order', 'dhis2_id']
+    fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'sort_order']
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
     fl_df.to_csv(f"{OUTPUT_DIR_NAME}/facility_list.csv", index=False)
     return df
+
+
+def save_dhis2_ids(df:pd.DataFrame) -> pd.DataFrame:
+    dhis2_ids = df[['id', 'dhis2_id']]
+    if not os.path.exists(OUTPUT_DIR_NAME):
+        os.makedirs(OUTPUT_DIR_NAME)
+    dhis2_ids.to_csv(f"{OUTPUT_DIR_NAME}/dhis2_id_mapping.csv", index=False)
+    return df
+
 
 def save_ids_mapping(df:pd.DataFrame) -> pd.DataFrame:
     fl_df = df.reindex(columns=['id', 'dhis2_id'])
@@ -377,9 +386,10 @@ def run_pipeline():
      .pipe(extract_parent)
      # .pipe(validate_admin_level)
      .pipe(etl.add_empty_column('sort_order'))
-     .pipe(save_locations_in_wide_format)
+     # .pipe(save_locations_in_wide_format)
      .pipe(save_location_hierarchy)
      .pipe(save_facilities_list)
+     .pipe(save_dhis2_ids)
      .pipe(save_area_geometries)
      )
 
