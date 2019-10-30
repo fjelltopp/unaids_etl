@@ -191,25 +191,14 @@ def __get_name(dhis2_id, ids_map):
 
 
 def create_index_column(df: pd.DataFrame) -> pd.DataFrame:
-    paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
     df['dhis2_id'] = df['id']
-    iso_code = os.environ.get('OUTPUT_DIR_NAME', 'default')
-    cache = {}
+    counters = defaultdict(int)
 
-    def create_cache(path):
-        list(map(
-            lambda x: cache.setdefault(x[0]+1, set()).add(x[1]),
-            enumerate(path)
-        ))
+    def create_index(admin_level):
+        counters[admin_level] += 1
+        return f"{ISO_CODE}{admin_level}{counters[admin_level]}"
 
-    def create_index(path):
-        index = map(lambda x: str(cache[x[0]+1][x[1]]), enumerate(path))
-        return iso_code + "-".join(list(index))[1:]
-
-    paths.apply(create_cache)
-    for key, value in cache.items():
-        cache[key] = {k: v+1 for (v, k) in enumerate(value)}
-    df['id'] = paths.apply(create_index)
+    df['id'] = df['admin_level'].apply(create_index)
     return df
 
 
