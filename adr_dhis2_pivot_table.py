@@ -35,6 +35,34 @@ def get_dhis2_pivot_table_data(dhis2_pivot_table):
     r_pt = __get_dhis2_api_resource(dhis2_pivot_table)
     json_pt = json.loads(r_pt.text)
     df = pd.DataFrame(json_pt['dataValues'])
+    return df
+
+
+def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
+    categories_names = df['categoryOptionCombo'].replace(category_combos.set_index('id')['name'])
+    categories_ids = df['categoryOptionCombo']
+    categories_map = pd.DataFrame()
+    categories_map['name'] = categories_names
+    categories_map['id'] = categories_ids
+    categories_map = categories_map.drop_duplicates(subset='id')
+    with open(os.path.join(OUTPUT_DIR_NAME, f"{table_type}_config.json"), 'w') as f:
+        f.write("[\n")
+        for i, row in categories_map.iterrows():
+            line = f'''{{
+    "id": "{row["id"]}",
+    "name": "{row["name"]}",
+    "mapping": {{
+        "age": "",
+        "gender": ""
+    }}
+}},
+'''
+            f.write(line)
+        f.write("]\n")
+    return df
+
+
+def format_program_data(df: pd.DataFrame) -> pd.DataFrame:
     df['dataElement'] = df['dataElement'].replace(data_elements.set_index('id')['name'])
     df['categoryOptionCombo'] = df['categoryOptionCombo'].replace(category_combos.set_index('id')['name'])
     df['indicatorName'] = df['dataElement'] + '$' + df['categoryOptionCombo']
@@ -71,5 +99,9 @@ if __name__ == '__main__':
     for table in tables:
         table_type = table['name']
         table_dhis2_resource = table['dhis2_resource']
-        out = get_dhis2_pivot_table_data(table_dhis2_resource)
-        out.to_csv(os.path.join(OUTPUT_DIR_NAME, f"{table_type}.csv"))
+        out = (
+            get_dhis2_pivot_table_data(table_dhis2_resource)
+                .pipe(export_category_config)
+                .pipe(format_program_data)
+        )
+        out.to_csv(os.path.join(OUTPUT_DIR_NAME, f"{table_type}.csv"), index=None)
