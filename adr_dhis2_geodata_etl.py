@@ -6,6 +6,8 @@ import os
 import io
 import sys
 from collections import Sequence, defaultdict
+from urllib.parse import urljoin
+
 from itertools import chain, count
 import shapely.wkt
 import geojson
@@ -20,8 +22,9 @@ from dotenv import load_dotenv
 def get_dhis2_org_data(pickle_path=None):
     username = os.environ.get("DHIS2_USERNAME")
     password = os.environ.get("DHIS2_PASSWORD")
-    resource_url = os.environ.get("DHIS2_URL")
-    r = requests.get(resource_url, auth=HTTPBasicAuth(username, password))
+    dhis2_url = os.environ.get("DHIS2_URL")
+    org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates"
+    r = requests.get(urljoin(dhis2_url, org_resource_url), auth=HTTPBasicAuth(username, password))
     f = io.StringIO(r.text)
     df = pd.read_csv(f)
     if pickle_path:
