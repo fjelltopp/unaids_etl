@@ -31,7 +31,7 @@ ETL scripts to be used in UNAIDS.
         ```
         Example config file `play.env`:
         ```
-        DHIS2_URL=https://play.dhis2.org/api/26/organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates
+        DHIS2_URL=https://play.dhis2.org/api/26/
         DHIS2_USERNAME=admin
         DHIS2_PASSWORD=district
 
@@ -47,6 +47,10 @@ ETL scripts to be used in UNAIDS.
         ```
         python adr_dhis2_geodata_etl.py -e env/play.env -c play_raw_location_data.csv
         ```
+     To fetch the raw location data as csv file use this URL:
+     ```
+     https://play.dhis2.org/api/26/organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates
+    ``` 
      - flag `-p` creates a local cache of DHIS2 data instead of calling DHIS2. It speeds up consecutive runs of the script. Useful for debugging, e.g.
         ```
         python adr_dhis2_geodata_etl.py -p -e env/play.env 
