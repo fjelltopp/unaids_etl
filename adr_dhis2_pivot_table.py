@@ -111,7 +111,7 @@ if __name__ == '__main__':
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')
     PROGRAM_DATA_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
 
-    get_metadata(from_pickle=True)
+    get_metadata()
 
     tables = json.loads(PROGRAM_DATA)
     for table in tables:
