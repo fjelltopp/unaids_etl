@@ -92,9 +92,9 @@ def extract_geo_data(df):
 def _drop_faulty_facilities(cords, df):
     cords_isna = cords.isna()
     faulty_cords = cords_isna[cords_isna[0] | cords_isna[1]]
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-    df.loc[faulty_cords.index].to_csv(f"{OUTPUT_DIR_NAME}/dropped_facilities.csv", index=False)
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata_errors')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata_errors'))
+    df.loc[faulty_cords.index].to_csv(f"{OUTPUT_DIR_NAME}/geodata_errors/dropped_facilities.csv", index=False)
     cords = cords.drop(faulty_cords.index)
     if len(list(cords)) > 2:
         cords = cords.drop([2, 3], axis=1)
@@ -213,9 +213,9 @@ def sort_by_admin_level(df: pd.DataFrame) -> pd.DataFrame:
 def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
     lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order']]
     lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order']
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-    lh_df.to_csv(f"{OUTPUT_DIR_NAME}/location_hierarchy.csv", index=False)
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
+    lh_df.to_csv(f"{OUTPUT_DIR_NAME}/geodata/location_hierarchy.csv", index=False)
     return df
 
 
@@ -223,17 +223,17 @@ def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
     fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order'])
     fl_df['type'] = 'health facility'
     fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'sort_order']
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-    fl_df.to_csv(f"{OUTPUT_DIR_NAME}/facility_list.csv", index=False)
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
+    fl_df.to_csv(f"{OUTPUT_DIR_NAME}/geodata/facility_list.csv", index=False)
     return df
 
 
 def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'dhis2_id']]
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-    dhis2_ids.to_csv(f"{OUTPUT_DIR_NAME}/dhis2_id_mapping.csv", index=False)
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
+    dhis2_ids.to_csv(f"{OUTPUT_DIR_NAME}/geodata/dhis2_id_mapping.csv", index=False)
     return df
 
 
@@ -279,14 +279,16 @@ def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
         "features": features
     }
 
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-    with open(f'{OUTPUT_DIR_NAME}/areas.json', 'w') as f:
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
+    with open(f'{OUTPUT_DIR_NAME}/geodata/areas.json', 'w') as f:
         f.write(json.dumps(geojson_str))
 
-    with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors.json', 'w') as f:
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata_errors')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata_errors'))
+    with open(f'{OUTPUT_DIR_NAME}/geodata_errors/areas_geoshapes_errors.json', 'w') as f:
         f.write(json.dumps(incorrect_geojson_areas, indent=2))
-    with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors.txt', 'w') as f:
+    with open(f'{OUTPUT_DIR_NAME}/geodata_errors/areas_geoshapes_errors.txt', 'w') as f:
         w_ = [9, 13, 13, 45]
         separation_line_ = f"|{'':-^{w_[0]}}+{'':-^{w_[1]}}+{'':-^{w_[2]}}+{'':-^{w_[3]}}|\n"
         f.write(separation_line_)
@@ -297,7 +299,7 @@ def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
                 line = f"|{area['area_id']: >{w_[0]}}|{area['dhis2_id']: ^{w_[1]}}|{admin_level: ^{w_[2]}}|{area['name']: <{w_[3]}}|\n"
                 f.write(line)
         f.write(separation_line_)
-    with open(f'{OUTPUT_DIR_NAME}/areas_geoshapes_errors_markdown.txt', 'w') as f:
+    with open(f'{OUTPUT_DIR_NAME}/geodata_errors/areas_geoshapes_errors_markdown.txt', 'w') as f:
         for admin_level, areas in incorrect_geojson_areas.items():
             for area in areas:
                 line = f"1. area id: {area['area_id']}, name: {area['name']}, dhis2_id: {area['dhis2_id']}\n"
@@ -354,19 +356,17 @@ def __prepare_properties_error(area: pd.Series) -> dict:
 
 
 def __get_init_df():
-    if not os.path.exists(OUTPUT_DIR_NAME):
-        os.makedirs(OUTPUT_DIR_NAME)
-
+    if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'build')):
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'build'), exist_ok=True)
+    geodata_pickle = os.path.join(OUTPUT_DIR_NAME, 'build/dhis2_orgs.pickle')
     if args.csv:
-        pickle_path = f"{OUTPUT_DIR_NAME}/orgs.pickle"
-        return get_dhis2_org_data_from_csv(args.csv, pickle_path)
+        return get_dhis2_org_data_from_csv(args.csv, geodata_pickle)
 
     if args.pickle:
-        pickle_path = f"{OUTPUT_DIR_NAME}/orgs.pickle"
-        if os.path.exists(pickle_path):
-            return get_dhis2_org_data_from_pickle(pickle_path)
+        if os.path.exists(geodata_pickle):
+            return get_dhis2_org_data_from_pickle(geodata_pickle)
         else:
-            return get_dhis2_org_data(f"{OUTPUT_DIR_NAME}/orgs.pickle")
+            return get_dhis2_org_data(geodata_pickle)
 
     else:
         return get_dhis2_org_data()
