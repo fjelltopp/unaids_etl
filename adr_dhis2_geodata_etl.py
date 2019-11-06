@@ -12,6 +12,7 @@ from itertools import chain, count
 import shapely.wkt
 import geojson
 import etl
+import errno
 
 import pandas as pd
 import requests
@@ -30,6 +31,7 @@ def get_dhis2_org_data(pickle_path=None):
     if pickle_path:
         df.to_pickle(pickle_path)
     return df
+
 
 def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
@@ -51,9 +53,10 @@ def extract_geo_data(df):
         df = pd.concat([df, cords], axis=1, sort=False)
         df['geoshape'] = df['coordinates']
         df = df.drop(['coordinates'], axis=1)
+
         # only (multi)polygons in geoshape column
         def __remove_points_from_geoshape(row):
-            if row.featureType in  ['POINT', 'NONE']:
+            if row.featureType in ['POINT', 'NONE']:
                 return []
             return row.geoshape
         df['geoshape'] = df.apply(__remove_points_from_geoshape, axis=1)
@@ -99,7 +102,7 @@ def _drop_faulty_facilities(cords, df):
     return cords, df
 
 
-def convert_cords_str_to_int(df:pd.DataFrame) -> pd.DataFrame:
+def convert_cords_str_to_int(df: pd.DataFrame) -> pd.DataFrame:
     for cord in ['lat', 'long']:
         if df[cord].dtype != pd.np.float64:
             df[cord] = df[cord].str.strip('\"').str.strip('\'').astype(float, errors='ignore')
@@ -143,7 +146,7 @@ def __flatten(row):
     return cords
 
 
-def extract_admin_level(df:pd.DataFrame) -> pd.DataFrame:
+def extract_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
     admin_level = paths.apply(len) - 1
     df['admin_level'] = admin_level
@@ -168,7 +171,8 @@ def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     df['parent_id'] = parent_df.merge(df, how='left', left_on='parent_dhis2_id', right_on='dhis2_id')['id']
     return df
 
-def save_locations_in_wide_format(df:pd.DataFrame) -> pd.DataFrame:
+
+def save_locations_in_wide_format(df: pd.DataFrame) -> pd.DataFrame:
     ancestors = df['path'].str.lstrip('/').str.split('/', expand=True)
     ancestor_col_names = [f"admin_{i}" for i in list(ancestors)]
     ancestors.columns = ancestor_col_names
@@ -181,6 +185,7 @@ def save_locations_in_wide_format(df:pd.DataFrame) -> pd.DataFrame:
     ancestors.to_csv(f"{OUTPUT_DIR_NAME}/locations_wide.csv", index=False)
     return df
 
+
 def __get_name(dhis2_id, ids_map):
     values = ids_map[ids_map['dhis2_id'] == dhis2_id]['name'].values
     if len(values) > 0:
@@ -188,17 +193,24 @@ def __get_name(dhis2_id, ids_map):
     else:
         return
 
-def create_index_column(df:pd.DataFrame) -> pd.DataFrame:
+
+def create_index_column(df: pd.DataFrame) -> pd.DataFrame:
     df['dhis2_id'] = df['id']
-    df['id'] = df.index + 1
+    counters = defaultdict(int)
+
+    def create_index(admin_level):
+        counters[admin_level] += 1
+        return f"{ISO_CODE}{admin_level}{counters[admin_level]}"
+
+    df['id'] = df['admin_level'].apply(create_index)
     return df
 
 
-def sort_by_admin_level(df:pd.DataFrame) -> pd.DataFrame:
+def sort_by_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values(by='admin_level').reset_index()
 
 
-def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
+def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
     lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order']]
     lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order']
     if not os.path.exists(OUTPUT_DIR_NAME):
@@ -207,7 +219,7 @@ def save_location_hierarchy(df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
+def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
     fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order'])
     fl_df['type'] = 'health facility'
     fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'sort_order']
@@ -217,7 +229,7 @@ def save_facilities_list(df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def save_dhis2_ids(df:pd.DataFrame) -> pd.DataFrame:
+def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'dhis2_id']]
     if not os.path.exists(OUTPUT_DIR_NAME):
         os.makedirs(OUTPUT_DIR_NAME)
@@ -225,7 +237,7 @@ def save_dhis2_ids(df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def save_ids_mapping(df:pd.DataFrame) -> pd.DataFrame:
+def save_ids_mapping(df: pd.DataFrame) -> pd.DataFrame:
     fl_df = df.reindex(columns=['id', 'dhis2_id'])
     fl_df['pepfar_id'] = ''
     fl_df.columns = ["area_id", "dhis2_id", "pepfar_id"]
@@ -235,7 +247,7 @@ def save_ids_mapping(df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
+def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
     incorrect_geojson_areas = defaultdict(list)
     features = []
     for level in range(1, AREAS_ADMIN_LEVEL + 1):
@@ -291,7 +303,6 @@ def save_area_geometries(df:pd.DataFrame) -> pd.DataFrame:
                 line = f"1. area id: {area['area_id']}, name: {area['name']}, dhis2_id: {area['dhis2_id']}\n"
                 f.write(line)
 
-
     return df
 
 
@@ -314,7 +325,7 @@ def __convert_str_to_list(df, column_name):
     df[column_name] = df[df[column_name].apply(type) == str][column_name].apply(json.loads)
 
 
-def __prepare_geometry(area:pd.Series) -> dict:
+def __prepare_geometry(area: pd.Series) -> dict:
     type = area['featureType']
     if type == 'MULTI_POLYGON':
         type = 'MultiPolygon'
@@ -325,14 +336,16 @@ def __prepare_geometry(area:pd.Series) -> dict:
         "coordinates": area['geoshape']
     }
 
-def __prepare_properties(area:pd.Series) -> dict:
+
+def __prepare_properties(area: pd.Series) -> dict:
     return {
         "area_id": str(area['id']),
         "name": area['name'],
         "level": area['admin_level']
     }
 
-def __prepare_properties_error(area:pd.Series) -> dict:
+
+def __prepare_properties_error(area: pd.Series) -> dict:
     return {
         "area_id": str(area['id']),
         "name": area['name'],
@@ -358,7 +371,8 @@ def __get_init_df():
     else:
         return get_dhis2_org_data()
 
-def extract_location_subtree(df:pd.DataFrame) -> pd.DataFrame:
+
+def extract_location_subtree(df: pd.DataFrame) -> pd.DataFrame:
     if not SUBTREE_ORG_NAME:
         return df
     root_candidates = df[df['name'] == SUBTREE_ORG_NAME].pipe(
@@ -371,12 +385,14 @@ def extract_location_subtree(df:pd.DataFrame) -> pd.DataFrame:
     df['path'] = lstrip_path_colum
     return df
 
-def validate_admin_level(df:pd.DataFrame) -> pd.DataFrame:
+
+def validate_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     df['is_leaf'] = ''
     for i, row in df.iterrows():
         has_children = len(df[df['parent_id'] == row['id']]) > 0
         df.loc[i, 'is_leaf'] = not has_children
     return df
+
 
 def run_pipeline():
     (__get_init_df()
@@ -412,17 +428,21 @@ if __name__ == '__main__':
                         help='Fetch data from a CSV file')
     args = parser.parse_args()
 
+    if not os.path.exists(args.env_file):
+        raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), args.env_file)
     load_dotenv(args.env_file)
-    AREAS_ADMIN_LEVEL = os.environ.get("AREAS_ADMIN_LEVEL", 2)
-    SUBTREE_ORG_NAME = os.environ.get("SUBTREE_ORG_NAME")
-    if SUBTREE_ORG_NAME:
-        admin_levels = AREAS_ADMIN_LEVEL.split(',')
-        for subtree_org_name, area_level in zip(SUBTREE_ORG_NAME.split(','), admin_levels):
-            OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}/{subtree_org_name}"
-            SUBTREE_ORG_NAME = subtree_org_name
-            AREAS_ADMIN_LEVEL = int(area_level)
+    SUBTREE_ORG_CONFIGS = json.loads(os.environ.get("SUBTREE_ORG_CONFIGS", "{}"))
+
+    if SUBTREE_ORG_CONFIGS:
+        for subtree_config in SUBTREE_ORG_CONFIGS:
+            OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}/{subtree_config['name']}"
+            SUBTREE_ORG_NAME = subtree_config['name']
+            AREAS_ADMIN_LEVEL = int(subtree_config['areas_admin_level'])
+            ISO_CODE = subtree_config['iso_code']
             run_pipeline()
     else:
         OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
-        AREAS_ADMIN_LEVEL = int(AREAS_ADMIN_LEVEL)
+        SUBTREE_ORG_NAME = os.environ.get("SUBTREE_ORG_NAME", False)
+        AREAS_ADMIN_LEVEL = int(os.environ.get("AREAS_ADMIN_LEVEL", 2))
+        ISO_CODE = os.environ.get("ISO_CODE", os.environ.get('OUTPUT_DIR_NAME', 'XXX'))
         run_pipeline()
