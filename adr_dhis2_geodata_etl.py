@@ -200,7 +200,7 @@ def create_index_column(df: pd.DataFrame) -> pd.DataFrame:
 
     def create_index(admin_level):
         counters[admin_level] += 1
-        return f"{ISO_CODE}{admin_level}{counters[admin_level]}"
+        return f"{ISO_CODE}_{admin_level}_{counters[admin_level]}"
 
     df['id'] = df['admin_level'].apply(create_index)
     return df
