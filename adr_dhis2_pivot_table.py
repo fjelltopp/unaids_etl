@@ -62,14 +62,31 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def format_program_data(df: pd.DataFrame) -> pd.DataFrame:
+def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
     df['dataElement'] = df['dataElement'].replace(data_elements.set_index('id')['name'])
-    df['categoryOptionCombo'] = df['categoryOptionCombo'].replace(category_combos.set_index('id')['name'])
-    df['indicatorName'] = df['dataElement'] + '$' + df['categoryOptionCombo']
-    output_df = df[['orgUnit', 'period', 'indicatorName', 'value']]
-    # output_df['value'] = output_df['value'].astype(int)
-    pivot = output_df[['indicatorName', 'value']].pivot(columns='indicatorName', values='value')
-    out = pd.concat([output_df[['orgUnit', 'period']], pivot], axis=1)
+    return df
+
+
+def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
+    with open(PROGRAM_DATA_CONFIG, 'r') as f:
+        program_config = json.loads(f.read())
+        program_config = {x['id']: x['mapping'] for x in program_config}
+    df['age'] = ''
+    df['gender'] = ''
+    for i, row in df.iterrows():
+        category_id = row['categoryOptionCombo']
+        categories = program_config[category_id]
+        for c_name, c_value in categories.items():
+            row[c_name] = c_value
+
+    output_df = df[['orgUnit', 'period', 'age', 'gender']]
+    output_df.columns = ['area_id', 'period', 'age', 'gender']
+
+    empty_cols = [col for col in ['age', 'gender'] if (df[col] == '').all()]
+    output_df.drop(empty_cols, axis=1, inplace=True)
+
+    pivot = df[['dataElement', 'value']].pivot(columns='dataElement', values='value')
+    out = pd.concat([output_df, pivot], axis=1)
     return out
 
 
@@ -92,6 +109,7 @@ if __name__ == '__main__':
     DHIS2_USERNAME = os.getenv("DHIS2_USERNAME")
     DHIS2_PASSWORD = os.getenv("DHIS2_PASSWORD")
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')
+    PROGRAM_DATA_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
 
     get_metadata(from_pickle=True)
 
@@ -102,6 +120,7 @@ if __name__ == '__main__':
         out = (
             get_dhis2_pivot_table_data(table_dhis2_resource)
                 .pipe(export_category_config)
-                .pipe(format_program_data)
+                .pipe(extract_data_elements_names)
+                .pipe(extract_categories)
         )
         out.to_csv(os.path.join(OUTPUT_DIR_NAME, f"{table_type}.csv"), index=None)
