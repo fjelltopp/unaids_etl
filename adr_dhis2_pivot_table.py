@@ -13,22 +13,29 @@ from urllib.parse import urljoin
 def get_metadata(from_pickle=False):
     global category_combos
     global data_elements
+    global org_units
     if from_pickle:
         category_combos = pd.read_pickle("build/category_combos.pickle")
         data_elements = pd.read_pickle("build/data_elements.pickle")
+        org_units = pd.read_pickle("build/org_units.pickle")
         return
     if not os.path.exists("build"):
         os.makedirs("build")
     cc_resource = "categoryOptionCombos?paging=false&fields=id,name"
     de_resource = "dataElements?paging=false&fields=id,name"
+    ou_resource = "organisationUnits?paging=false&fields=id,name"
     r_cc = __get_dhis2_api_resource(cc_resource)
     r_de = __get_dhis2_api_resource(de_resource)
+    r_ou = __get_dhis2_api_resource(ou_resource)
     cc_list = json.loads(r_cc.text)['categoryOptionCombos']
     de_list = json.loads(r_de.text)['dataElements']
+    ou_list = json.loads(r_ou.text)['organisationUnits']
     category_combos = pd.DataFrame(cc_list)
     data_elements = pd.DataFrame(de_list)
+    org_units = pd.DataFrame(ou_list)
     category_combos.to_pickle("build/category_combos.pickle")
     data_elements.to_pickle("build/data_elements.pickle")
+    org_units.to_pickle("build/org_units.pickle")
 
 
 def get_dhis2_pivot_table_data(dhis2_pivot_table):
@@ -67,6 +74,16 @@ def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def extract_areas_names(df: pd.DataFrame) -> pd.DataFrame:
+    df['area_id'] = df['orgUnit']
+    df['area_name'] = df['orgUnit'].replace(org_units.set_index('id')['name'])
+    return df
+
+
+def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
+    return df.sort_values(by=['area_name']).reset_index(drop=True)
+
+
 def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
     with open(PROGRAM_DATA_CONFIG, 'r') as f:
         program_config = json.loads(f.read())
@@ -79,8 +96,7 @@ def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
         for c_name, c_value in categories.items():
             row[c_name] = c_value
 
-    output_df = df[['orgUnit', 'period', 'age', 'gender']]
-    output_df.columns = ['area_id', 'period', 'age', 'gender']
+    output_df = df[['area_id', 'area_name', 'period', 'age', 'gender']]
 
     empty_cols = [col for col in ['age', 'gender'] if (df[col] == '').all()]
     output_df.drop(empty_cols, axis=1, inplace=True)
@@ -111,7 +127,7 @@ if __name__ == '__main__':
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')
     PROGRAM_DATA_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
 
-    get_metadata()
+    get_metadata(from_pickle=True)
 
     tables = json.loads(PROGRAM_DATA)
     for table in tables:
@@ -121,6 +137,9 @@ if __name__ == '__main__':
             get_dhis2_pivot_table_data(table_dhis2_resource)
                 .pipe(export_category_config)
                 .pipe(extract_data_elements_names)
+                .pipe(extract_areas_names)
+                .pipe(sort_by_area_name)
                 .pipe(extract_categories)
         )
-        out.to_csv(os.path.join(OUTPUT_DIR_NAME, f"{table_type}.csv"), index=None)
+        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
+        out.to_csv(os.path.join(OUTPUT_DIR_NAME, 'program', f"{table_type}.csv"), index=None)
