@@ -81,7 +81,7 @@ def extract_areas_names(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
-    return df.sort_values(by=['area_name']).reset_index(drop=True)
+    return df.sort_values(by=['area_name', 'period']).reset_index(drop=True)
 
 
 def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
@@ -95,15 +95,26 @@ def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
         categories = program_config[category_id]
         for c_name, c_value in categories.items():
             row[c_name] = c_value
-
-    output_df = df[['area_id', 'area_name', 'period', 'age', 'gender']]
+    df['value'] = df['value'].astype(int)
+    metadata_cols = ['area_id', 'area_name', 'period', 'age', 'gender']
 
     empty_cols = [col for col in ['age', 'gender'] if (df[col] == '').all()]
-    output_df.drop(empty_cols, axis=1, inplace=True)
+    metadata_cols = [x for x in metadata_cols if x not in set(empty_cols)]
 
-    pivot = df[['dataElement', 'value']].pivot(columns='dataElement', values='value')
-    out = pd.concat([output_df, pivot], axis=1)
-    return out
+    aggregated_rows =  df[metadata_cols + ['dataElement', 'value']].groupby(metadata_cols + ['dataElement']).sum().reset_index()
+    pivot = aggregated_rows.pivot(columns='dataElement', values='value')
+    semi_wide_format_df = pd.concat([aggregated_rows[metadata_cols], pivot], axis=1)
+
+    data_cols = [x for x in semi_wide_format_df if x not in set(metadata_cols)]
+
+    joined_rows = semi_wide_format_df.copy().drop_duplicates(subset=metadata_cols).set_index(metadata_cols)
+    for i, row in semi_wide_format_df.iterrows():
+        index = list(row[metadata_cols].values)
+        for col_name, val in row[data_cols].items():
+            if pd.notna(val):
+                joined_rows.loc[tuple(index), col_name] = val
+    output_df = joined_rows.reset_index()
+    return output_df
 
 
 def __get_dhis2_api_resource(resource):
@@ -138,8 +149,8 @@ if __name__ == '__main__':
                 .pipe(export_category_config)
                 .pipe(extract_data_elements_names)
                 .pipe(extract_areas_names)
-                .pipe(sort_by_area_name)
                 .pipe(extract_categories)
+                .pipe(sort_by_area_name)
         )
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
         out.to_csv(os.path.join(OUTPUT_DIR_NAME, 'program', f"{table_type}.csv"), index=None)
