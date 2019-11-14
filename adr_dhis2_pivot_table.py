@@ -95,7 +95,7 @@ def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
         categories = program_config[category_id]
         for c_name, c_value in categories.items():
             row[c_name] = c_value
-    df['value'] = df['value'].astype(int)
+    df['value'] = df['value'].astype(float)
     metadata_cols = ['area_id', 'area_name', 'period', 'age', 'gender']
 
     empty_cols = [col for col in ['age', 'gender'] if (df[col] == '').all()]
@@ -138,7 +138,7 @@ if __name__ == '__main__':
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')
     PROGRAM_DATA_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
 
-    get_metadata(from_pickle=True)
+    get_metadata()
 
     tables = json.loads(PROGRAM_DATA)
     for table in tables:
