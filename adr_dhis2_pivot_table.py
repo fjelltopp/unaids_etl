@@ -62,7 +62,7 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 
     config_output_dir = os.path.join(OUTPUT_DIR_NAME, "configs")
     os.makedirs(config_output_dir, exist_ok=True)
-    with open(os.path.join(OUTPUT_DIR_NAME, f"{table_type}_category_config.json"), 'w') as f:
+    with open(os.path.join(config_output_dir, f"{table_type}_category_config.json"), 'w') as f:
         f.write("[\n")
         for i, row in categories_map.iterrows():
             line = f'''{{
@@ -76,7 +76,7 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 '''
             f.write(line)
         f.write("]\n")
-    with open(os.path.join(OUTPUT_DIR_NAME, f"{table_type}_column_config.json"), 'w') as f:
+    with open(os.path.join(config_output_dir, f"{table_type}_column_config.json"), 'w') as f:
         f.write("[\n")
         for i, row in data_elements_map.iterrows():
             line = f'''{{
