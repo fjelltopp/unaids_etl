@@ -52,7 +52,17 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     categories_map['name'] = categories_names
     categories_map['id'] = categories_ids
     categories_map = categories_map.drop_duplicates(subset='id')
-    with open(os.path.join(OUTPUT_DIR_NAME, f"{table_type}_config.json"), 'w') as f:
+
+    data_elements_names = df['dataElement'].replace(data_elements.set_index('id')['name'])
+    data_elements_ids = df['dataElement']
+    data_elements_map = pd.DataFrame()
+    data_elements_map['name'] = data_elements_names
+    data_elements_map['id'] = data_elements_ids
+    data_elements_map = data_elements_map.drop_duplicates(subset='id')
+
+    config_output_dir = os.path.join(OUTPUT_DIR_NAME, "configs")
+    os.makedirs(config_output_dir, exist_ok=True)
+    with open(os.path.join(OUTPUT_DIR_NAME, f"{table_type}_category_config.json"), 'w') as f:
         f.write("[\n")
         for i, row in categories_map.iterrows():
             line = f'''{{
@@ -66,6 +76,18 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 '''
             f.write(line)
         f.write("]\n")
+    with open(os.path.join(OUTPUT_DIR_NAME, f"{table_type}_column_config.json"), 'w') as f:
+        f.write("[\n")
+        for i, row in data_elements_map.iterrows():
+            line = f'''{{
+    "id": "{row["id"]}",
+    "name": "{row["name"]}",
+    "mapping": ""
+}},
+'''
+            f.write(line)
+        f.write("]\n")
+
     return df
 
 
