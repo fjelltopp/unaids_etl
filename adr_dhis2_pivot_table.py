@@ -88,18 +88,15 @@ def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
     with open(PROGRAM_DATA_CONFIG, 'r') as f:
         program_config = json.loads(f.read())
         program_config = {x['id']: x['mapping'] for x in program_config}
-    df['age'] = ''
-    df['gender'] = ''
+    metadata_cols = ['area_id', 'area_name', 'period']
     for i, row in df.iterrows():
         category_id = row['categoryOptionCombo']
         categories = program_config[category_id]
         for c_name, c_value in categories.items():
-            row[c_name] = c_value
+            if c_name not in metadata_cols:
+                metadata_cols.append(c_name)
+            df.loc[i, c_name] = c_value
     df['value'] = df['value'].astype(float)
-    metadata_cols = ['area_id', 'area_name', 'period', 'age', 'gender']
-
-    empty_cols = [col for col in ['age', 'gender'] if (df[col] == '').all()]
-    metadata_cols = [x for x in metadata_cols if x not in set(empty_cols)]
 
     aggregated_rows =  df[metadata_cols + ['dataElement', 'value']].groupby(metadata_cols + ['dataElement']).sum().reset_index()
     pivot = aggregated_rows.pivot(columns='dataElement', values='value')
