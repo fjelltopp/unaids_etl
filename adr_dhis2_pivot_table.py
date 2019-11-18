@@ -82,7 +82,11 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
             line = f'''{{
     "id": "{row["id"]}",
     "name": "{row["name"]}",
-    "mapping": ""
+    "mapping": "",
+    "categoryMapping": {{
+        "age": "",
+        "gender": ""
+    }}
 }},
 '''
             f.write(line)
@@ -112,18 +116,24 @@ def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values(by=['area_name', 'period']).reset_index(drop=True)
 
 
-def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
+def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     with open(PROGRAM_DATA_CONFIG, 'r') as f:
         program_config = json.loads(f.read())
         program_config = {x['id']: x['mapping'] for x in program_config}
+    if PROGRAM_DATA_COLUMN_CONFIG:
+        with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
+            column_config = json.loads(f.read())
+            column_categories_map = {x['id']: x.get('categoryMapping') for x in column_config}
     metadata_cols = ['area_id', 'area_name', 'period']
     for i, row in df.iterrows():
         category_id = row['categoryOptionCombo']
-        categories = program_config[category_id]
+        de_id = row['dataElement']
+        categories = column_categories_map.get(de_id) or program_config[category_id]
         for c_name, c_value in categories.items():
             if c_name not in metadata_cols:
                 metadata_cols.append(c_name)
             df.loc[i, c_name] = c_value
+
     df['value'] = df['value'].astype(float)
     df[metadata_cols] = df[metadata_cols].fillna('')
 
@@ -178,12 +188,17 @@ if __name__ == '__main__':
     for table in tables:
         table_type = table['name']
         table_dhis2_resource = table['dhis2_resource']
+        (get_dhis2_pivot_table_data(table_dhis2_resource)
+            .pipe(export_category_config)
+        )
+    for table in tables:
+        table_type = table['name']
+        table_dhis2_resource = table['dhis2_resource']
         out = (
             get_dhis2_pivot_table_data(table_dhis2_resource)
-                .pipe(export_category_config)
                 .pipe(extract_data_elements_names)
                 .pipe(extract_areas_names)
-                .pipe(extract_categories)
+                .pipe(extract_categories_and_aggregate_data)
                 .pipe(sort_by_area_name)
                 .pipe(map_dhis2_id_area_id)
         )
