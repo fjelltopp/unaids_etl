@@ -96,9 +96,9 @@ def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             program_config = json.loads(f.read())
             de_id_map = {x['id']: x['mapping'] if x['mapping'] else x['id'] for x in program_config}
-        df['dataElement'] = df['dataElement'].replace(de_id_map)
+        df['dataElementName'] = df['dataElement'].replace(de_id_map)
     # use default dhis2 de names for ids not in config
-    df['dataElement'] = df['dataElement'].replace(data_elements.set_index('id')['name'])
+    df['dataElementName'] = df['dataElementName'].replace(data_elements.set_index('id')['name'])
     return df
 
 
@@ -125,9 +125,10 @@ def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
                 metadata_cols.append(c_name)
             df.loc[i, c_name] = c_value
     df['value'] = df['value'].astype(float)
+    df[metadata_cols] = df[metadata_cols].fillna('')
 
-    aggregated_rows =  df[metadata_cols + ['dataElement', 'value']].groupby(metadata_cols + ['dataElement']).sum().reset_index()
-    pivot = aggregated_rows.pivot(columns='dataElement', values='value')
+    aggregated_rows =  df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
+    pivot = aggregated_rows.pivot(columns='dataElementName', values='value')
     semi_wide_format_df = pd.concat([aggregated_rows[metadata_cols], pivot], axis=1)
 
     data_cols = [x for x in semi_wide_format_df if x not in set(metadata_cols)]
