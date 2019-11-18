@@ -92,6 +92,12 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
+    if PROGRAM_DATA_COLUMN_CONFIG:
+        with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
+            program_config = json.loads(f.read())
+            de_id_map = {x['id']: x['mapping'] if x['mapping'] else x['id'] for x in program_config}
+        df['dataElement'] = df['dataElement'].replace(de_id_map)
+    # use default dhis2 de names for ids not in config
     df['dataElement'] = df['dataElement'].replace(data_elements.set_index('id')['name'])
     return df
 
@@ -136,6 +142,12 @@ def extract_categories(df: pd.DataFrame) -> pd.DataFrame:
     return output_df
 
 
+def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
+    if AREA_ID_MAP:
+        area_id_df = pd.read_csv(AREA_ID_MAP, index_col=False)
+        df['area_id'] = df['area_id'].replace(area_id_df.set_index('map_id')['area_id'])
+    return df
+
 def __get_dhis2_api_resource(resource):
     return requests.get(urljoin(DHIS2_URL, resource), auth=HTTPBasicAuth(DHIS2_USERNAME, DHIS2_PASSWORD))
 
@@ -156,6 +168,8 @@ if __name__ == '__main__':
     DHIS2_PASSWORD = os.getenv("DHIS2_PASSWORD")
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')
     PROGRAM_DATA_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
+    PROGRAM_DATA_COLUMN_CONFIG = os.getenv("PROGRAM_DATA_COLUMN_CONFIG")
+    AREA_ID_MAP = os.getenv("AREA_ID_MAP")
 
     get_metadata()
 
@@ -170,6 +184,7 @@ if __name__ == '__main__':
                 .pipe(extract_areas_names)
                 .pipe(extract_categories)
                 .pipe(sort_by_area_name)
+                .pipe(map_dhis2_id_area_id)
         )
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
         out.to_csv(os.path.join(OUTPUT_DIR_NAME, 'program', f"{table_type}.csv"), index=None)
