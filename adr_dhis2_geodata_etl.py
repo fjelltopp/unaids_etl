@@ -26,6 +26,7 @@ def get_dhis2_org_data(pickle_path=None):
     dhis2_url = os.environ.get("DHIS2_URL")
     org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates"
     r = requests.get(urljoin(dhis2_url, org_resource_url), auth=HTTPBasicAuth(username, password))
+    etl.requests_util.check_if_response_is_ok(r)
     f = io.StringIO(r.text)
     df = pd.read_csv(f)
     if pickle_path:
