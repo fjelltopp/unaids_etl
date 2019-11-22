@@ -3,6 +3,7 @@ import json
 import os
 import sys
 
+import etl
 import pandas as pd
 import requests
 from dotenv import load_dotenv
@@ -160,7 +161,9 @@ def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def __get_dhis2_api_resource(resource):
-    return requests.get(urljoin(DHIS2_URL, resource), auth=HTTPBasicAuth(DHIS2_USERNAME, DHIS2_PASSWORD))
+    r = requests.get(urljoin(DHIS2_URL, resource), auth=HTTPBasicAuth(DHIS2_USERNAME, DHIS2_PASSWORD))
+    etl.requests_util.check_if_response_is_ok(r)
+    return r
 
 
 if __name__ == '__main__':
