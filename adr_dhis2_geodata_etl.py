@@ -48,10 +48,14 @@ def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
 def extract_geo_data(df):
     if 'featureType' in list(df):
         cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
-        cords = cords.astype(float, errors='ignore')
-        cords, df = _drop_faulty_facilities(cords, df)
-        cords.columns = ['long', 'lat']
-        df = pd.concat([df, cords], axis=1, sort=False)
+        if not cords.empty:
+            cords = cords.astype(float, errors='ignore')
+            cords, df = _drop_faulty_facilities(cords, df)
+            cords.columns = ['long', 'lat']
+            df = pd.concat([df, cords], axis=1, sort=False)
+        else:
+            df['lat'] = ''
+            df['long'] = ''
         df['geoshape'] = df['coordinates']
         df = df.drop(['coordinates'], axis=1)
 
@@ -379,6 +383,9 @@ def extract_location_subtree(df: pd.DataFrame) -> pd.DataFrame:
     root_candidates = df[df['name'] == SUBTREE_ORG_NAME].pipe(
         extract_admin_level
     ).sort_values(by='admin_level')
+    if root_candidates.empty:
+        raise(ValueError(f"Failed to find subtree org unit for '{SUBTREE_ORG_NAME}'\n"
+                         f"Please verify your config file."))
     root_id = root_candidates.iloc[0]['id']
     subtree_indexes = df.path.apply(lambda x: root_id in x)
     df = df.loc[subtree_indexes]
