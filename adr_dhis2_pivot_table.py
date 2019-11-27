@@ -39,8 +39,9 @@ def get_metadata(from_pickle=False):
     org_units.to_pickle("build/org_units.pickle")
 
 
-def get_dhis2_pivot_table_data(dhis2_pivot_table):
-    r_pt = __get_dhis2_api_resource(dhis2_pivot_table)
+def get_dhis2_pivot_table_data(pivot_table_id):
+    dhis2_pivot_table_resource = __get_dhis2_table_api_resource(pivot_table_id)
+    r_pt = __get_dhis2_api_resource(dhis2_pivot_table_resource)
     json_pt = json.loads(r_pt.text)
     df = pd.DataFrame(json_pt['dataValues'])
     return df
@@ -97,11 +98,12 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
+    df['dataElementName'] = df['dataElement']
     if PROGRAM_DATA_COLUMN_CONFIG:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             program_config = json.loads(f.read())
             de_id_map = {x['id']: x['mapping'] if x['mapping'] else x['id'] for x in program_config}
-        df['dataElementName'] = df['dataElement'].replace(de_id_map)
+        df['dataElementName'] = df['dataElementName'].replace(de_id_map)
     # use default dhis2 de names for ids not in config
     df['dataElementName'] = df['dataElementName'].replace(data_elements.set_index('id')['name'])
     return df
@@ -125,6 +127,8 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             column_config = json.loads(f.read())
             column_categories_map = {x['id']: x.get('categoryMapping') for x in column_config}
+    else:
+        column_categories_map = {}
     metadata_cols = ['area_id', 'area_name', 'period']
     for i, row in df.iterrows():
         category_id = row['categoryOptionCombo']
@@ -166,6 +170,24 @@ def __get_dhis2_api_resource(resource):
     return r
 
 
+def __fetch_pivot_table_details(dhis2_pivot_table_id):
+    reportTableReport = f"reportTables/{dhis2_pivot_table_id}"
+    rt_r = __get_dhis2_api_resource(reportTableReport)
+    return json.loads(rt_r.text)
+
+def __get_dhis2_table_api_resource(pivot_table_id):
+    pivot_table_metadata = __fetch_pivot_table_details(pivot_table_id)
+    dimensions_dx = [x['dataElement']['id'] for x in pivot_table_metadata['dataDimensionItems'] if x['dataDimensionItemType'] == "DATA_ELEMENT"]
+    ou_elms = [x['id'] for x in pivot_table_metadata['organisationUnits']]
+    ou_level = [f"LEVEL-{x!r}" for x in pivot_table_metadata.get('organisationUnitLevels', [])]
+    pivot_table_resource = f"analytics/dataValueSet.json?" \
+                           f"dimension=dx:{';'.join(dimensions_dx)}&" \
+                           f"dimension=co&" \
+                           f"dimension=ou:{';'.join(ou_elms + ou_level)}&" \
+                           f"dimension=pe:2019;LAST_5_YEARS&" \
+                           f"displayProperty=NAME"
+    return pivot_table_resource
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pull geo data from a DHIS2 to be uploaded into ADR.')
     argv = sys.argv[1:]
@@ -186,19 +208,17 @@ if __name__ == '__main__':
     AREA_ID_MAP = os.getenv("AREA_ID_MAP")
 
     get_metadata()
-
     tables = json.loads(PROGRAM_DATA)
     for table in tables:
         table_type = table['name']
-        table_dhis2_resource = table['dhis2_resource']
-        (get_dhis2_pivot_table_data(table_dhis2_resource)
+        dhis2_pivot_table_id = table['dhis2_pivot_table_id']
+        (get_dhis2_pivot_table_data(dhis2_pivot_table_id)
             .pipe(export_category_config)
         )
     for table in tables:
         table_type = table['name']
-        table_dhis2_resource = table['dhis2_resource']
-        out = (
-            get_dhis2_pivot_table_data(table_dhis2_resource)
+        dhis2_pivot_table_id = table['dhis2_pivot_table_id']
+        out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id)
                 .pipe(extract_data_elements_names)
                 .pipe(extract_areas_names)
                 .pipe(extract_categories_and_aggregate_data)
