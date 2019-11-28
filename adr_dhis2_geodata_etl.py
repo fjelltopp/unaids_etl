@@ -216,8 +216,8 @@ def sort_by_admin_level(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
-    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'sort_order']]
-    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'sort_order']
+    lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'area_sort_order']]
+    lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'area_sort_order']
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
     lh_df.to_csv(f"{OUTPUT_DIR_NAME}/geodata/location_hierarchy.csv", index=False)
@@ -225,9 +225,9 @@ def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
-    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'sort_order'])
+    fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'area_sort_order'])
     fl_df['type'] = 'health facility'
-    fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'sort_order']
+    fl_df.columns = ['facility_id', 'facility_name', 'parent_area_id', 'lat', 'long', 'type', 'area_sort_order']
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
     fl_df.to_csv(f"{OUTPUT_DIR_NAME}/geodata/facility_list.csv", index=False)
@@ -236,6 +236,7 @@ def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
 
 def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'dhis2_id']]
+    dhis2_ids.columns = ["area_id", "dhis2_id"]
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
     dhis2_ids.to_csv(f"{OUTPUT_DIR_NAME}/geodata/dhis2_id_mapping.csv", index=False)
