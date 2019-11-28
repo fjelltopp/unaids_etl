@@ -71,8 +71,8 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     "id": "{row["id"]}",
     "name": "{row["name"]}",
     "mapping": {{
-        "age": "",
-        "gender": ""
+        "age_group": "",
+        "sex": ""
     }}
 }},
 '''
@@ -86,8 +86,8 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     "name": "{row["name"]}",
     "mapping": "",
     "categoryMapping": {{
-        "age": "",
-        "gender": ""
+        "age_group": "",
+        "sex": ""
     }}
 }},
 '''
