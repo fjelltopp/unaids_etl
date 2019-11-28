@@ -412,7 +412,7 @@ def run_pipeline():
      .pipe(create_index_column)
      .pipe(extract_parent)
      # .pipe(validate_admin_level)
-     .pipe(etl.add_empty_column('sort_order'))
+     .pipe(etl.add_empty_column('area_sort_order'))
      # .pipe(save_locations_in_wide_format)
      .pipe(save_location_hierarchy)
      .pipe(save_facilities_list)
