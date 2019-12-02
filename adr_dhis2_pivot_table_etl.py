@@ -10,7 +10,9 @@ from dotenv import load_dotenv
 from requests.auth import HTTPBasicAuth
 from urllib.parse import urljoin
 
+etl.LOGGER = etl.logging.get_logger(log_name="DHIS2 pivot table pull", log_group="etl")
 
+@etl.decorators.log_start_and_finalisation("getting DHIS2 metadata")
 def get_metadata(from_pickle=False):
     global category_combos
     global data_elements
@@ -39,6 +41,7 @@ def get_metadata(from_pickle=False):
     org_units.to_pickle("build/org_units.pickle")
 
 
+@etl.decorators.log_start_and_finalisation("get DHIS2 pivot table data")
 def get_dhis2_pivot_table_data(pivot_table_id):
     dhis2_pivot_table_resource = __get_dhis2_table_api_resource(pivot_table_id)
     r_pt = __get_dhis2_api_resource(dhis2_pivot_table_resource)
@@ -46,7 +49,7 @@ def get_dhis2_pivot_table_data(pivot_table_id):
     df = pd.DataFrame(json_pt['dataValues'])
     return df
 
-
+@etl.decorators.log_start_and_finalisation("export category config")
 def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     categories_names = df['categoryOptionCombo'].replace(category_combos.set_index('id')['name'])
     categories_ids = df['categoryOptionCombo']
@@ -64,7 +67,7 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 
     config_output_dir = os.path.join(OUTPUT_DIR_NAME, "configs")
     os.makedirs(config_output_dir, exist_ok=True)
-    with open(os.path.join(config_output_dir, f"{table_type}_category_config.json"), 'w') as f:
+    with open(os.path.join(config_output_dir, f"{TABLE_TYPE}_category_config.json"), 'w') as f:
         f.write("[\n")
         for i, row in categories_map.iterrows():
             line = f'''{{
@@ -78,7 +81,7 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 '''
             f.write(line)
         f.write("]\n")
-    with open(os.path.join(config_output_dir, f"{table_type}_column_config.json"), 'w') as f:
+    with open(os.path.join(config_output_dir, f"{TABLE_TYPE}_column_config.json"), 'w') as f:
         f.write("[\n")
         for i, row in data_elements_map.iterrows():
             line = f'''{{
@@ -96,7 +99,7 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-
+@etl.decorators.log_start_and_finalisation("extract data elements names")
 def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
     df['dataElementName'] = df['dataElement']
     if PROGRAM_DATA_COLUMN_CONFIG:
@@ -109,16 +112,19 @@ def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("extract areas names")
 def extract_areas_names(df: pd.DataFrame) -> pd.DataFrame:
     df['area_id'] = df['orgUnit']
     df['area_name'] = df['orgUnit'].replace(org_units.set_index('id')['name'])
     return df
 
 
+@etl.decorators.log_start_and_finalisation("sort by area name")
 def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values(by=['area_name', 'period']).reset_index(drop=True)
 
 
+@etl.decorators.log_start_and_finalisation("extract categories and aggregate data")
 def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     with open(PROGRAM_DATA_CONFIG, 'r') as f:
         program_config = json.loads(f.read())
@@ -158,6 +164,7 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     return output_df
 
 
+@etl.decorators.log_start_and_finalisation("map dhis2 id to area id")
 def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
     if AREA_ID_MAP:
         area_id_df = pd.read_csv(AREA_ID_MAP, index_col=False)
@@ -188,6 +195,7 @@ def __get_dhis2_table_api_resource(pivot_table_id):
                            f"displayProperty=NAME"
     return pivot_table_resource
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pull geo data from a DHIS2 to be uploaded into ADR.')
     argv = sys.argv[1:]
@@ -198,7 +206,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
-    OUTPUT_DIR_NAME = f"output/{os.environ.get('OUTPUT_DIR_NAME', 'default')}"
+    EXPORT_NAME = os.environ.get('OUTPUT_DIR_NAME', 'default')
+    OUTPUT_DIR_NAME = f"output/{EXPORT_NAME}"
     DHIS2_URL = os.getenv("DHIS2_URL")
     DHIS2_USERNAME = os.getenv("DHIS2_USERNAME")
     DHIS2_PASSWORD = os.getenv("DHIS2_PASSWORD")
@@ -210,13 +219,16 @@ if __name__ == '__main__':
     get_metadata()
     tables = json.loads(PROGRAM_DATA)
     for table in tables:
-        table_type = table['name']
+        TABLE_TYPE = table['name']
+        etl.LOGGER.info(f"Starting fetching metadata for table \"{TABLE_TYPE}\"")
         dhis2_pivot_table_id = table['dhis2_pivot_table_id']
         (get_dhis2_pivot_table_data(dhis2_pivot_table_id)
-            .pipe(export_category_config)
-        )
+         .pipe(export_category_config)
+         )
+        etl.LOGGER.info(f"Finished fetching metadata for table \"{TABLE_TYPE}\"")
     for table in tables:
-        table_type = table['name']
+        TABLE_TYPE = table['name']
+        etl.LOGGER.info(f"Starting data fetch for table \"{TABLE_TYPE}\"")
         dhis2_pivot_table_id = table['dhis2_pivot_table_id']
         out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id)
                 .pipe(extract_data_elements_names)
@@ -225,5 +237,9 @@ if __name__ == '__main__':
                 .pipe(sort_by_area_name)
                 .pipe(map_dhis2_id_area_id)
         )
+        output_file_path = os.path.join(OUTPUT_DIR_NAME, 'program', f"{EXPORT_NAME}_dhis2_pull_{TABLE_TYPE}.csv")
+        etl.LOGGER.info(f"Saving \"{TABLE_TYPE}\" data to file {output_file_path}")
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
-        out.to_csv(os.path.join(OUTPUT_DIR_NAME, 'program', f"{table_type}.csv"), index=None)
+        out.to_csv(output_file_path, index=None)
+        etl.LOGGER.info(f"Finished processing table \"{TABLE_TYPE}\"")
+
