@@ -187,11 +187,18 @@ def __get_dhis2_table_api_resource(pivot_table_id):
     dimensions_dx = [x['dataElement']['id'] for x in pivot_table_metadata['dataDimensionItems'] if x['dataDimensionItemType'] == "DATA_ELEMENT"]
     ou_elms = [x['id'] for x in pivot_table_metadata['organisationUnits']]
     ou_level = [f"LEVEL-{x!r}" for x in pivot_table_metadata.get('organisationUnitLevels', [])]
+    periods = [x['id'] for x in pivot_table_metadata['periods']]
+    if len(dimensions_dx) < 1:
+        raise ValueError(f"No data elements configured for pivot table {pivot_table_id}")
+    if len(ou_elms + ou_level) < 1:
+        raise ValueError(f"No org units configured for pivot table {pivot_table_id}")
+    if len(periods) < 1:
+        raise ValueError(f"No periods configured for pivot table {pivot_table_id}")
     pivot_table_resource = f"analytics/dataValueSet.json?" \
                            f"dimension=dx:{';'.join(dimensions_dx)}&" \
                            f"dimension=co&" \
                            f"dimension=ou:{';'.join(ou_elms + ou_level)}&" \
-                           f"dimension=pe:2019;LAST_5_YEARS&" \
+                           f"dimension=pe:{';'.join(periods)}&" \
                            f"displayProperty=NAME"
     return pivot_table_resource
 
