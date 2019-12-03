@@ -126,9 +126,9 @@ def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
 
 @etl.decorators.log_start_and_finalisation("extract categories and aggregate data")
 def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
-    with open(PROGRAM_DATA_CONFIG, 'r') as f:
-        program_config = json.loads(f.read())
-        program_config = {x['id']: x['mapping'] for x in program_config}
+    with open(PROGRAM_DATA_CATEGORY_CONFIG, 'r') as f:
+        category_config = json.loads(f.read())
+        category_config = {x['id']: x['mapping'] for x in category_config}
     if PROGRAM_DATA_COLUMN_CONFIG:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             column_config = json.loads(f.read())
@@ -139,7 +139,7 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     for i, row in df.iterrows():
         category_id = row['categoryOptionCombo']
         de_id = row['dataElement']
-        categories = column_categories_map.get(de_id) or program_config[category_id]
+        categories = column_categories_map.get(de_id) or category_config[category_id]
         for c_name, c_value in categories.items():
             if c_name not in metadata_cols:
                 metadata_cols.append(c_name)
@@ -225,7 +225,10 @@ if __name__ == '__main__':
     DHIS2_USERNAME = os.getenv("DHIS2_USERNAME")
     DHIS2_PASSWORD = os.getenv("DHIS2_PASSWORD")
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')
-    PROGRAM_DATA_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
+    PROGRAM_DATA_CATEGORY_CONFIG = os.getenv("PROGRAM_DATA_CATEGORY_CONFIG")
+    # Legacy env name support
+    if not PROGRAM_DATA_CATEGORY_CONFIG:
+        PROGRAM_DATA_CATEGORY_CONFIG = os.getenv("PROGRAM_DATA_CONFIG")
     PROGRAM_DATA_COLUMN_CONFIG = os.getenv("PROGRAM_DATA_COLUMN_CONFIG")
     AREA_ID_MAP = os.getenv("AREA_ID_MAP")
 
