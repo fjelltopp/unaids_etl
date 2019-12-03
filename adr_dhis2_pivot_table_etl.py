@@ -164,6 +164,12 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     return output_df
 
 
+@etl.decorators.log_start_and_finalisation("trimming period strings")
+def trim_period_strings(df: pd.DataFrame) -> pd.DataFrame:
+    df['period'] = df['period'].str.split(pat="Q", expand=True)[0]
+    return df
+
+
 @etl.decorators.log_start_and_finalisation("map dhis2 id to area id")
 def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
     if AREA_ID_MAP:
@@ -243,7 +249,8 @@ if __name__ == '__main__':
                 .pipe(extract_categories_and_aggregate_data)
                 .pipe(sort_by_area_name)
                 .pipe(map_dhis2_id_area_id)
-        )
+                .pipe(trim_period_strings)
+               )
         output_file_path = os.path.join(OUTPUT_DIR_NAME, 'program', f"{EXPORT_NAME}_dhis2_pull_{TABLE_TYPE}.csv")
         etl.LOGGER.info(f"Saving \"{TABLE_TYPE}\" data to file {output_file_path}")
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
