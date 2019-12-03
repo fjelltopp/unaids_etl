@@ -128,18 +128,20 @@ def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
 def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     with open(PROGRAM_DATA_CATEGORY_CONFIG, 'r') as f:
         category_config = json.loads(f.read())
-        category_config = {x['id']: x['mapping'] for x in category_config}
+        category_mapping = {x['id']: x['mapping'] for x in category_config}
     if PROGRAM_DATA_COLUMN_CONFIG:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             column_config = json.loads(f.read())
             column_categories_map = {x['id']: x.get('categoryMapping') for x in column_config}
     else:
         column_categories_map = {}
+    categories_to_remove = set([x['id'] for x in category_config if bool(x.get('remove'))])
+    df = df.loc[~df['categoryOptionCombo'].isin(categories_to_remove)]
     metadata_cols = ['area_id', 'area_name', 'period']
     for i, row in df.iterrows():
         category_id = row['categoryOptionCombo']
         de_id = row['dataElement']
-        categories = column_categories_map.get(de_id) or category_config[category_id]
+        categories = column_categories_map.get(de_id) or category_mapping[category_id]
         for c_name, c_value in categories.items():
             if c_name not in metadata_cols:
                 metadata_cols.append(c_name)
