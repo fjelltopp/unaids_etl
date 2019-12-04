@@ -285,5 +285,5 @@ if __name__ == '__main__':
         output_file_path = os.path.join(OUTPUT_DIR_NAME, 'program', f"{EXPORT_NAME}_dhis2_pull_{TABLE_TYPE}.csv")
         etl.LOGGER.info(f"Saving \"{TABLE_TYPE}\" data to file {output_file_path}")
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
-        out.to_csv(output_file_path, index=None)
+        out.to_csv(output_file_path, index=None, float_format='%.f')
         etl.LOGGER.info(f"Finished processing table \"{TABLE_TYPE}\"")
