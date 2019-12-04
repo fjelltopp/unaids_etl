@@ -19,7 +19,10 @@ import requests
 from requests.auth import HTTPBasicAuth
 from dotenv import load_dotenv
 
+etl.LOGGER = etl.logging.get_logger(log_name="DHIS2 geo data pull", log_group="dhis2_geo_etl")
 
+
+@etl.decorators.log_start_and_finalisation("get dhis2 org data")
 def get_dhis2_org_data(pickle_path=None):
     username = os.environ.get("DHIS2_USERNAME")
     password = os.environ.get("DHIS2_PASSWORD")
@@ -34,10 +37,12 @@ def get_dhis2_org_data(pickle_path=None):
     return df
 
 
+@etl.decorators.log_start_and_finalisation("get dhis2 org data from local pickle file")
 def get_dhis2_org_data_from_pickle(pickle_path):
     return pd.read_pickle(pickle_path)
 
 
+@etl.decorators.log_start_and_finalisation("get dhis2 org data from local csv file")
 def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
     df = pd.read_csv(csv_path, dtype=str)
     if pickle_path:
@@ -107,6 +112,7 @@ def _drop_faulty_facilities(cords, df):
     return cords, df
 
 
+@etl.decorators.log_start_and_finalisation("convert cords to int")
 def convert_cords_str_to_int(df: pd.DataFrame) -> pd.DataFrame:
     for cord in ['lat', 'long']:
         if df[cord].dtype != pd.np.float64:
@@ -151,6 +157,7 @@ def __flatten(row):
     return cords
 
 
+@etl.decorators.log_start_and_finalisation("extract admin level")
 def extract_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
     admin_level = paths.apply(len) - 1
@@ -158,6 +165,7 @@ def extract_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("extract parent")
 def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
     def get_parent_id(path):
@@ -177,6 +185,7 @@ def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("save locations in wide format")
 def save_locations_in_wide_format(df: pd.DataFrame) -> pd.DataFrame:
     ancestors = df['path'].str.lstrip('/').str.split('/', expand=True)
     ancestor_col_names = [f"admin_{i}" for i in list(ancestors)]
@@ -199,6 +208,7 @@ def __get_name(dhis2_id, ids_map):
         return
 
 
+@etl.decorators.log_start_and_finalisation("create index column")
 def create_index_column(df: pd.DataFrame) -> pd.DataFrame:
     df['dhis2_id'] = df['id']
     counters = defaultdict(int)
@@ -211,10 +221,12 @@ def create_index_column(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("sort by admin level")
 def sort_by_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values(by='admin_level').reset_index()
 
 
+@etl.decorators.log_start_and_finalisation("save location hierarchy")
 def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
     lh_df = df[df['admin_level'] <= AREAS_ADMIN_LEVEL][['id', 'name', 'admin_level', 'parent_id', 'area_sort_order']]
     lh_df.columns = ['area_id', 'area_name', 'area_level', 'parent_area_id', 'area_sort_order']
@@ -224,6 +236,7 @@ def save_location_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("save facilities list")
 def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
     fl_df = df[df['admin_level'] > AREAS_ADMIN_LEVEL].reindex(columns=['id', 'name', 'parent_id', 'lat', 'long', 'type', 'area_sort_order'])
     fl_df['type'] = 'health facility'
@@ -234,6 +247,7 @@ def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("save dhis2 ids")
 def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'admin_level', 'name', 'dhis2_id']]
     dhis2_ids['map_source'] = "DHIS2"
@@ -244,6 +258,7 @@ def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("save ids mapping")
 def save_ids_mapping(df: pd.DataFrame) -> pd.DataFrame:
     fl_df = df.reindex(columns=['id', 'dhis2_id'])
     fl_df['pepfar_id'] = ''
@@ -254,6 +269,7 @@ def save_ids_mapping(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("save area geometries")
 def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
     incorrect_geojson_areas = defaultdict(list)
     features = []
@@ -379,6 +395,7 @@ def __get_init_df():
         return get_dhis2_org_data()
 
 
+@etl.decorators.log_start_and_finalisation("extract location subtree")
 def extract_location_subtree(df: pd.DataFrame) -> pd.DataFrame:
     if not SUBTREE_ORG_NAME:
         return df
@@ -396,6 +413,7 @@ def extract_location_subtree(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+@etl.decorators.log_start_and_finalisation("validate admin level")
 def validate_admin_level(df: pd.DataFrame) -> pd.DataFrame:
     df['is_leaf'] = ''
     for i, row in df.iterrows():
