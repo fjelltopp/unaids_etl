@@ -189,7 +189,7 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
 
 @etl.decorators.log_start_and_finalisation("trimming period strings")
 def trim_period_strings(df: pd.DataFrame) -> pd.DataFrame:
-    df['period'] = df['period'].str.split(pat="Q", expand=True)[0]
+    df['period'] = df['period'].str[:4]
     return df
 
 
