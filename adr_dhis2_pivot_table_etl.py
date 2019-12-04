@@ -47,6 +47,7 @@ def get_dhis2_pivot_table_data(pivot_table_id):
     r_pt = __get_dhis2_api_resource(dhis2_pivot_table_resource)
     json_pt = json.loads(r_pt.text)
     df = pd.DataFrame(json_pt['dataValues'])
+    df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     return df
 
 @etl.decorators.log_start_and_finalisation("export category config")
