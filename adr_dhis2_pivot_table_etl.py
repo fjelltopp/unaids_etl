@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 import json
 import os
@@ -11,6 +13,7 @@ from requests.auth import HTTPBasicAuth
 from urllib.parse import urljoin
 
 etl.LOGGER = etl.logging.get_logger(log_name="DHIS2 pivot table pull", log_group="etl")
+
 
 @etl.decorators.log_start_and_finalisation("getting DHIS2 metadata")
 def get_metadata(from_pickle=False):
@@ -148,7 +151,7 @@ def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
 def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     with open(PROGRAM_DATA_CATEGORY_CONFIG, 'r') as f:
         category_config = json.loads(f.read())
-        category_mapping = {x['id']: x['mapping'] for x in category_config}
+        category_mapping = {x['id']: x.get('mapping', {}) for x in category_config}
     if PROGRAM_DATA_COLUMN_CONFIG:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             column_config = json.loads(f.read())
@@ -189,6 +192,7 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
 @etl.decorators.log_start_and_finalisation("trimming period strings")
 def trim_period_strings(df: pd.DataFrame) -> pd.DataFrame:
     df['period'] = df['period'].str[:4]
+    df = df.rename(columns={'period': 'year'})
     return df
 
 
@@ -198,6 +202,7 @@ def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
         area_id_df = pd.read_csv(AREA_ID_MAP, index_col=False)
         df['area_id'] = df['area_id'].replace(area_id_df.set_index('map_id')['area_id'])
     return df
+
 
 def __get_dhis2_api_resource(resource):
     r = requests.get(urljoin(DHIS2_URL, resource), auth=HTTPBasicAuth(DHIS2_USERNAME, DHIS2_PASSWORD))
@@ -209,6 +214,7 @@ def __fetch_pivot_table_details(dhis2_pivot_table_id):
     reportTableReport = f"reportTables/{dhis2_pivot_table_id}"
     rt_r = __get_dhis2_api_resource(reportTableReport)
     return json.loads(rt_r.text)
+
 
 def __get_dhis2_table_api_resource(pivot_table_id):
     pivot_table_metadata = __fetch_pivot_table_details(pivot_table_id)
@@ -281,4 +287,3 @@ if __name__ == '__main__':
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
         out.to_csv(output_file_path, index=None)
         etl.LOGGER.info(f"Finished processing table \"{TABLE_TYPE}\"")
-
