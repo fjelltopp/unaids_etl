@@ -105,8 +105,28 @@ def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
     if PROGRAM_DATA_COLUMN_CONFIG:
         with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
             program_config = json.loads(f.read())
-            de_id_map = {x['id']: x['mapping'] if x['mapping'] else x['id'] for x in program_config}
-        df['dataElementName'] = df['dataElementName'].replace(de_id_map)
+            de_id_map = {}
+            for config_ in program_config:
+                mapping = config_.get('mapping')
+                if not mapping:
+                    continue
+                elif type(mapping) != list:
+                    mapping = [mapping]
+                de_id_map[config_['id']] = mapping
+        extra_rows = pd.DataFrame(columns=list(df))
+        for i, row in df.iterrows():
+            de_id = row['dataElementName']
+            mappings = de_id_map.get(de_id, [])
+            if len(mappings) == 0:
+                continue
+            df.loc[i, 'dataElementName'] = mappings[0]
+            if len(mappings) > 1:
+                for mapping in mappings[1:]:
+                    extra_row = row.copy()
+                    extra_row['dataElementName'] = mapping
+                    extra_rows = extra_rows.append(extra_row)
+        df = df.append(extra_rows, ignore_index=True)
+
     # use default dhis2 de names for ids not in config
     df['dataElementName'] = df['dataElementName'].replace(data_elements.set_index('id')['name'])
     return df
