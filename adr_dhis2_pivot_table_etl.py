@@ -47,7 +47,6 @@ def get_dhis2_pivot_table_data(pivot_table_id):
     r_pt = __get_dhis2_api_resource(dhis2_pivot_table_resource)
     json_pt = json.loads(r_pt.text)
     df = pd.DataFrame(json_pt['dataValues'])
-    df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     return df
 
 @etl.decorators.log_start_and_finalisation("export category config")
@@ -168,7 +167,7 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
                 metadata_cols.append(c_name)
             df.loc[i, c_name] = c_value
 
-    df['value'] = df['value'].astype(float)
+    df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     df[metadata_cols] = df[metadata_cols].fillna('')
 
     aggregated_rows =  df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
