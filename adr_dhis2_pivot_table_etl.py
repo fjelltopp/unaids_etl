@@ -20,13 +20,17 @@ def get_metadata(from_pickle=False):
     global category_combos
     global data_elements
     global org_units
-    if from_pickle:
-        category_combos = pd.read_pickle("build/category_combos.pickle")
-        data_elements = pd.read_pickle("build/data_elements.pickle")
-        org_units = pd.read_pickle("build/org_units.pickle")
+    build_dir_ = os.path.join(OUTPUT_DIR_NAME, "build")
+    os.makedirs(build_dir_, exist_ok=True)
+    cc_pickle_path = os.path.join(build_dir_, "category_combos.pickle")
+    de_pickle_path = os.path.join(build_dir_, "data_elements.pickle")
+    ou_pickle_path = os.path.join(build_dir_, "org_units.pickle")
+    p_exist = all(map(os.path.exists, [cc_pickle_path, de_pickle_path, ou_pickle_path]))
+    if from_pickle and p_exist:
+        category_combos = pd.read_pickle(cc_pickle_path)
+        data_elements = pd.read_pickle(de_pickle_path)
+        org_units = pd.read_pickle(ou_pickle_path)
         return
-    if not os.path.exists("build"):
-        os.makedirs("build")
     cc_resource = "categoryOptionCombos?paging=false&fields=id,name"
     de_resource = "dataElements?paging=false&fields=id,name"
     ou_resource = "organisationUnits?paging=false&fields=id,name"
@@ -39,17 +43,24 @@ def get_metadata(from_pickle=False):
     category_combos = pd.DataFrame(cc_list)
     data_elements = pd.DataFrame(de_list)
     org_units = pd.DataFrame(ou_list)
-    category_combos.to_pickle("build/category_combos.pickle")
-    data_elements.to_pickle("build/data_elements.pickle")
-    org_units.to_pickle("build/org_units.pickle")
+    category_combos.to_pickle(cc_pickle_path)
+    data_elements.to_pickle(de_pickle_path)
+    org_units.to_pickle(ou_pickle_path)
 
 
 @etl.decorators.log_start_and_finalisation("get DHIS2 pivot table data")
-def get_dhis2_pivot_table_data(pivot_table_id):
+def get_dhis2_pivot_table_data(pivot_table_id, from_pickle=False):
+    build_dir_ = os.path.join(OUTPUT_DIR_NAME, "build")
+    os.makedirs(build_dir_, exist_ok=True)
+    pt_pickle_path = os.path.join(build_dir_, f"pivot_table_{pivot_table_id}.pickle")
+    if from_pickle and os.path.exists(pt_pickle_path):
+        df = pd.read_pickle(pt_pickle_path)
+        return df
     dhis2_pivot_table_resource = __get_dhis2_table_api_resource(pivot_table_id)
     r_pt = __get_dhis2_api_resource(dhis2_pivot_table_resource)
     json_pt = json.loads(r_pt.text)
     df = pd.DataFrame(json_pt['dataValues'])
+    df.to_pickle(pt_pickle_path)
     return df
 
 @etl.decorators.log_start_and_finalisation("export category config")
@@ -243,7 +254,10 @@ if __name__ == '__main__':
     parser.add_argument('-e', '--env-file',
                         default='.env',
                         help='env file to read config from')
-
+    parser.add_argument('-p', '--pickle',
+                        dest='pickle',
+                        action='store_true',
+                        help='fetch data from local pickle instead http call to DHIS2')
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
@@ -260,13 +274,13 @@ if __name__ == '__main__':
     PROGRAM_DATA_COLUMN_CONFIG = os.getenv("PROGRAM_DATA_COLUMN_CONFIG")
     AREA_ID_MAP = os.getenv("AREA_ID_MAP")
 
-    get_metadata()
+    get_metadata(from_pickle=args.pickle)
     tables = json.loads(PROGRAM_DATA)
     for table in tables:
         TABLE_TYPE = table['name']
         etl.LOGGER.info(f"Starting fetching metadata for table \"{TABLE_TYPE}\"")
         dhis2_pivot_table_id = table['dhis2_pivot_table_id']
-        (get_dhis2_pivot_table_data(dhis2_pivot_table_id)
+        (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=args.pickle)
          .pipe(export_category_config)
          )
         etl.LOGGER.info(f"Finished fetching metadata for table \"{TABLE_TYPE}\"")
@@ -274,7 +288,7 @@ if __name__ == '__main__':
         TABLE_TYPE = table['name']
         etl.LOGGER.info(f"Starting data fetch for table \"{TABLE_TYPE}\"")
         dhis2_pivot_table_id = table['dhis2_pivot_table_id']
-        out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id)
+        out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=True)
                 .pipe(extract_data_elements_names)
                 .pipe(extract_areas_names)
                 .pipe(extract_categories_and_aggregate_data)
