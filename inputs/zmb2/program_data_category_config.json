@@ -1,0 +1,51 @@
+[
+{
+    "id": "USfPOPAeN16",
+    "name": "default",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "ZQH8UzASmZY",
+    "name": "20+ years, 1st Trimester",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Z6wKW0r674x",
+    "name": "20+ years, 2nd Trimester",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "TrigYoG4FXb",
+    "name": "20+ years, 3rd Trimester",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Zr5VTXnUM4b",
+    "name": "<20 years, 3rd Trimester",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "QsBECdbzg5J",
+    "name": "<20 years, 1st Trimester",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "pGCuOck1WsR",
+    "name": "<20 years, 2nd Trimester",
+    "mapping": {
+        "age_group": "15-49"
+    }
+}
+]

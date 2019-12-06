@@ -52,7 +52,8 @@ def get_dhis2_org_data_from_csv(csv_path, pickle_path=None):
 
 def extract_geo_data(df):
     if 'featureType' in list(df):
-        cords = df[df['featureType'] == 'POINT']['coordinates'].str.strip('[]').str.split(',', expand=True)
+
+        cords = df[df['featureType'] == 'POINT']['coordinates'].astype(str).str.strip('[]').str.split(',', expand=True)
         if not cords.empty:
             cords = cords.astype(float, errors='ignore')
             cords, df = _drop_faulty_facilities(cords, df)

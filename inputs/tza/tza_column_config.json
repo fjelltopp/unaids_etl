@@ -1,0 +1,42 @@
+[
+{
+    "id": "WAdaCligbNP",
+    "name": "ANC Umri wa mimba chini ya wiki 12 (&lt; 12weeks)",
+    "mapping": "anc_clients"
+},
+{
+    "id": "ykDWUlQzexW",
+    "name": "ANC Umri wa mimba wiki 12 au zaidi (12+ weeks)",
+    "mapping": "anc_clients"
+},
+{
+    "id": "hTce3dWh9P7",
+    "name": "ANC Wajawazito Waliopima VVU kipimo cha kwanza kliniki",
+    "mapping": "ancrt_tested"
+},
+{
+    "id": "Lnf095vgahq",
+    "name": "ANC Tayari wana maambukizi ya VVU kabla ya kuanza kliniki",
+    "mapping": ["ancrt_known_pos", "ancrt_already_art"]
+},
+{
+    "id": "uA7nNtZE8bv",
+    "name": "ANC Wajawazito waliokutwa na VVU (positive) kipimo cha kwanza",
+    "mapping": "ancrt_test_pos"
+},
+{
+    "id": "gaaV139sE6x",
+    "name": "Number of persons who are on 1st line regimen during the reporting period (INCLUDE TI on ART)",
+    "mapping": "current_art"
+},
+{
+    "id": "RYzjUSOvbFL",
+    "name": "Number of persons who are on 2nd line regimen during the reporting period (INCLUDE TI on ART)",
+    "mapping": "current_art"
+},
+{
+    "id": "RvLskJI6lJE",
+    "name": "Number of persons who are on 3rd line regimen during the reporting period (INCLUDE TI on ART)",
+    "mapping": "current_art"
+}
+]

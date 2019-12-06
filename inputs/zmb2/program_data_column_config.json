@@ -1,0 +1,111 @@
+[
+{
+    "id": "lh4XwIQEpty",
+    "name": "Known positive status at 1st ANC Visit",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "JAz9m5DMDRd",
+    "name": "Number of HIV+ pregnant women already on ART",
+    "mapping": "ancrt_already_art",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "S5nAlB6FLec",
+    "name": "Antenatal client tested HIV positive new case",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "kbMCCBZwJ9Q",
+    "name": "Known HIV+ at first antenatal visit",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Rxj0HWB1gIu",
+    "name": "First Antenatal visits (New)",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "ZUUkhyI8Lmu",
+    "name": "Antenatal client tested for HIV at 1st antenatal visit",
+    "mapping": "ancrt_tested",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "woN8cQLzcDX",
+    "name": "Known HIV+ status during labour and delivery",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "S5nAlB6FLec",
+    "name": "Antenatal client tested HIV positive new case",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "ezhOqbUYeT8",
+    "name": "Current on ART – (<1)",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "NK1zhsyjHze",
+    "name": "xxxx Current on ART – Male (15+)",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "Ftm47deglsA",
+    "name": "xxxx Current on ART – Female (<15)",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "JufNWNI37vZ",
+    "name": "xxxx Current on ART – Female (15+)",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "M7HdKvcBUlc",
+    "name": "xxxx Current on ART – Male (<15)",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+}
+]

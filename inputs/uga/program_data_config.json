@@ -1,0 +1,94 @@
+[
+  {
+    "id": "ybg9RqQBkxt",
+    "name": "15 Years and above, Female",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "female"
+    }
+  },
+  {
+    "id": "aJIK0Jb9kbv",
+    "name": "15 Years and above, Male",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "male"
+    }
+  },
+  {
+    "id": "Jt9eS6sZgsP",
+    "name": "2 - < 5 Years (HIV Care), Female",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "wrUmfXWtytf",
+    "name": "<2 Years, Male",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "PXW9InWF1FD",
+    "name": "<2 Years, Female",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "cAiKQoLaskh",
+    "name": "5 - 14 Years, Male",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "avmK0wG72p7",
+    "name": "2 - < 5 Years (HIV Care), Male",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "GWF8f3ehju4",
+    "name": "5 - 14 Years, Female",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "hByJhwG8pWe",
+    "name": "10-19 Years",
+    "mapping": {
+      "age_group": "10-19"
+    }
+  },
+  {
+    "id": "gGhClrV5odI",
+    "name": "default",
+    "mapping": {
+      "age_group": ""
+    }
+  },
+  {
+    "id": "fJZ9j1SKgYc",
+    "name": "20-24 Years",
+    "mapping": {
+      "age_group": "15+"
+    }
+  },
+  {
+    "id": "VnucGyJWga6",
+    "name": ">=25 Years",
+    "mapping": {
+      "age_group": "15+"
+    }
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+      "id": "TxZUJpX3VOp",
+      "name": "HIV Positive Result _EMTCT(ANC)",
+      "mapping": "ancrt_test_pos"
+  },
+  {
+      "id": "kbMCCBZwJ9Q",
+      "name": "Known HIV+ at first antenatal visit",
+      "mapping": "ancrt_known_pos"
+  },
+  {
+      "id": "Rxj0HWB1gIu",
+      "name": "First Antenatal visits (New)",
+      "mapping": "anc_clients"
+  },
+  {
+      "id": "VwPe7rUMMRR",
+      "name": "Testing for HIV_EMTCT( Only)",
+      "mapping": "ancrt_tested"
+  },
+  {
+      "id": "f0UGUWHUogZ",
+      "name": "Maternal ART (ANC)",
+      "mapping": "ancrt_already_art"
+  },
+  {
+      "id": "xC1fdx2189O",
+      "name": "Currently on ART",
+      "mapping": "current_art"
+  },
+  {
+      "id": "ZUUkhyI8Lmu",
+      "name": "Antenatal client tested for HIV at 1st antenatal visit",
+      "mapping": "ancrt_tested"
+  }
+]

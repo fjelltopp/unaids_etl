@@ -1,0 +1,230 @@
+[
+  {
+      "id": "uR9wPGGggMU",
+      "name": "Tested - Initial test in ANC ",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "DpvJm9w528G",
+      "name": "Repeat test (ANC, L&D, PNC)",
+      "remove": "True"
+  },
+  {
+      "id": "de87z8nMhQU",
+      "name": "Tested - Initial  test in PNC (< 6 weeks)",
+      "remove": "True"
+  },
+  {
+      "id": "USfPOPAeN16",
+      "name": "default",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "TrigYoG4FXb",
+      "name": "20+ years, 3rd Trimester",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "Z6wKW0r674x",
+      "name": "20+ years, 2nd Trimester",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "Zr5VTXnUM4b",
+      "name": "<20 years, 3rd Trimester",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "pGCuOck1WsR",
+      "name": "<20 years, 2nd Trimester",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "KGIRGjlPgrq",
+      "name": "On ART at 1st ANC visit",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "N4MPvl4DHTj",
+      "name": "Started on ART in L&D",
+      "remove": "True"
+  },
+  {
+      "id": "OfNFmREOKOD",
+      "name": "Started on ART in ANC (Option B+)",
+      "remove": "True"
+  },
+  {
+      "id": "snwLRdi9LDc",
+      "name": "Tested - Initial  test in L&D",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "hMeuPCfMjY3",
+      "name": "Started on ART in PNC (within 72 hours)",
+      "remove": "True"
+  },
+  {
+      "id": "ZQH8UzASmZY",
+      "name": "20+ years, 1st Trimester",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "QsBECdbzg5J",
+      "name": "<20 years, 1st Trimester",
+      "mapping": {
+          "age_group": "15-49"
+      }
+  },
+  {
+      "id": "FbQySi4EF2g",
+      "name": "Started ART from (after 72hrs but < 6 weeks)",
+      "remove": "True"
+  },
+  {
+    "id": "u3zNA6CU0aC",
+    "name": "(+50)y, Female",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "female"
+    }
+  },
+  {
+    "id": "Qqla7AHVmyE",
+    "name": "(20-24)y, Female",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "female"
+    }
+  },
+  {
+    "id": "Etb79cTNmIK",
+    "name": "Age <1y, Male",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "rj1w1Pq8jkf",
+    "name": "Age(100-14)y, Male",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "Ak2FdPn5Q9G",
+    "name": "Age(100-14)y, Female",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "ZjHIkuvbhVC",
+    "name": "Male, (1-4)y",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "KaUFNUYC7ft",
+    "name": "Age <1y, Female",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "P02eYTPt4dS",
+    "name": "(+50)y, Male",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "male"
+    }
+  },
+  {
+    "id": "puTb3F0KdEX",
+    "name": "(15-19 )y, Female",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "female"
+    }
+  },
+  {
+    "id": "C56tlhPFjfp",
+    "name": "(15-19 )y, Male",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "male"
+    }
+  },
+  {
+    "id": "GJ9gSSmJoIv",
+    "name": "(5-9)y, Male",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "VZ2XN0ZxA6S",
+    "name": "(20-24)y, Male",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "male"
+    }
+  },
+  {
+    "id": "WqDPWzWmlQT",
+    "name": "Female, (1-4)y",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "mauE5Mua3mf",
+    "name": "(25-49 )y, Female",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "female"
+    }
+  },
+  {
+    "id": "fzKC3XrqoHz",
+    "name": "(5-9)y, Female",
+    "mapping": {
+      "age_group": "00-14",
+      "sex": "both"
+    }
+  },
+  {
+    "id": "GVCeesQOBzo",
+    "name": "(25-49 )y, Male",
+    "mapping": {
+      "age_group": "15+",
+      "sex": "male"
+    }
+  }
+]
