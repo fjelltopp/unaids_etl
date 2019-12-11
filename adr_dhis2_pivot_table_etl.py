@@ -117,16 +117,17 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
 def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
     df['dataElementName'] = df['dataElement']
     if PROGRAM_DATA_COLUMN_CONFIG:
-        with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
-            program_config = json.loads(f.read())
-            de_id_map = {}
-            for config_ in program_config:
-                mapping = config_.get('mapping')
-                if not mapping:
-                    continue
-                elif type(mapping) != list:
-                    mapping = [mapping]
-                de_id_map[config_['id']] = mapping
+        de_id_map = {}
+        for column_config_filename in PROGRAM_DATA_COLUMN_CONFIG.split(','):
+            with open(column_config_filename, 'r') as f:
+                program_config = json.loads(f.read())
+                for config_ in program_config:
+                    mapping = config_.get('mapping')
+                    if not mapping:
+                        continue
+                    elif type(mapping) != list:
+                        mapping = [mapping]
+                    de_id_map[config_['id']] = mapping
         extra_rows = pd.DataFrame(columns=list(df))
         for i, row in df.iterrows():
             de_id = row['dataElementName']
@@ -160,13 +161,19 @@ def sort_by_area_name(df: pd.DataFrame) -> pd.DataFrame:
 
 @etl.decorators.log_start_and_finalisation("extract categories and aggregate data")
 def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
-    with open(PROGRAM_DATA_CATEGORY_CONFIG, 'r') as f:
-        category_config = json.loads(f.read())
-        category_mapping = {x['id']: x.get('mapping', {}) for x in category_config}
+    category_mapping = {}
+    for category_config_filename in PROGRAM_DATA_CATEGORY_CONFIG.split(','):
+        with open(category_config_filename, 'r') as f:
+            category_config = json.loads(f.read())
+            map_ = {x['id']: x.get('mapping', {}) for x in category_config}
+            category_mapping.update(map_)
     if PROGRAM_DATA_COLUMN_CONFIG:
-        with open(PROGRAM_DATA_COLUMN_CONFIG, 'r') as f:
-            column_config = json.loads(f.read())
-            column_categories_map = {x['id']: x.get('categoryMapping') for x in column_config}
+        column_categories_map = {}
+        for column_config_filename in PROGRAM_DATA_COLUMN_CONFIG.split(','):
+            with open(column_config_filename, 'r') as f:
+                column_config = json.loads(f.read())
+                map_ = {x['id']: x.get('categoryMapping') for x in column_config}
+                column_categories_map.update(map_)
     else:
         column_categories_map = {}
     categories_to_remove = set([x['id'] for x in category_config if bool(x.get('remove'))])
