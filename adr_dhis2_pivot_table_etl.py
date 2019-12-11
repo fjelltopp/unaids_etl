@@ -211,7 +211,11 @@ def trim_period_strings(df: pd.DataFrame) -> pd.DataFrame:
 def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
     if AREA_ID_MAP:
         area_id_df = pd.read_csv(AREA_ID_MAP, index_col=False)
-        df['area_id'] = df['area_id'].replace(area_id_df.set_index('map_id')['area_id'])
+        if 'map_id' in list(area_id_df):
+            mapping_column_name = 'map_id'
+        else:
+            mapping_column_name = 'dhis2_id'
+        df['area_id'] = df['area_id'].replace(area_id_df.set_index(mapping_column_name)['area_id'])
     return df
 
 
