@@ -82,23 +82,34 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     config_output_dir = os.path.join(OUTPUT_DIR_NAME, "configs")
     os.makedirs(config_output_dir, exist_ok=True)
     with open(os.path.join(config_output_dir, f"{TABLE_TYPE}_category_config.json"), 'w') as f:
-        f.write("[\n")
+        f.write("[")
+        first = True
         for i, row in categories_map.iterrows():
-            line = f'''{{
+            if not first:
+                f.write(',')
+            else:
+                first = False
+            line = f'''
+{{
     "id": "{row["id"]}",
     "name": "{row["name"]}",
     "mapping": {{
         "age_group": "",
         "sex": ""
     }}
-}},
-'''
+}}'''
             f.write(line)
-        f.write("]\n")
+        f.write("\n]\n")
     with open(os.path.join(config_output_dir, f"{TABLE_TYPE}_column_config.json"), 'w') as f:
-        f.write("[\n")
+        f.write("[")
+        first = True
         for i, row in data_elements_map.iterrows():
-            line = f'''{{
+            if not first:
+                f.write(',')
+            else:
+                first = False
+            line = f'''
+{{
     "id": "{row["id"]}",
     "name": "{row["name"]}",
     "mapping": "",
@@ -106,10 +117,9 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
         "age_group": "",
         "sex": ""
     }}
-}},
-'''
+}}'''
             f.write(line)
-        f.write("]\n")
+        f.write("\n]\n")
 
     return df
 
@@ -269,6 +279,10 @@ if __name__ == '__main__':
                         dest='pickle',
                         action='store_true',
                         help='fetch data from local pickle instead http call to DHIS2')
+    parser.add_argument('-t', '--pivot-table-config',
+                        dest='pt_config',
+                        action='store_true',
+                        help='fetch pivot table configuration data from DHIS2')
     args = parser.parse_args()
 
     load_dotenv(args.env_file)
@@ -287,28 +301,30 @@ if __name__ == '__main__':
 
     get_metadata(from_pickle=args.pickle)
     tables = json.loads(PROGRAM_DATA)
-    for table in tables:
-        TABLE_TYPE = table['name']
-        etl.LOGGER.info(f"Starting fetching metadata for table \"{TABLE_TYPE}\"")
-        dhis2_pivot_table_id = table['dhis2_pivot_table_id']
-        (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=args.pickle)
-         .pipe(export_category_config)
-         )
-        etl.LOGGER.info(f"Finished fetching metadata for table \"{TABLE_TYPE}\"")
-    for table in tables:
-        TABLE_TYPE = table['name']
-        etl.LOGGER.info(f"Starting data fetch for table \"{TABLE_TYPE}\"")
-        dhis2_pivot_table_id = table['dhis2_pivot_table_id']
-        out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=True)
-                .pipe(extract_data_elements_names)
-                .pipe(extract_areas_names)
-                .pipe(extract_categories_and_aggregate_data)
-                .pipe(sort_by_area_name)
-                .pipe(map_dhis2_id_area_id)
-                .pipe(trim_period_strings)
-               )
-        output_file_path = os.path.join(OUTPUT_DIR_NAME, 'program', f"{EXPORT_NAME}_dhis2_pull_{TABLE_TYPE}.csv")
-        etl.LOGGER.info(f"Saving \"{TABLE_TYPE}\" data to file {output_file_path}")
-        os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
-        out.to_csv(output_file_path, index=None, float_format='%.f')
-        etl.LOGGER.info(f"Finished processing table \"{TABLE_TYPE}\"")
+    if args.pt_config:
+        for table in tables:
+            TABLE_TYPE = table['name']
+            etl.LOGGER.info(f"Starting fetching metadata for table \"{TABLE_TYPE}\"")
+            dhis2_pivot_table_id = table['dhis2_pivot_table_id']
+            (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=args.pickle)
+             .pipe(export_category_config)
+             )
+            etl.LOGGER.info(f"Finished fetching metadata for table \"{TABLE_TYPE}\"")
+    else:
+        for table in tables:
+            TABLE_TYPE = table['name']
+            etl.LOGGER.info(f"Starting data fetch for table \"{TABLE_TYPE}\"")
+            dhis2_pivot_table_id = table['dhis2_pivot_table_id']
+            out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=True)
+                    .pipe(extract_data_elements_names)
+                    .pipe(extract_areas_names)
+                    .pipe(extract_categories_and_aggregate_data)
+                    .pipe(sort_by_area_name)
+                    .pipe(map_dhis2_id_area_id)
+                    .pipe(trim_period_strings)
+                   )
+            output_file_path = os.path.join(OUTPUT_DIR_NAME, 'program', f"{EXPORT_NAME}_dhis2_pull_{TABLE_TYPE}.csv")
+            etl.LOGGER.info(f"Saving \"{TABLE_TYPE}\" data to file {output_file_path}")
+            os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
+            out.to_csv(output_file_path, index=None, float_format='%.f')
+            etl.LOGGER.info(f"Finished processing table \"{TABLE_TYPE}\"")
