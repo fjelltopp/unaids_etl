@@ -1,9 +1,14 @@
 # unaids_etl
-ETL scripts to be used in UNAIDS.
+ETL scripts to be used in UNAIDS. There are two scripts in the repo:
+1. `adr_dhis2_geodata_etl.py` to fetch geographic area information from DHIS2
+2. 'adr_dhis2_pivot_table_etl.py` to fetch program data (anc/art) from DHIS2's pivot tables
+
+## Run the scripts:
+### Environment setup:
 1. Go inside the unaids_etl project directory
     ```
     cd unaids_etl
-1. Create venv for your etl and activate it.
+2. Create venv for your etl and activate it.
     ```
     # Linux/Mac
     python -m venv venv
@@ -13,12 +18,12 @@ ETL scripts to be used in UNAIDS.
     .\env\Scripts\activate
     ```
 
-2. Install the requirements by
+3. Install the requirements by
     ```
     pip install -r requirements.txt
     ```
-    
-3. Script configuration:
+### Geodata fetch: 
+4. Script configuration:
     - using `.env` file:
         ```
         DHIS2_URL - specific url to fetch organisation units data in specific format (see example below)
@@ -55,3 +60,34 @@ ETL scripts to be used in UNAIDS.
         ```
         python adr_dhis2_geodata_etl.py -p -e env/play.env 
         ```
+### Program data fetch: 
+The program anc/art data is fetched as DHIS2 pivot table data pull. This require some interim configuration on how to map pivot table structure into output csv file.
+#### Config `env` file:
+```
+DHIS2_URL=https://play.dhis2.org/api/26/
+DHIS2_USERNAME=admin
+DHIS2_PASSWORD=district
+
+OUTPUT_DIR_NAME=PLAY
+
+PROGRAM_DATA='[
+{"name": "play_anc", "dhis2_pivot_table_id": "VlppluVonvM"},
+{"name": "play_art", "dhis2_pivot_table_id": "A5LfrfQRGmc"}
+]'
+
+PROGRAM_DATA_CATEGORY_CONFIG='play_anc_category_config.json,play_art_category_config.json'
+PROGRAM_DATA_COLUMN_CONFIG='play_anc_column_config.json,play_art_column_config.json'
+AREA_ID_MAP='play_area_map_datim.csv' (Optional)
+```
+#### Running the pivot table ETL script:
+The script should be run first time to fetch configuration and second time to fetch the data:
+* Configuration pull
+    ```
+    python adr_dhis2_geodata_etl.py -e path_to/play.env --pivot-table-config
+    ```
+    Afterwards you should find config files templates (2 for each configured pivot table) in directory `output/play/configs`. You should update those files and put the file paths to the updated files in `env` config with `PROGRAM_DATA_CATEGORY_CONFIG` `PROGRAM_DATA_COLUMN_CONFIG` 
+* Second run
+    ```
+    python adr_dhis2_geodata_etl.py -e path_to/play.env
+    ```
+    This will output fetched pivot tables as csv files in `output/play/program` directory
