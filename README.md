@@ -83,11 +83,11 @@ AREA_ID_MAP='play_area_map_datim.csv' (Optional)
 The script should be run first time to fetch configuration and second time to fetch the data:
 * Configuration pull
     ```
-    python adr_dhis2_geodata_etl.py -e path_to/play.env --pivot-table-config
+    python adr_dhis2_pivot_table.py -e path_to/play.env --pivot-table-config
     ```
     Afterwards you should find config files templates (2 for each configured pivot table) in directory `output/play/configs`. You should update those files and put the file paths to the updated files in `env` config with `PROGRAM_DATA_CATEGORY_CONFIG` `PROGRAM_DATA_COLUMN_CONFIG` 
 * Second run
     ```
-    python adr_dhis2_geodata_etl.py -e path_to/play.env
+    python adr_dhis2_pivot_table_etl.py -e path_to/play.env
     ```
     This will output fetched pivot tables as csv files in `output/play/program` directory
