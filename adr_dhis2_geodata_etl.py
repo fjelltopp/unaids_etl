@@ -19,14 +19,17 @@ import requests
 from requests.auth import HTTPBasicAuth
 from dotenv import load_dotenv
 
+import credentials
+
 etl.LOGGER = etl.logging.get_logger(log_name="DHIS2 geo data pull", log_group="dhis2_geo_etl")
 
 
 @etl.decorators.log_start_and_finalisation("get dhis2 org data")
 def get_dhis2_org_data(pickle_path=None):
+    dhis2_url = os.environ.get("DHIS2_URL")
+    credentials.read_credentials(os.environ.get("DHIS2_CREDENTIALS_FILE"))
     username = os.environ.get("DHIS2_USERNAME")
     password = os.environ.get("DHIS2_PASSWORD")
-    dhis2_url = os.environ.get("DHIS2_URL")
     org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates"
     r = requests.get(urljoin(dhis2_url, org_resource_url), auth=HTTPBasicAuth(username, password))
     etl.requests_util.check_if_response_is_ok(r)
