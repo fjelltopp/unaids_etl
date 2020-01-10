@@ -1,0 +1,821 @@
+[
+{
+    "id": "aPB9hvARz8F",
+    "name": "20-24, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "n9YGebFFYxj",
+    "name": "30-34, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Gjv6YSoO3Og",
+    "name": "30-34, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "q3Vh5y7ALgr",
+    "name": "40-49, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "A2MPGbUmeyX",
+    "name": "30-34, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "dyREvvyOXaq",
+    "name": "25-29, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "tHOwheNnVZP",
+    "name": "30-34, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "aDO5rKzIUjj",
+    "name": "25-29, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "BNxBrkZHoIj",
+    "name": "20-24, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "nX4I6OWgLhK",
+    "name": "45-49, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Wn4BiO9qGQx",
+    "name": "35-39, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "rkCstFZdZ63",
+    "name": "25-49, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "M1YseWnfCmm",
+    "name": "20-24, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "PYDtXtMwEBg",
+    "name": "15-19, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "D0FAkQYhM51",
+    "name": "50+, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "mYJxoKsrY9s",
+    "name": "15-19, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Cn4g5a16slF",
+    "name": "15-19, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "HKWsaDC3VlV",
+    "name": "20-24, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "v1SkxpwKWND",
+    "name": "15-19, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "eGjLa8Q27au",
+    "name": "35-39, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "ivDtJODDkOt",
+    "name": "25-49, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "wC0BzPgXlyS",
+    "name": "20-24, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Za1ntF1ECu4",
+    "name": "35-39, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "YJQMU2AnExj",
+    "name": "35-39, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "EArMQ2DyEAp",
+    "name": "30-34, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "YyHmJqtHB03",
+    "name": "30-34, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "uEGqYHYtXfS",
+    "name": "40-44, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "k8DCBpp9FK9",
+    "name": "30-34, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "fvRK9QqWpCE",
+    "name": "25-29, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "obKeFKv2IAj",
+    "name": "25-29, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "tfLs2DP45Ls",
+    "name": "10-14, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "gTNPMeLIuzT",
+    "name": "Unknown Age, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "NujbceGNYiA",
+    "name": "30-34, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "KuTz2tMmJOk",
+    "name": "30-34, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "dGTaodokiEE",
+    "name": "45-49, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "dIZKcE7VOzb",
+    "name": "35-39, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "DFzggejPePH",
+    "name": "40-44, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "NV4yIC2I2Zt",
+    "name": "25-29, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "mFpk2mIJQzt",
+    "name": "25-29, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "CMGPmw4lj5y",
+    "name": "40-44, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "q8kWTLZlUdZ",
+    "name": "25-29, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "QazyoPSt2XH",
+    "name": "10-14, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "fV5tEN9m3a0",
+    "name": "50+, Female",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "FpFccVUBck2",
+    "name": "25-29, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "E6ivU7AttrG",
+    "name": "25-29, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "UN0vy0VSyHQ",
+    "name": "15-19, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "jz0vTkTNFGy",
+    "name": "20-24, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "lQcycFNg0rl",
+    "name": "15-19, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "aluqwhKuVku",
+    "name": "20-24, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "niWaVaEzwro",
+    "name": "15-19, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "vMqqlUlWcHY",
+    "name": "25-29, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "yBopqmUtvhv",
+    "name": "20-24, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "nGcx0LefZBV",
+    "name": "10-14, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "AkOKGZjTuJH",
+    "name": "25-29, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "JAaAaNVbkAb",
+    "name": "40-44, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Z5iIpHjCGB1",
+    "name": "45-49, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "tfDXz04qcnR",
+    "name": "35-39, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "dNpO4A1jvDF",
+    "name": "35-39, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "EiAbsj5GHgc",
+    "name": "35-39, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "zCrKbLh9x6i",
+    "name": "20-24, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "k8LvIF8sVZj",
+    "name": "35-39, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "tH9T37nOaTL",
+    "name": "40-44, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "DCzXQHdDxVw",
+    "name": "30-34, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "XSFhvrdvW0E",
+    "name": "Unknown Age, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "UwlQTn6TWp8",
+    "name": "30-34, Female, Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "M5WmuzUAdzH",
+    "name": "25-49, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "fAuEkRp7Do4",
+    "name": "45-49, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "jzATmmu61Pq",
+    "name": "20-24, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "iikLhgyiAro",
+    "name": "20-24, Female, Recent Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "lvtUEyjc6Pr",
+    "name": "35-39, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "SvEiWh2HosA",
+    "name": "35-39, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Io640W5BM1N",
+    "name": "15-19, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "uKw7zNnB6QZ",
+    "name": "40-44, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "F7J23OynwjS",
+    "name": "Unknown Age, Female",
+    "mapping": {
+        "age_group": "NA"
+    }
+},
+{
+    "id": "l1f04B314eL",
+    "name": "40-49, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "ZWq488MmrC3",
+    "name": "35-39, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "t6J1nthxMhI",
+    "name": "10-14, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "RPkPQhCnMAg",
+    "name": "30-34, Female",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "bGJGYyYer7f",
+    "name": "15-19, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "B0YaR1ETmQ5",
+    "name": "25-49, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "h3amvGuBO0Z",
+    "name": "40-49, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "rCrHJrYGJSl",
+    "name": "15-19, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "UWqNBKojMHM",
+    "name": "45-49, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "aRTr56B7STz",
+    "name": "20-24, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "eX5GzLKIwqo",
+    "name": "50+, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "fEUVhqJOtcE",
+    "name": "50+, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "lRLgTqrkSUb",
+    "name": "25-29, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Dvi71PYwhYc",
+    "name": "20-24, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "aBPjNhCPVGG",
+    "name": "50+, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "Wjm2Jejaqh2",
+    "name": "10-14, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "rldbkAcG6hL",
+    "name": "45-49, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Z6bJbrEQUjl",
+    "name": "40-49, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Tnh49iSr4Pj",
+    "name": "Unknown Age, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "NA"
+    }
+},
+{
+    "id": "I4Cl85U5Jph",
+    "name": "<10, Female, Newly Identified Negative",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "ZfcrlkZli5n",
+    "name": "50+, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "hXyyQtaNPMh",
+    "name": "40-44, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "I4TXHYj3bFL",
+    "name": "50+, Female",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "CQz1usv1yjJ",
+    "name": "15-19, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "sPByZmFYnZh",
+    "name": "10-14, Life-long ART, Already, Female, Positive",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "VAzPX0jofbR",
+    "name": "10-14, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "pOo1PjtGdoO",
+    "name": "40-44, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "cZB63VqilJU",
+    "name": "50+, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "i4BSjaJLaCe",
+    "name": "25-29, Female, Recent Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "TKDDSbTuQNp",
+    "name": "45-49, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "kjmB7uKc99Z",
+    "name": "10-14, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "j1nqzfIdu6a",
+    "name": "45-49, Life-long ART, New, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "nkvwIq2NBOh",
+    "name": "15-19, Female, Positive",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "FATw338XdmD",
+    "name": "10-14, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "PpWt03yRclQ",
+    "name": "10-14, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "LIyDNqOwzKS",
+    "name": "50+, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "lno7KOoC6A6",
+    "name": "10-14, Female, Newly Identified Positive",
+    "mapping": {
+        "age_group": "00-14"
+    }
+},
+{
+    "id": "HNibyzAdv9N",
+    "name": "15-19, Female, Recent Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "dyHk0psUHP3",
+    "name": "30-34, Female, Recent Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "iMLlWF98yCY",
+    "name": "50+, Female, Known at Entry Positive",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "h8LZkZgAM6W",
+    "name": "40-44, Female, Recent Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "BVy7dN8KTEA",
+    "name": "50+, Female, Positive",
+    "mapping": {
+        "age_group": "50+"
+    }
+},
+{
+    "id": "CKKnaI3lNiZ",
+    "name": "35-39, Female, Recent Negative",
+    "mapping": {
+        "age_group": "15-49"
+    }
+}
+]

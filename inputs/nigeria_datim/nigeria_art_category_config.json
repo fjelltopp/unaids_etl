@@ -1,0 +1,354 @@
+[
+{
+    "id": "iIZEtL6l6Hb",
+    "name": "25-29, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "YDzeLL6xf5o",
+    "name": "30-34, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "PEXIFVXGP9S",
+    "name": "40-44, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "Vi8sd7mvZW4",
+    "name": "30-34, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "zqARzn2wVj5",
+    "name": "25-29, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "LyXZybq6Sjf",
+    "name": "20-24, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "zLbjm4E1NsG",
+    "name": "5-9, Female, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "tEMe0224zlP",
+    "name": "10-14, Male, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "zpiyTuKQQ2e",
+    "name": "20-24, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "qGGD28Qe9Q3",
+    "name": "25-49, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "F0cTl1AAJxz",
+    "name": "40-49, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "RED4BPdFO11",
+    "name": "25-29, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "LljzDYxQ1Ga",
+    "name": "30-34, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "zUjkTTlva36",
+    "name": "45-49, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "CtnbWoya5d5",
+    "name": "1-9, Unknown Sex, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "y9LP85d8t4b",
+    "name": "25-29, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "GnpJeq2XENE",
+    "name": "<1, Male, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "lA60kBSujWH",
+    "name": "50+, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "fYknd2lPzAm",
+    "name": "<1, Unknown Sex, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "jjUGfPF0ObP",
+    "name": "1-4, Male, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "QNulEjcSLQT",
+    "name": "20-24, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "QwUdNwRA8Uc",
+    "name": "50+, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "TEgIyIVs5JA",
+    "name": "35-39, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "cci2MH041nc",
+    "name": "40-49, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "AG0milXShQM",
+    "name": "10-14, Female, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "lR2zeQ9VfB8",
+    "name": "50+, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "T9kxtfDL0pn",
+    "name": "35-39, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "aQHB69TmOWe",
+    "name": "30-34, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "J8fGj3Iefbc",
+    "name": "45-49, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "XcW5HWccYYZ",
+    "name": "35-39, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "rPO0WWEbKzL",
+    "name": "50+, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "p1HABZs9ydt",
+    "name": "5-9, Male, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "QqlHrg6f0Sm",
+    "name": "15-19, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "J7mbG9jKSpr",
+    "name": "10-14, Female, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "hRq4baaUamW",
+    "name": "35-39, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "EZmGUHFzW7r",
+    "name": "25-49, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "dRjezxQktoz",
+    "name": "1-4, Female, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "LpnJL4zZxRH",
+    "name": "15-19, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "S4urVfq4oVX",
+    "name": "10-14, Male, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "NCnIv37EwU1",
+    "name": "20-24, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "zouTxRQ0kXP",
+    "name": "40-44, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "h5FQFklI9Vn",
+    "name": "15-19, Male, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "OMVFa98P0Yg",
+    "name": "<1, Female, Positive",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "Ek2cTSEcl3p",
+    "name": "15-19, Female, Positive",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+}
+]

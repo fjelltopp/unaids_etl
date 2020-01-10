@@ -1,0 +1,22 @@
+[
+{
+    "id": "fg53NvKg3EN",
+    "name": "PMTCT_STAT (N, DSD, Age/Sex/KnownNewResult): Known Results",
+    "mapping": "anc_known_pos"
+},
+{
+    "id": "RHN2Ui10Ivu",
+    "name": "PMTCT_STAT (D, DSD, Age/Sex): New ANC clients",
+    "mapping": "anc_clients"
+},
+{
+    "id": "uNEH5voNvTC",
+    "name": "HTS_TST (N, DSD, PMTCT PostANC/Age/Sex/Result): HTS received results",
+    "mapping": "ancrt_tested"
+},
+{
+    "id": "iAYee99BIjX",
+    "name": "PMTCT_ART (N, DSD, Age/NewExistingArt/Sex/HIVStatus): ART",
+    "mapping": "ancrt_already_art"
+}
+]
