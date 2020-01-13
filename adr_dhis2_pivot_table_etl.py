@@ -235,6 +235,14 @@ def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
         else:
             mapping_column_name = 'dhis2_id'
         df['area_id'] = df['area_id'].replace(area_id_df.set_index(mapping_column_name)['area_id'])
+
+        # check if the DataFrame has duplicate mappings
+        df_count = df.groupby(['area_id', 'period', 'age_group']).count()
+        any_many_to_one_mappings = df_count[df_count > 1].any().any()
+
+        if any_many_to_one_mappings:
+            pass
+
     return df
 
 
