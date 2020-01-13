@@ -1,0 +1,1013 @@
+area_id,map_level,map_name,map_id,map_source
+zanzi_0_1,0,Zanzibar,UNSNiNqkzEM,DHIS2
+zanzi_1_1,1,Unguja,l9kxy7vLv6t,DHIS2
+zanzi_1_2,1,Pemba,lHwuEQcm5Nc,DHIS2
+zanzi_2_1,2,Kaskazini Unguja,W6jJDTk3bbV,DHIS2
+zanzi_2_2,2,Kaskazini Pemba,HooiQsUf6Ld,DHIS2
+zanzi_2_3,2,Mjini Magharibi,vQeQa5EYuLG,DHIS2
+zanzi_2_4,2,Kusini Unguja,gwhjcchc79h,DHIS2
+zanzi_2_5,2,Kusini Pemba,E7kSZ0kTydr,DHIS2
+zanzi_3_1,3,Wete,TwPFnc8lCic,DHIS2
+zanzi_3_2,3,Mjini,eCeku5fUWg8,DHIS2
+zanzi_3_3,3,Magharibi B,WfqqlQpZcvR,DHIS2
+zanzi_3_4,3,Magharibi A,Nyd7qIdoR4R,DHIS2
+zanzi_3_5,3,Mkoani,k8V8c7k7N6r,DHIS2
+zanzi_3_6,3,Kaskazini A,BMypT6EsqYe,DHIS2
+zanzi_3_7,3,Kaskazini B,CUj7PGZc7hz,DHIS2
+zanzi_3_8,3,Chake Chake,pL1wFa44qlV,DHIS2
+zanzi_3_9,3,Micheweni,hPM1tktxcGD,DHIS2
+zanzi_3_10,3,Kati,KugzhF5keVO,DHIS2
+zanzi_3_11,3,Kusini,ZKOfi7Uxr50,DHIS2
+zanzi_4_1,4,Mwembe Madema,hoQqEO35AWR,DHIS2
+zanzi_4_2,4,Kisongoni,uu8lEv4LFfn,DHIS2
+zanzi_4_3,4,Kitope,lUd2ukAgfdx,DHIS2
+zanzi_4_4,4,Mwembe Majogoo,HOxE8Nn54fY,DHIS2
+zanzi_4_5,4,Kitogani,t68liEeFWyp,DHIS2
+zanzi_4_6,4,Mwembeladu,jROaSbd45rw,DHIS2
+zanzi_4_7,4,Mwembemakumbi,yZqw2s1xeyW,DHIS2
+zanzi_4_8,4,Kisiwandui,LrQAr3LrPAV,DHIS2
+zanzi_4_9,4,Kisiwa Panza,lK9iji290lx,DHIS2
+zanzi_4_10,4,Kisimajongoo,Ja0OCsxSjRl,DHIS2
+zanzi_4_11,4,Kiungani,AL1de7AHDhX,DHIS2
+zanzi_4_12,4,Kisauni,LAphXQ13MAD,DHIS2
+zanzi_4_13,4,Mwembeshauri,Vio0CFpp1p7,DHIS2
+zanzi_4_14,4,Kiponda,Pjnn5S4kCuq,DHIS2
+zanzi_4_15,4,Kipangani,k4NtAtd6cCT,DHIS2
+zanzi_4_16,4,Mwembetanga,X87poq3Yefa,DHIS2
+zanzi_4_17,4,Kiongwe Kidogo,cRBHgwzHRFN,DHIS2
+zanzi_4_18,4,Kiongoni,oqvo7UiQdfm,DHIS2
+zanzi_4_19,4,Kisiwani,fbapxmVisMi,DHIS2
+zanzi_4_20,4,Kiungoni,P6hZTIK4TaC,DHIS2
+zanzi_4_21,4,Zuwiyani,lIiYl2jjoc2,DHIS2
+zanzi_4_22,4,Mwanyanya,eWHWj7S1UBV,DHIS2
+zanzi_4_23,4,Kiwengwa,LdHnSLJyQUH,DHIS2
+zanzi_4_24,4,Mtemani,zYUHesr4MDT,DHIS2
+zanzi_4_25,4,Kiwani,aMD7vdCsXWJ,DHIS2
+zanzi_4_26,4,Mtemani,SJRZin5gyTP,DHIS2
+zanzi_4_27,4,Mtende,GboPqzpNQax,DHIS2
+zanzi_4_28,4,Mto Pepo,OEQb3GCa09t,DHIS2
+zanzi_4_29,4,Mto wa Pwani,deipR1liBD0,DHIS2
+zanzi_4_30,4,Mtofaani,OD9KdoARTnA,DHIS2
+zanzi_4_31,4,Mtoni,pgjjSF4h295,DHIS2
+zanzi_4_32,4,Mtoni Kidutani,JzJohPmegDf,DHIS2
+zanzi_4_33,4,Mtoni Kigomeni,PxeEL2pM9JQ,DHIS2
+zanzi_4_34,4,Muambe,WXDpxeejeYL,DHIS2
+zanzi_4_35,4,Kiuyu Kigongoni,Guqosmg5xHn,DHIS2
+zanzi_4_36,4,Muungano,AhJPvgEzbhw,DHIS2
+zanzi_4_37,4,Muwanda,qx1Xs23S7Wf,DHIS2
+zanzi_4_38,4,Muwange,nExp7nfwwoH,DHIS2
+zanzi_4_39,4,Muyuni 'A',H5yv5Fpf432,DHIS2
+zanzi_4_40,4,Muyuni 'B',t9UWDLCZlnK,DHIS2
+zanzi_4_41,4,Muyuni 'C',qeXeb76z07U,DHIS2
+zanzi_4_42,4,Mvumoni,GeXIoKJNFMG,DHIS2
+zanzi_4_43,4,Mwakaje,QKIfACIj2I4,DHIS2
+zanzi_4_44,4,Mwanakwerekwe,RtxcTcmWkWd,DHIS2
+zanzi_4_45,4,Mwera,Df2PgBSQqHi,DHIS2
+zanzi_4_46,4,Kivunge,MrnC3l9GZai,DHIS2
+zanzi_4_47,4,Kiuyu Mbuyuni,UNZ7Rkut17n,DHIS2
+zanzi_4_48,4,Kiuyu Maziwa Ng'ombe,PEdoXPNwLug,DHIS2
+zanzi_4_49,4,Muungoni,akTlAHWUoes,DHIS2
+zanzi_4_50,4,Kiomba Mvua,bgfbQkoYOes,DHIS2
+zanzi_4_51,4,Kinowe,xa1xGkSd1xh,DHIS2
+zanzi_4_52,4,Kinyasini,YRurpLNyhZi,DHIS2
+zanzi_4_53,4,Kidombo,A7xFpQbeMe4,DHIS2
+zanzi_4_54,4,Ndijani Mseweni,urH08ctBd12,DHIS2
+zanzi_4_55,4,Kidimni,AR0fqfEYnRt,DHIS2
+zanzi_4_56,4,Kidanzini,Epx6opnc5gj,DHIS2
+zanzi_4_57,4,Kichungwani,ZZomofhnR6H,DHIS2
+zanzi_4_58,4,Kichungwani,wTdkuVosJjS,DHIS2
+zanzi_4_59,4,Kibweni,uIefvewwrFU,DHIS2
+zanzi_4_60,4,Ndijani Muembe Punda,fdhUMpKQqLz,DHIS2
+zanzi_4_61,4,Kibuteni,TkdzF82KCYu,DHIS2
+zanzi_4_62,4,Kibokoni,eYBMkws0FSy,DHIS2
+zanzi_4_63,4,Kiboje Mwembe Shauri,H92KPyUUj3U,DHIS2
+zanzi_4_64,4,Kiboje Mkwajuni,ThDeRdJ4tBB,DHIS2
+zanzi_4_65,4,Kibeni,opBNlVN9ZM9,DHIS2
+zanzi_4_66,4,Mchangani,mvbzGDHV3d8,DHIS2
+zanzi_4_67,4,Kengeja,Z6abroHtDZq,DHIS2
+zanzi_4_68,4,Ng'ambwa,JOXR8sC4tdK,DHIS2
+zanzi_4_69,4,Kendwa,fhPMJcpTD5P,DHIS2
+zanzi_4_70,4,Karakana,cIVe2kpkxGB,DHIS2
+zanzi_4_71,4,Ng'ambwa,bGLkeheuY8K,DHIS2
+zanzi_4_72,4,Kangani,cvhVDLUGBSG,DHIS2
+zanzi_4_73,4,Ng'ombeni,NR73i0EaOgt,DHIS2
+zanzi_4_74,4,Kangagani,KqbUh2Y6kbm,DHIS2
+zanzi_4_75,4,Kandwi,Oho2OYMi5QM,DHIS2
+zanzi_4_76,4,Nganani,PWKAmIn47MQ,DHIS2
+zanzi_4_77,4,Kambini,OwUFngiICeL,DHIS2
+zanzi_4_78,4,Kidongo Chekundu,GxUrAXBZgiF,DHIS2
+zanzi_4_79,4,Kinyasini,yppO4nBqbSG,DHIS2
+zanzi_4_80,4,Kidoti,pCjf93fqe2z,DHIS2
+zanzi_4_81,4,Mzuri,DbQVM7vtqok,DHIS2
+zanzi_4_82,4,Kinyasini,SRJcg64DE3T,DHIS2
+zanzi_4_83,4,Kinuni,Api8xYnfVfl,DHIS2
+zanzi_4_84,4,Mtangani,ihUKZtYg9gv,DHIS2
+zanzi_4_85,4,Kinduni,RwIHcmJb4gW,DHIS2
+zanzi_4_86,4,Kilombero,n2qoobsOTn1,DHIS2
+zanzi_4_87,4,Kilindi,U5y4F3VLsDi,DHIS2
+zanzi_4_88,4,Kilindi,GDPvvFPtPsp,DHIS2
+zanzi_4_89,4,Kilimani,LgPqJ0nDANL,DHIS2
+zanzi_4_90,4,Kilimani,x9wYIAP4ONY,DHIS2
+zanzi_4_91,4,Kilimahewa juu,lR3SF7JtaHA,DHIS2
+zanzi_4_92,4,Kilimahewa Bondeni,tf5LTT5j2vr,DHIS2
+zanzi_4_93,4,Kikwajuni Juu,JGNQ1kJwGB1,DHIS2
+zanzi_4_94,4,Kikwajuni Bondeni,rYEwQ3Wmt4A,DHIS2
+zanzi_4_95,4,Kikungwi,UhlthEQw8KF,DHIS2
+zanzi_4_96,4,Kikobweni,hEWYJd5RaVs,DHIS2
+zanzi_4_97,4,Kijini 2,T4hk3npCbQt,DHIS2
+zanzi_4_98,4,Kijini,d0uVVzZ8QNC,DHIS2
+zanzi_4_99,4,Kijichi,ATe7Z85u6ul,DHIS2
+zanzi_4_100,4,Kijibwe Mtu,AD3UwPteSNj,DHIS2
+zanzi_4_101,4,Kihinani,hUTDgFU4Obp,DHIS2
+zanzi_4_102,4,Kigunda,z8uIBdt0oKN,DHIS2
+zanzi_4_103,4,Kigomani,fp6Cnue0RmX,DHIS2
+zanzi_4_104,4,Mzambarau Takao,nH81EHUTN1I,DHIS2
+zanzi_4_105,4,Kifundi,sqhT4l2Rc6D,DHIS2
+zanzi_4_106,4,Kiembe Samaki,DEJm4qBI0Wq,DHIS2
+zanzi_4_107,4,Ndagoni,ZvOb5Cjqx4I,DHIS2
+zanzi_4_108,4,Kizimbani,LYtCupV2ttq,DHIS2
+zanzi_4_109,4,Mtakuja,Y47ksrSpFlj,DHIS2
+zanzi_4_110,4,Mtambwe Kusini,fl2DnCHzaoY,DHIS2
+zanzi_4_111,4,Marumbi,Xfu7iCIg6Rx,DHIS2
+zanzi_4_112,4,Maruhubi,NE2i8768crJ,DHIS2
+zanzi_4_113,4,Mgogoni,N2t7BIr684f,DHIS2
+zanzi_4_114,4,Mapinduzi,JCl7729SPnM,DHIS2
+zanzi_4_115,4,Mangapwani,LWf8fvbX0fp,DHIS2
+zanzi_4_116,4,Mambosasa,MxUkUWxUJmD,DHIS2
+zanzi_4_117,4,Malindi,OCVkg4CJ2xg,DHIS2
+zanzi_4_118,4,Michamvi,GVDVXAG7KfH,DHIS2
+zanzi_4_119,4,Michenzani,bgaxTtVyxyV,DHIS2
+zanzi_4_120,4,Micheweni,ugBfanqZ6L4,DHIS2
+zanzi_4_121,4,Michungwani,X4gEwmFfDCi,DHIS2
+zanzi_4_122,4,Michungwani,yn4bnCebOiu,DHIS2
+zanzi_4_123,4,Miembeni,D6qaWF8A2eR,DHIS2
+zanzi_4_124,4,Migombani,SGECY7x96f3,DHIS2
+zanzi_4_125,4,Mihogoni,eUs9ImPVVzN,DHIS2
+zanzi_4_126,4,Mikarafuuni,d9zO67bffJf,DHIS2
+zanzi_4_127,4,Mikunguni,mbtgvqaSX4H,DHIS2
+zanzi_4_128,4,Minazini,P3fX5aci5yV,DHIS2
+zanzi_4_129,4,Minungwini,BIreQIsGCsn,DHIS2
+zanzi_4_130,4,Misufini,Ube3axLwmg7,DHIS2
+zanzi_4_131,4,Mitakawani,F7d6lS2Qv3S,DHIS2
+zanzi_4_132,4,Mitiulaya,ZvE9BvS6mFL,DHIS2
+zanzi_4_133,4,Miwani,JLuCommbz63,DHIS2
+zanzi_4_134,4,Makoongwe,ccil8oNrOkj,DHIS2
+zanzi_4_135,4,Mizingani,cDIQTK5UFLr,DHIS2
+zanzi_4_136,4,Mgogoni,v9vqKfbPa7a,DHIS2
+zanzi_4_137,4,Makondeko,YnFv5sA2jCJ,DHIS2
+zanzi_4_138,4,Mgeni Haji,XNUCJEphop1,DHIS2
+zanzi_4_139,4,Masumbani,QzvaTAq6UCO,DHIS2
+zanzi_4_140,4,Mchangani,Ee400YxTxou,DHIS2
+zanzi_4_141,4,Mchanga Mdogo,SqCHiuvEaef,DHIS2
+zanzi_4_142,4,Mbweni,Kwsm7wiFxB5,DHIS2
+zanzi_4_143,4,Melinne,H0ETQD1R3Ge,DHIS2
+zanzi_4_144,4,Meya,SvPH9tEUED3,DHIS2
+zanzi_4_145,4,Mbuzini,vfuVB7BZGt7,DHIS2
+zanzi_4_146,4,Mbuzini,Y127oe9KcFI,DHIS2
+zanzi_4_147,4,Mbuyuni,jrrUmrn7QWX,DHIS2
+zanzi_4_148,4,Mbuyu Tende,CH4ZylakLTs,DHIS2
+zanzi_4_149,4,Mbuguani,ZbIOVLA4v1L,DHIS2
+zanzi_4_150,4,Mboriborini,NKf7MXjuF8B,DHIS2
+zanzi_4_151,4,Mbaleni,ylDW9PsJuT0,DHIS2
+zanzi_4_152,4,Maziwani,axsBfBIgDaD,DHIS2
+zanzi_4_153,4,Mfenesini,Zop2rtecklS,DHIS2
+zanzi_4_154,4,Mfikiwa,pJfqZgYbGTQ,DHIS2
+zanzi_4_155,4,Mgagadu,bHbf2okYWm0,DHIS2
+zanzi_4_156,4,Maungani,O0J3VDIWVDB,DHIS2
+zanzi_4_157,4,Matetema,SBKwrUrMkYs,DHIS2
+zanzi_4_158,4,Mgambo,GMC3eD7liJO,DHIS2
+zanzi_4_159,4,Mgelema,pKLW8Wh9YFa,DHIS2
+zanzi_4_160,4,Matemwe Kusini,r28UzmqegYq,DHIS2
+zanzi_4_161,4,Matemwe Kaskazini,YxndHXjhNi4,DHIS2
+zanzi_4_162,4,Mgelema,uA5HhRr5pAQ,DHIS2
+zanzi_4_163,4,Matarumbeta ,Gxv6VLWs7HL,DHIS2
+zanzi_4_164,4,Matale,Fov6JaERlU2,DHIS2
+zanzi_4_165,4,Masingini,DQd4TJNKdUi,DHIS2
+zanzi_4_166,4,Kizimbani,xpMSRo2i96u,DHIS2
+zanzi_4_167,4,Makombeni,unABSwa9amP,DHIS2
+zanzi_4_168,4,Makangale,cduz3cqp9CY,DHIS2
+zanzi_4_169,4,Kwa Boko,tkbxTTfyXVQ,DHIS2
+zanzi_4_170,4,Mlandege,pV6IW3ywRfo,DHIS2
+zanzi_4_171,4,Kuukuu,LhdcLW3xEFb,DHIS2
+zanzi_4_172,4,Mlindo,Geq83E2seYV,DHIS2
+zanzi_4_173,4,Kumvini,trq3GuFYuzr,DHIS2
+zanzi_4_174,4,Mnarani,lOfPIpYzHIY,DHIS2
+zanzi_4_175,4,Konde,YPLmgCLZSbI,DHIS2
+zanzi_4_176,4,Mnazimmoja,JcfhItfykzZ,DHIS2
+zanzi_4_177,4,Kombeni,yzrzSxO6LpJ,DHIS2
+zanzi_4_178,4,Mnyimbi,pRmTftzidAD,DHIS2
+zanzi_4_179,4,Kojani,Ztn5nMxcGYt,DHIS2
+zanzi_4_180,4,Koani,FbVHC51UqUR,DHIS2
+zanzi_4_181,4,Moga,UwIjnnifMSR,DHIS2
+zanzi_4_182,4,Mombasa,piaJUAeoCFx,DHIS2
+zanzi_4_183,4,Mpambani,NO49r0cXC22,DHIS2
+zanzi_4_184,4,Mpapa,GGOPhZhLfuR,DHIS2
+zanzi_4_185,4,Mpendae,AGIbXwQT7TC,DHIS2
+zanzi_4_186,4,Msingini,JjJTUzKMkz9,DHIS2
+zanzi_4_187,4,Msuka Magahribi,oyzogDtOlcc,DHIS2
+zanzi_4_188,4,Msuka Mashariki,YmPGTlIN9aj,DHIS2
+zanzi_4_189,4,Kama,kqM4RvzwvgS,DHIS2
+zanzi_4_190,4,Mtambile,YkuTXOp4zxu,DHIS2
+zanzi_4_191,4,Kizimkazi Mkunguni,Mi9MC6xABIM,DHIS2
+zanzi_4_192,4,Mtambwe Kaskazini,hjUT0nUP5OD,DHIS2
+zanzi_4_193,4,Kizimkazi Dimbani,A7rl116uvCc,DHIS2
+zanzi_4_194,4,Kwaalimsha,QLwiba4tDg8,DHIS2
+zanzi_4_195,4,Mjimbini,KGcHkVi8YeE,DHIS2
+zanzi_4_196,4,Kwaalinato,bfVKOAXpXU7,DHIS2
+zanzi_4_197,4,Kwale,TgpazTYxcRJ,DHIS2
+zanzi_4_198,4,Makadara,ZbLTschkvhI,DHIS2
+zanzi_4_199,4,Majenzi,eB4VpR61tLo,DHIS2
+zanzi_4_200,4,Mjini Ole,mZI07xbv3Mh,DHIS2
+zanzi_4_201,4,Mjini Wingwi,BdJ76igfU2p,DHIS2
+zanzi_4_202,4,Mahonda,efpuHhmpoep,DHIS2
+zanzi_4_203,4,Magomeni,PQOvnbvYtVS,DHIS2
+zanzi_4_204,4,Mkadini,rgFzgeyLx4j,DHIS2
+zanzi_4_205,4,Magogoni,fMa37FKReZG,DHIS2
+zanzi_4_206,4,Magogoni,NmiFLgufofG,DHIS2
+zanzi_4_207,4,Mkanyageni,lJ6dzXZot9b,DHIS2
+zanzi_4_208,4,Mkataleni,kN5ka6FECyN,DHIS2
+zanzi_4_209,4,Mafufuni,zAjUPohSW7i,DHIS2
+zanzi_4_210,4,Madungu,gdnk8xlt4vP,DHIS2
+zanzi_4_211,4,Mkele,faN9YO3iASC,DHIS2
+zanzi_4_212,4,Machui,f1vGHfVRnUd,DHIS2
+zanzi_4_213,4,Mkokotoni,LA9HXzI4J9e,DHIS2
+zanzi_4_214,4,Mkoroshoni,kMaaBMcvDMH,DHIS2
+zanzi_4_215,4,Limbani,Liped27Gdh4,DHIS2
+zanzi_4_216,4,Mkunazin,vcBBv0TA4F8,DHIS2
+zanzi_4_217,4,Kwawazee,rHGY6DlrI5r,DHIS2
+zanzi_4_218,4,Kwamtumwajeni,Y81Mtz7zDFd,DHIS2
+zanzi_4_219,4,Mkungu,pbZNhy9Fi2O,DHIS2
+zanzi_4_220,4,Kwamtipura,ZQ9eDJVm1aG,DHIS2
+zanzi_4_221,4,Mkwajuni,zsiCPZBfqB1,DHIS2
+zanzi_4_222,4,Kwamchina,NRmsOJwB4lC,DHIS2
+zanzi_4_223,4,Kwahani,JQ2YSy5iqIx,DHIS2
+zanzi_4_224,4,Kajengwa,kNWZCun2fa2,DHIS2
+zanzi_4_225,4,Kianga,H0DWZCGSwPU,DHIS2
+zanzi_4_226,4,Shungi,Czzww56Pw89,DHIS2
+zanzi_4_227,4,Sizini,AS3ylpVi9eu,DHIS2
+zanzi_4_228,4,Sogea,xrrHCnuJPyN,DHIS2
+zanzi_4_229,4,Sokoni,CYFYInuEOUf,DHIS2
+zanzi_4_230,4,Stahabu,eY9MWEnDMYw,DHIS2
+zanzi_4_231,4,Taveta,K6Xfahu4w68,DHIS2
+zanzi_4_232,4,Tazari,TgicrWKdLxu,DHIS2
+zanzi_4_233,4,Tibirinzi,figtjLWHyw7,DHIS2
+zanzi_4_234,4,Tindini,QIr7v2hWdT4,DHIS2
+zanzi_4_235,4,Ngwachani,rfWSFacNAf6,DHIS2
+zanzi_4_236,4,Tomondo,jUxrI1h0W9p,DHIS2
+zanzi_4_237,4,Chaani Masingini,CNA01W4zi20,DHIS2
+zanzi_4_238,4,Tondooni,SIEt8OJseze,DHIS2
+zanzi_4_239,4,Chaani Kubwa,EuIgI4OmTnu,DHIS2
+zanzi_4_240,4,Tumbatu Gomani,poD6rfH9iMK,DHIS2
+zanzi_4_241,4,Bwereu,tIMrJKWsLyB,DHIS2
+zanzi_4_242,4,Bweleo,LOpTlfdbB3t,DHIS2
+zanzi_4_243,4,Bwejuu,OAXVbzGsesE,DHIS2
+zanzi_4_244,4,Tumbatu Jongowe,cU3iQb1BNVy,DHIS2
+zanzi_4_245,4,Chachani,odWAC96I6OB,DHIS2
+zanzi_4_246,4,Shumba Viamboni,FikIoOCMqT4,DHIS2
+zanzi_4_247,4,Shumba Mjini,pAszNs3Hb1f,DHIS2
+zanzi_4_248,4,Shidi,n1dJTIhnZlm,DHIS2
+zanzi_4_249,4,Chumbageni,wbZ2RTq3500,DHIS2
+zanzi_4_250,4,Chukwani,knkZsyMTOjC,DHIS2
+zanzi_4_251,4,Chuini,GXuMELICRze,DHIS2
+zanzi_4_252,4,Chuchumile,V7Yqpv83DTp,DHIS2
+zanzi_4_253,4,Sebleni,bFxyuBPx2qZ,DHIS2
+zanzi_4_254,4,Chonga,Nn2ZQbgiwVJ,DHIS2
+zanzi_4_255,4,Chokocho,sqeqQdkjgH4,DHIS2
+zanzi_4_256,4,Selem,k8f7pNKiuD2,DHIS2
+zanzi_4_257,4,Cheju,AETNJMykvCF,DHIS2
+zanzi_4_258,4,Charawe,OThXBG9Gikk,DHIS2
+zanzi_4_259,4,Chanjaani,Dys4af33CHQ,DHIS2
+zanzi_4_260,4,Changaweni,GxM4yQJtdko,DHIS2
+zanzi_4_261,4,Shakani,ZXwotWqqH21,DHIS2
+zanzi_4_262,4,Chambani,zstbxII28o7,DHIS2
+zanzi_4_263,4,Shamiani,gJMfWDBrb5n,DHIS2
+zanzi_4_264,4,Shangani,VyelnLQMHAQ,DHIS2
+zanzi_4_265,4,Sharifumsa,AYDOnffMAGe,DHIS2
+zanzi_4_266,4,Shaurimoyo,CN5520kUfmg,DHIS2
+zanzi_4_267,4,Shengejuu,A16TBe59jn1,DHIS2
+zanzi_4_268,4,Bungi,vthTLEd09wY,DHIS2
+zanzi_4_269,4,Tumbatu Uvivini,mEtjMVy3ebn,DHIS2
+zanzi_4_270,4,Bumbwisudi,dGj6n3MLvIG,DHIS2
+zanzi_4_271,4,Tumbe Magharibi,hUtg5rw0zfq,DHIS2
+zanzi_4_272,4,Utaani,B6MHw4WlgKF,DHIS2
+zanzi_4_273,4,Uwandani,NSRmAbmS9N6,DHIS2
+zanzi_4_274,4,Uweleni,RPMsxJlKZRv,DHIS2
+zanzi_4_275,4,Uzi,avdx0Sp1p9b,DHIS2
+zanzi_4_276,4,Uzi,mLiEcYq1Ikv,DHIS2
+zanzi_4_277,4,Uzini,AsJ1J1nZHWy,DHIS2
+zanzi_4_278,4,Vikokotoni,xtItVgfY84k,DHIS2
+zanzi_4_279,4,Vitongoji,Xab4Y7ZBHwo,DHIS2
+zanzi_4_280,4,Amaani,gwmsvWGSld0,DHIS2
+zanzi_4_281,4,Wambaa,ZCXjO6Ejoaq,DHIS2
+zanzi_4_282,4,Wara,AoKK52hrpV7,DHIS2
+zanzi_4_283,4,Wawi,ArnnquvmQVF,DHIS2
+zanzi_4_284,4,Welezo,wyRSvjHq0uW,DHIS2
+zanzi_4_285,4,Wesha,zGqeRtKBjyO,DHIS2
+zanzi_4_286,4,Wingwi Mapofu,ZLNpHK5jr3A,DHIS2
+zanzi_4_287,4,Wingwi Mjananza,zuDwSjDi7dx,DHIS2
+zanzi_4_288,4,Wingwi Njuguni,EwiidEW4xZn,DHIS2
+zanzi_4_289,4,Zingwe Zingwe,t6Ck2hp7qqI,DHIS2
+zanzi_4_290,4,Ziwani,pOwJn0EvGJt,DHIS2
+zanzi_4_291,4,Urusi,Y38W0LUvoSS,DHIS2
+zanzi_4_292,4,Chumbuni,RFfHM1HJVAm,DHIS2
+zanzi_4_293,4,Uroa,wUVdxdW0PHW,DHIS2
+zanzi_4_294,4,Unguja Ukuu Kaepwani,BYLXGEZY8dE,DHIS2
+zanzi_4_295,4,Bumbwini Misufini,RsYNgl9vndC,DHIS2
+zanzi_4_296,4,Tumbe Mashariki,LVy3jeaQ3sS,DHIS2
+zanzi_4_297,4,Bumbwini Makoba,iuwwioe43Ra,DHIS2
+zanzi_4_298,4,Bububu,URN0ofHPxEe,DHIS2
+zanzi_4_299,4,Bopwe,KvVkfNTQu0o,DHIS2
+zanzi_4_300,4,Tunduni,AGFyBlyL6qU,DHIS2
+zanzi_4_301,4,Bitihamrani,wmpevxJbLnR,DHIS2
+zanzi_4_302,4,Binguni,hH0nLOcj1mq,DHIS2
+zanzi_4_303,4,Banko,u29BNHQXbvs,DHIS2
+zanzi_4_304,4,Tungu,z7tqGxOkPYe,DHIS2
+zanzi_4_305,4,Bandamaji,tpyGfVS0nGY,DHIS2
+zanzi_4_306,4,Bandakuu,J6nQw2Y0CYz,DHIS2
+zanzi_4_307,4,Tunguu,rtlpv95MTFl,DHIS2
+zanzi_4_308,4,Bambi,CDoIIjwyHE7,DHIS2
+zanzi_4_309,4,Ubago,VUcF8ikxA4i,DHIS2
+zanzi_4_310,4,Ukongoroni,M2R8B4n0Fw1,DHIS2
+zanzi_4_311,4,Ukunjwi,wgrUGaFPfDV,DHIS2
+zanzi_4_312,4,Ukutini,nPnHbAQUdYa,DHIS2
+zanzi_4_313,4,Umbuji,AO6VdzMg0ZS,DHIS2
+zanzi_4_314,4,Upenja,roQBgxpjVSV,DHIS2
+zanzi_4_315,4,Chutama,IWpE2e3t37y,DHIS2
+zanzi_4_316,4,Mchenza Shauri,DWxBJ8VLMn7,DHIS2
+zanzi_4_317,4,Jadida,ro7pWGye7o9,DHIS2
+zanzi_4_318,4,Nyerere,t71iwJ48xD3,DHIS2
+zanzi_4_319,4,Jambiani Kibigija,EYyNCbZ0RoW,DHIS2
+zanzi_4_320,4,Fuoni Migombani,I7DjwMWiQWo,DHIS2
+zanzi_4_321,4,Pwani Mchangani,uuYQbUTxCH5,DHIS2
+zanzi_4_322,4,Pete,tAzxzMZ94Cq,DHIS2
+zanzi_4_323,4,Jambiani Kikadini,JEadmkI6nlm,DHIS2
+zanzi_4_324,4,Dunga Bweni,gsge0xiuc0G,DHIS2
+zanzi_4_325,4,Dongwe,DtmLYOYwB30,DHIS2
+zanzi_4_326,4,Fuoni Uwandani,SFrb03cNOnS,DHIS2
+zanzi_4_327,4,Donge Vijibweni,GxBX9QKjhmP,DHIS2
+zanzi_4_328,4,Jango'mbe,tmsljjR5DQ0,DHIS2
+zanzi_4_329,4,Chwaka,VEVelWwjbOv,DHIS2
+zanzi_4_330,4,Donge Pwani,NQOix7JxsvV,DHIS2
+zanzi_4_331,4,Fumba,eSE9rW5KT8M,DHIS2
+zanzi_4_332,4,Nyamanzi,lO06ilqYBS8,DHIS2
+zanzi_4_333,4,Pagali,BGVaXyekgdH,DHIS2
+zanzi_4_334,4,Fuoni Kipungani,zy1RBFeAlmX,DHIS2
+zanzi_4_335,4,Fuoni Kijitoupele,Gwvt8oUyKoY,DHIS2
+zanzi_4_336,4,Fundo,byhoHT6epLS,DHIS2
+zanzi_4_337,4,Fujoni,qXZcKhE7JYO,DHIS2
+zanzi_4_338,4,Pongwe,ekrds3wEBLG,DHIS2
+zanzi_4_339,4,Pitanazako,Dra0c3tarlc,DHIS2
+zanzi_4_340,4,Ijitimai,X1WKN5PYKSl,DHIS2
+zanzi_4_341,4,Fuoni Chunga,MR4i2ePIr3m,DHIS2
+zanzi_4_342,4,Dunga Kiembeni,PijhGsNZmFU,DHIS2
+zanzi_4_343,4,Finya,AvP1XiQxObJ,DHIS2
+zanzi_4_344,4,Potoa,zjx6mehrqzY,DHIS2
+zanzi_4_345,4,Ole,WSwM2RbnUOI,DHIS2
+zanzi_4_346,4,Fuoni Ijitimai,ALSN7i8qEIc,DHIS2
+zanzi_4_347,4,Pujini,aqm9dtyrFSW,DHIS2
+zanzi_4_348,4,Fuoni Kibondeni,GmnCWxVMlhe,DHIS2
+zanzi_4_349,4,Piki,gOMeL0EpT7z,DHIS2
+zanzi_4_350,4,Ole,SCDbqBC0e3s,DHIS2
+zanzi_4_351,4,Donge Mtambile,enG2Wi12UH8,DHIS2
+zanzi_4_352,4,Jendele,sazIhW9wB7U,DHIS2
+zanzi_4_353,4,Ghana,me35KdLwx35,DHIS2
+zanzi_4_354,4,Pale,Ni0zTHu3voo,DHIS2
+zanzi_4_355,4,Chwale,QQfsWiFdpNp,DHIS2
+zanzi_4_356,4,Pandani,JfiWAt7z7mI,DHIS2
+zanzi_4_357,4,Junguni,JD6GSpQn31L,DHIS2
+zanzi_4_358,4,Saateni,yRGDEu7nZW9,DHIS2
+zanzi_4_359,4,Njia Ya Mtoni,pIlHMnIPbYn,DHIS2
+zanzi_4_360,4,Gulioni,PXhG5v5P9ON,DHIS2
+zanzi_4_361,4,Gombani,XZxzZVSGDFk,DHIS2
+zanzi_4_362,4,Dimani,MltkuT8MDea,DHIS2
+zanzi_4_363,4,Pangawe,GbsVLLcHEvx,DHIS2
+zanzi_4_364,4,Pangeni,MiEoktS593m,DHIS2
+zanzi_4_365,4,Pembeni,Mv6V6kQ0pT8,DHIS2
+zanzi_4_366,4,Garnba,KCLi1oZgGgH,DHIS2
+zanzi_4_367,4,Dodo,ikGp9vLuwxM,DHIS2
+zanzi_4_368,4,Fukuchani,Qew5xwd28vX,DHIS2
+zanzi_4_369,4,Gando,DCYIwvcoEGG,DHIS2
+zanzi_4_370,4,Donge Karange,H0anyMknHQC,DHIS2
+zanzi_4_371,4,Rahaleo,ENwyISkRbg2,DHIS2
+zanzi_4_372,4,Jumbi,BlJ9mTYCELh,DHIS2
+zanzi_4_373,4,Jombwe,moKAqB0xt8y,DHIS2
+zanzi_4_374,4,Donge Kipange,qjH0GTY8UWs,DHIS2
+zanzi_4_375,4,Paje,IWhSV20r3bA,DHIS2
+zanzi_4_376,4,Donge Mchangani,whTq6DGl5Hs,DHIS2
+zanzi_4_377,4,Donge Mbiji,erb6QMf2M8Y,DHIS2
+zanzi_4_378,4,Dole,cFWA7h5MyT8,DHIS2
+zanzi_4_379,4,Donge Majenzi,Xi4j4AgTFi1,DHIS2
+zanzi_5_1,5,Upenja PHCU,jEceAP7HQC8,DHIS2
+zanzi_5_2,5,Mji Mpya Medical Clinic,DLxFNj2exsu,DHIS2
+zanzi_5_3,5,Umbuji PHCU,b17JF3UWBkw,DHIS2
+zanzi_5_4,5,Ole PHCU,uLJcx18phR1,DHIS2
+zanzi_5_5,5,New Glory Clinic,ZDG7L7vlNIG,DHIS2
+zanzi_5_6,5,Unguja Ukuu KMKM,mNppCAv3BrT,DHIS2
+zanzi_5_7,5,Miwani PHCU,tfvWXiRut8N,DHIS2
+zanzi_5_8,5,Uondwe PHCU+,QvelCXGJ5bj,DHIS2
+zanzi_5_9,5,Ottu PHCU,rb515KDYrFS,DHIS2
+zanzi_5_10,5,Mina Hospital,tYvhb9gOima,DHIS2
+zanzi_5_11,5,Unguja Ukuu PHCU+,GANPrhgZpQW,DHIS2
+zanzi_5_12,5,Mina Dispensary,UcxKhGFyHgW,DHIS2
+zanzi_5_13,5,Uroa PHCU,jyB2wffpAc4,DHIS2
+zanzi_5_14,5,Minungwini PHCU,aHJSA4SZCH7,DHIS2
+zanzi_5_15,5,Samih Medical Clinic,a6FzZKGMoT0,DHIS2
+zanzi_5_16,5,Utapoa Dispensary Mfenesini,TZqhEu5DwCq,DHIS2
+zanzi_5_17,5,Wete District Hospital,QSFvLCTbEO3,DHIS2
+zanzi_5_18,5,North valley dispensary,rhPEuo1Fdqo,DHIS2
+zanzi_5_19,5,Wingwi PHCU+,rxYRhmpFFDg,DHIS2
+zanzi_5_20,5,Zam zam Dispensary,qZ1EDoflF4G,DHIS2
+zanzi_5_21,5,ZANGOC Mahonda,tYwPJH7ylS3,DHIS2
+zanzi_5_22,5,Zangoc Micheweni,nmlqLp3wlPc,DHIS2
+zanzi_5_23,5,Zangoc Wete,aoOtzyqNrap,DHIS2
+zanzi_5_24,5,Zanzibar Clinic,nbXEjFhoz6V,DHIS2
+zanzi_5_25,5,Zanzibar Medical Group,gauon7baQgj,DHIS2
+zanzi_5_26,5,Zanzibar Military Hospital (JWTZ),KcgJPdDidgK,DHIS2
+zanzi_5_27,5,ZAPHA+ Chake,vcTwFYmZSf0,DHIS2
+zanzi_5_28,5,ZAYADESA Miembeni,Jegq6Mwx5Jt,DHIS2
+zanzi_5_29,5,ZAYADESA NUNGWI,gfOeek11S7y,DHIS2
+zanzi_5_30,5,Zingwe Zingwe PHCU,jRGFW5JdEsA,DHIS2
+zanzi_5_31,5,Mediwell Clinic,U1wyOUbLE7z,DHIS2
+zanzi_5_32,5,Ziwani PHCU,V6G3ep9zUhL,DHIS2
+zanzi_5_33,5,Ziwani Police PHCU,mIdD7G3fBLq,DHIS2
+zanzi_5_34,5,Wesha PHCU+,HoWttgcSBfw,DHIS2
+zanzi_5_35,5,Utapoa Dispensary,sG7iY0SFNLZ,DHIS2
+zanzi_5_36,5,Nungwi PHCU+,crP7GkMhFan,DHIS2
+zanzi_5_37,5,Welezo Camp PHCU,ifmvgHgXe7r,DHIS2
+zanzi_5_38,5,New Makondeko Dispensary,SjnHbGIPPVf,DHIS2
+zanzi_5_39,5,Uwandani PHCU,iMlIwCbR3gU,DHIS2
+zanzi_5_40,5,Micheweni Cottage Hospital,CJOqpZwCu22,DHIS2
+zanzi_5_41,5,Michenzani PHCU,d5AxJkcjpKy,DHIS2
+zanzi_5_42,5,Michenzani Dispensary,pSkYXqMNLbz,DHIS2
+zanzi_5_43,5,Uzi PHCU,vEzBhmYzt9V,DHIS2
+zanzi_5_44,5,Michamvi PHCU,YSjzRvbMU9O,DHIS2
+zanzi_5_45,5,Paje PHCU,qyo2DuTiUll,DHIS2
+zanzi_5_46,5,Mianzini NTD Centre,d9FWQIwEnsw,DHIS2
+zanzi_5_47,5,Mgonjoni PHCU,nOHYpQwGuwv,DHIS2
+zanzi_5_48,5,Uzini PHCU+,tOxpMMFC9uc,DHIS2
+zanzi_5_49,5,Vitongoji Cottage Hospital,c5duBMKIuX7,DHIS2
+zanzi_5_50,5,Vumba PHCU,wup4yCLNIxq,DHIS2
+zanzi_5_51,5,Wamata Chake,bWBE594na4d,DHIS2
+zanzi_5_52,5,Wambaa PHCU,nHXxV0HQezk,DHIS2
+zanzi_5_53,5,Nuru Dispensary,VkHyy1YaKE5,DHIS2
+zanzi_5_54,5,Mgelema PHCU,Uut7z4LWMzm,DHIS2
+zanzi_5_55,5,Welezo PHCU,FIgu5k9Qiw0,DHIS2
+zanzi_5_56,5,Ukutini PHCU,YcoAgm6gv9l,DHIS2
+zanzi_5_57,5,Tumbe PHCU,acqBAaGaSx3,DHIS2
+zanzi_5_58,5,Ukunjwi PHCU,ebXPgxjmngA,DHIS2
+zanzi_5_59,5,Selemu Dispensary,K8ug5X204Zb,DHIS2
+zanzi_5_60,5,Shaam Medical Clinic,rWtfH7JlYvv,DHIS2
+zanzi_5_61,5,Mtofaani PHCU+,Kkhvq1XOT2u,DHIS2
+zanzi_5_62,5,Shakani PHCU+,sBKXDZFaqCw,DHIS2
+zanzi_5_63,5,Shamiani PHCU,bHA3EDk2GAS,DHIS2
+zanzi_5_64,5,Mtende PHCU,dZ9fD0npO7F,DHIS2
+zanzi_5_65,5,Muungoni PHCU,iYLF39vDxi3,DHIS2
+zanzi_5_66,5,Mwera PHCU+,yqv7WUJEitR,DHIS2
+zanzi_5_67,5,Mtangani PHCU,O7z0HnU2G09,DHIS2
+zanzi_5_68,5,Shaurimoyo PHCU,SA2lvJ6rb0l,DHIS2
+zanzi_5_69,5,Quik Dispensary,fgb8RZIXv2H,DHIS2
+zanzi_5_70,5,Shidi PHCU,jZlEiyh3uXQ,DHIS2
+zanzi_5_71,5,Shifaa Dispensary,C7HO6Nifu9g,DHIS2
+zanzi_5_72,5,Pwani mchangani PHCU,ZV88z3pgy3T,DHIS2
+zanzi_5_73,5,Shash Dispensary,N4ovE8K6lfc,DHIS2
+zanzi_5_74,5,Shumba Viamboni PHCU,ACkFWnKyzby,DHIS2
+zanzi_5_75,5,Selem PHCU+,efbiCdwL9zt,DHIS2
+zanzi_5_76,5,Muyuni PHCU+,qoPplM8eXjS,DHIS2
+zanzi_5_77,5,Safi Medical,HhmjGSf6Psz,DHIS2
+zanzi_5_78,5,Sanasa Dispensary,D0vP6cn6Thn,DHIS2
+zanzi_5_79,5,Mwanyanya,uvHOUmWUWY4,DHIS2
+zanzi_5_80,5,SDA - Wawi Dispensary,DQBYm9ldXnq,DHIS2
+zanzi_5_81,5,SDA Dispensary,co3UboPjfMy,DHIS2
+zanzi_5_82,5,Ro+Saths Medical Centre,CZV63zBPKas,DHIS2
+zanzi_5_83,5,Sebleni PHCU+,sYZiO3VB5NV,DHIS2
+zanzi_5_84,5,Mwanamashungi Dispensary,UEHtqcgwd70,DHIS2
+zanzi_5_85,5,Mwanakwerekwe KKT Dispensary,fUZJtN4YVyT,DHIS2
+zanzi_5_86,5,Raudhat Medical Clinic,UZdeR7xODIW,DHIS2
+zanzi_5_87,5,Mwambe PHCU,N5d8MrGiHjN,DHIS2
+zanzi_5_88,5,Mvumoni (Furaha) PHCU,zTigViSnXCk,DHIS2
+zanzi_5_89,5,Rahaleo PHCU+,q1jqUVmyYma,DHIS2
+zanzi_5_90,5,Muzdalifa Dispensary,j4Xjuctdo4H,DHIS2
+zanzi_5_91,5,Mwembeladu Hospital,hMUYdFYXPgX,DHIS2
+zanzi_5_92,5,Mtambile PHCU,PSEGGnxpPYZ,DHIS2
+zanzi_5_93,5,Shungi PHCU,g8hsh4nHHvD,DHIS2
+zanzi_5_94,5,Msuka PHCU,IdULTtHez9g,DHIS2
+zanzi_5_95,5,Mzambarauni Takao PHCU+,KIWBDUYd1tN,DHIS2
+zanzi_5_96,5,Mkoroshoni Dispensary,TrBGl7MR0ot,DHIS2
+zanzi_5_97,5,Mkokotoni PHCU,uNatbsTmjEo,DHIS2
+zanzi_5_98,5,Mkoani Zayedesa,laQW0TXUBS9,DHIS2
+zanzi_5_99,5,Mkia wa Ngombe PHCU,yPxsD0woUB4,DHIS2
+zanzi_5_100,5,Tundauwa PHCU+,o7F2kbFC9Yh,DHIS2
+zanzi_5_101,5,Tumbatu Jongowe PHCU,PbKuABcNZuj,DHIS2
+zanzi_5_102,5,Ndagoni PHCU,XKhnG2wtXSr,DHIS2
+zanzi_5_103,5,Tungamaa PHCU,wCpiDsXrRh8,DHIS2
+zanzi_5_104,5,Pandani PHCU,tPYZabRbsae,DHIS2
+zanzi_5_105,5,Ndijani Mseweni PHCU,qvMBPU4Mqep,DHIS2
+zanzi_5_106,5,Tunguu PHCU,cav2I8gbfk8,DHIS2
+zanzi_5_107,5,Ubago Jeshini,hSFduzv4OUy,DHIS2
+zanzi_5_108,5,Ukongoroni PHCU,sFeWw17QQEX,DHIS2
+zanzi_5_109,5,Ndijani Baniani PHCU,VdIWltsghRV,DHIS2
+zanzi_5_110,5,Tumbatu Gomani PHCU+,cdyrOUocAJ0,DHIS2
+zanzi_5_111,5,Mwera Pongwe,UvHEpt3zrAO,DHIS2
+zanzi_5_112,5,Tomondo Royal Clinic,YSJ9NdTPzvR,DHIS2
+zanzi_5_113,5,Pujini PHCU+,TZ4kZBiJTRG,DHIS2
+zanzi_5_114,5,Sizini PHCU,B0OBL1wxVhz,DHIS2
+zanzi_5_115,5,Mpendae PHCU+,ynFGB9KjqzV,DHIS2
+zanzi_5_116,5,Mpapa PHCU,u2MWW3EWpiw,DHIS2
+zanzi_5_117,5,SOS Medical Clinic,ShpzxonohIJ,DHIS2
+zanzi_5_118,5,St Camilas Dispensary,M5jhKSm2hQD,DHIS2
+zanzi_5_119,5,ST Lukes,uGAzu4fgvqu,DHIS2
+zanzi_5_120,5,Sururu Dispensary,GXOu44gbLkZ,DHIS2
+zanzi_5_121,5,Modern Dispensary,w17m5VGla0G,DHIS2
+zanzi_5_122,5,Tasakhtaa Global Hospital,WVHxfBfMO6v,DHIS2
+zanzi_5_123,5,Tawaqal Hospital,t57AQnFhJQN,DHIS2
+zanzi_5_124,5,Tazari PHCU,TMo9gv9UTSJ,DHIS2
+zanzi_5_125,5,Mnazi Mmoja Hospital,yM4T1NAltKd,DHIS2
+zanzi_5_126,5,Pongwe PHCU,RdbzsxhwQLX,DHIS2
+zanzi_5_127,5,Polisi Wete,S0O6qeo18iG,DHIS2
+zanzi_5_128,5,Neema Dispensary,Q6XTumQklLF,DHIS2
+zanzi_5_129,5,Ngomeni PHCU,XqQW0lAwBT8,DHIS2
+zanzi_5_130,5,Abdalla Mzee Regional Hospital,Dch4c0irM66,DHIS2
+zanzi_5_131,5,Mbweni Matrekta PHCU,jDebbK3mfW9,DHIS2
+zanzi_5_132,5,Kidimni Dispensary,KXChvpgEZ6D,DHIS2
+zanzi_5_133,5,Kibweni KMKM,dOxfs72Lzwd,DHIS2
+zanzi_5_134,5,Kibuteni PHCU,XuZk6kADccJ,DHIS2
+zanzi_5_135,5,Kibokoni PHCU,ZIjIEXnalFY,DHIS2
+zanzi_5_136,5,Kiboje PHCU,h5lcjo9K0jK,DHIS2
+zanzi_5_137,5,Kengeja PHCU+,TDMej4ixsT4,DHIS2
+zanzi_5_138,5,Kendwa PHCU,i8cqBQVA3nU,DHIS2
+zanzi_5_139,5,Kangani PHCU,PQ8mcSpNeXw,DHIS2
+zanzi_5_140,5,Kangagani PHCU,fY26bFNsUaJ,DHIS2
+zanzi_5_141,5,Kambini PHCU,THVJdVovAWM,DHIS2
+zanzi_5_142,5,Kajengwa PHCU,qyc6E9Cc8Hk,DHIS2
+zanzi_5_143,5,Junguni PHCU+,JnMBRyKj23u,DHIS2
+zanzi_5_144,5,Jumbi Dispensary,ol9OeHZtiYh,DHIS2
+zanzi_5_145,5,Kidongo Chekundu Mental hospital,bpGoMOxkhdX,DHIS2
+zanzi_5_146,5,JKU Wawi,npR5B1hArjp,DHIS2
+zanzi_5_147,5,Jang'ombe Matarumbeta PHCU,rbskQPMloyI,DHIS2
+zanzi_5_148,5,Jambiani PHCU+,Tt5uGNw9E8j,DHIS2
+zanzi_5_149,5,Jadida PHCU,qPkM6N0ujXS,DHIS2
+zanzi_5_150,5,Ishaana Dispensary,X2l8yjddhfh,DHIS2
+zanzi_5_151,5,Imani Dispensary,d7GZAuX4x6X,DHIS2
+zanzi_5_152,5,ICB Dispensary,YW5N4MXvatV,DHIS2
+zanzi_5_153,5,Ibni Sina Dispensary,TOgyze68AR4,DHIS2
+zanzi_5_154,5,Huruma Dispensary,hNQ7ZCC3Xlm,DHIS2
+zanzi_5_155,5,Hassan Dispensary,DBmX7Fo98VG,DHIS2
+zanzi_5_156,5,Hankil Medical Services Dispensary,BLjNIyQHv4w,DHIS2
+zanzi_5_157,5,Hakan Toker Clinic,jfm6u2WMMwl,DHIS2
+zanzi_5_158,5,Gulioni Dispensary,x8pmK2Wv5nX,DHIS2
+zanzi_5_159,5,Gombani PHCU,I6Ctn2nO9lC,DHIS2
+zanzi_5_160,5,Jendele PHCU,P6vCyhCNzDk,DHIS2
+zanzi_5_161,5,Kidongo Chekundu PHCU,xpfqD8LXCIv,DHIS2
+zanzi_5_162,5,Kidoti PHCU,aMcG5K3cqBj,DHIS2
+zanzi_5_163,5,Kidutani PHCU,TLoFuOBvfzh,DHIS2
+zanzi_5_164,5,Kombeni PHCU,Cd7Zj6Jc1Rz,DHIS2
+zanzi_5_165,5,Kojani PHCU+,gqBk9FA2LxC,DHIS2
+zanzi_5_166,5,Koani Dispensay,a0s5dQ15PtS,DHIS2
+zanzi_5_167,5,KMKM Wete,Ri802QaFCFd,DHIS2
+zanzi_5_168,5,KMKM Msuka,tFea6ywQqnk,DHIS2
+zanzi_5_169,5,KMKM Masingini,WYoFWUue3IJ,DHIS2
+zanzi_5_170,5,KMKM Kama,pxrfTlSB4P5,DHIS2
+zanzi_5_171,5,Kizimkazi Mkunguni PHCU,yLZ43P9RZCD,DHIS2
+zanzi_5_172,5,Kizimkazi Dimbani PHCU,lKvRrkgU2Mt,DHIS2
+zanzi_5_173,5,Kizimbani PHCU,Fvz5mrEoQgc,DHIS2
+zanzi_5_174,5,Kiwengwa PHCU,tzJxyyPjb0B,DHIS2
+zanzi_5_175,5,Kiwani Tasini PHCU,jal2YcVgvqJ,DHIS2
+zanzi_5_176,5,Kiwani PHCU,iXUQPchievf,DHIS2
+zanzi_5_177,5,Kivunge Cottage Hospital,PWYEDfC87PO,DHIS2
+zanzi_5_178,5,Kiuyu Mbuyuni PHCU,DWZVSoRqPv1,DHIS2
+zanzi_5_179,5,Kiuyu Kipangani PHCU,Laollq9aYZI,DHIS2
+zanzi_5_180,5,Kiungoni PHCU,uPUQoRfr6jJ,DHIS2
+zanzi_5_181,5,Kitope PHCU,QkXWhDw2ee3,DHIS2
+zanzi_5_182,5,Kitope Church Dispensary,fgac1YSUqFE,DHIS2
+zanzi_5_183,5,Kisiwani PHCU,BN3d2RZtQnf,DHIS2
+zanzi_5_184,5,Kisiwa Panza PHCU,eZfLWcALUO9,DHIS2
+zanzi_5_185,5,Kisauni PHCU,URopEqAhjWR,DHIS2
+zanzi_5_186,5,Kiponda Medical Clinic,zxMTPQx2krO,DHIS2
+zanzi_5_187,5,Kiongwe PHCU,h1SUdvbK4cp,DHIS2
+zanzi_5_188,5,Kiomba Mvua PHCU,MUiyE6mBtXe,DHIS2
+zanzi_5_189,5,Kinyasini PHCU,BGFdoTdlWHq,DHIS2
+zanzi_5_190,5,Kijini PHCU,Ajp378yujSp,DHIS2
+zanzi_5_191,5,Kifundi PHCU,zO0XssLG8a4,DHIS2
+zanzi_5_192,5,Kiembe Samaki PHCU,jEehTiS0G77,DHIS2
+zanzi_5_193,5,Glory Dispensary,KtgrKjBQEya,DHIS2
+zanzi_5_194,5,Konde Clinic,x0R5TWdtLPy,DHIS2
+zanzi_5_195,5,Mchangani PHCU,kjQdxadk0P6,DHIS2
+zanzi_5_196,5,Furaha Dispensary,ZtBAziEV9Tu,DHIS2
+zanzi_5_197,5,Bwejuu PHCU,lPIylkjytQs,DHIS2
+zanzi_5_198,5,Bwefumu PHCU,C4N72XAC0AZ,DHIS2
+zanzi_5_199,5,Bwagamoyo PHCU,WdHctS7S3iu,DHIS2
+zanzi_5_200,5,Bumbwisudi PHCU+,rIbyXKUCTiK,DHIS2
+zanzi_5_201,5,Bumbwini Misufini PHCU+,RtcSWEydQZO,DHIS2
+zanzi_5_202,5,Bumbwini Makoba PHCU,NIumcHUPOap,DHIS2
+zanzi_5_203,5,Bububu medical Dispensary,W8wXU7fovwi,DHIS2
+zanzi_5_204,5,BOT Dispensary,MkGOvgN0tv7,DHIS2
+zanzi_5_205,5,Bogowa PHCU+,yYazRN456lx,DHIS2
+zanzi_5_206,5,Beit-raas PHCU,j735UeL9ygY,DHIS2
+zanzi_5_207,5,Bandarini PHCU,sCvUu130m8K,DHIS2
+zanzi_5_208,5,Bambi PHCU,TmfvJafQjo7,DHIS2
+zanzi_5_209,5,Bahja Dispensary,ooSZYKS8HzX,DHIS2
+zanzi_5_210,5,Care Clinic,fNS0zDQr2kQ,DHIS2
+zanzi_5_211,5,Avecinna Dispensary,r7mONot6NDV,DHIS2
+zanzi_5_212,5,Annur Dispensary,UjbhAQxqLw1,DHIS2
+zanzi_5_213,5,Amam Dispensary,uaQULoNZH7c,DHIS2
+zanzi_5_214,5,Altabib Dispensary,xuyogcN9KSK,DHIS2
+zanzi_5_215,5,Ali Khamis Camp,v4V7HD7DlUw,DHIS2
+zanzi_5_216,5,Al-Zahraa Dispensary,hjEARQ5CQYI,DHIS2
+zanzi_5_217,5,Al-Rahma Hospital,xnQG8hAbGcT,DHIS2
+zanzi_5_218,5,Al-Najid Dispensary,uihc2KVbZUF,DHIS2
+zanzi_5_219,5,Al-manna dispensary,KeDkSTrNnU8,DHIS2
+zanzi_5_220,5,Al-hajir Dispensary,Ul4AtnT0UeJ,DHIS2
+zanzi_5_221,5,Al-haji Dispensary,K7zqdFx88Iw,DHIS2
+zanzi_5_222,5,Al ahlam Dispensary,SF16wZCkPOA,DHIS2
+zanzi_5_223,5,Ahsana Dispensary,x5rMxHOCc5k,DHIS2
+zanzi_5_224,5,Afaa Dispensary,DTUlsIGS8Yh,DHIS2
+zanzi_5_225,5,Assa-kheri Dispensary,gcavXT4m2QO,DHIS2
+zanzi_5_226,5,Chaani Kubwa PHCU,jB0A8xzONXN,DHIS2
+zanzi_5_227,5,Chaani Masingini PHCU,s2WCRb0SGMO,DHIS2
+zanzi_5_228,5,Chake Chake District Hospital,F2UBBvcyGKv,DHIS2
+zanzi_5_229,5,Fuoni PHCU+,tlBEaAqQs7Q,DHIS2
+zanzi_5_230,5,Fuoni Kibondeni PHCU,Xw4RaKsY11A,DHIS2
+zanzi_5_231,5,Fundo PHCU+,e4082Euxl7O,DHIS2
+zanzi_5_232,5,Fujoni PHCU,cZh09IOlVdl,DHIS2
+zanzi_5_233,5,Fufuni Dispensary,ov4OjPFhiMD,DHIS2
+zanzi_5_234,5,Finya PHCU,PzwELs88ITv,DHIS2
+zanzi_5_235,5,Farham Martenity Home,AMmdNmuu71P,DHIS2
+zanzi_5_236,5,Dunga PHCU,DHk6gOpGZ23,DHIS2
+zanzi_5_237,5,Dr.Ali Amour,W2AKBTdaBMY,DHIS2
+zanzi_5_238,5,DR. Mehta's Mahonda clinic,jseqqYOmkZk,DHIS2
+zanzi_5_239,5,Dr Metha,bsXTef9xMbR,DHIS2
+zanzi_5_240,5,Donge Vijibweni PHCU+,rQM9OvpHdQ9,DHIS2
+zanzi_5_241,5,Donge Mchangani PHCU,yHRoL5llqvy,DHIS2
+zanzi_5_242,5,Dira Dispensary,T5CVRY3FZ5c,DHIS2
+zanzi_5_243,5,Costal Dispensary,muuQUyRsGhn,DHIS2
+zanzi_5_244,5,Citizen Dispensary,ZMu9fR201aO,DHIS2
+zanzi_5_245,5,Chwale PHCU,Dw21JvUDRRf,DHIS2
+zanzi_5_246,5,Chwaka PHCU+,iG0JVcnjkYR,DHIS2
+zanzi_5_247,5,Chumbuni PHCU+,nl4jk16g4cc,DHIS2
+zanzi_5_248,5,Chukwani Millitary,Q25FrjelPor,DHIS2
+zanzi_5_249,5,Chukwani Maternity Home PHCU+,rBE68cNLmYS,DHIS2
+zanzi_5_250,5,Chuini PHCU,cibJYqfZyIY,DHIS2
+zanzi_5_251,5,Chonga PHCU,RhM2UMUZfEJ,DHIS2
+zanzi_5_252,5,Chimba PHCU,TVpU5oNXKyw,DHIS2
+zanzi_5_253,5,Cheju PHCU,aQ2IbBd81Sx,DHIS2
+zanzi_5_254,5,Charawe PHCU,kICGMaBJu1A,DHIS2
+zanzi_5_255,5,Chanjaani Dispensary,QBxAY56qOVY,DHIS2
+zanzi_5_256,5,Changongo Dispensary,DnA5y5m1usG,DHIS2
+zanzi_5_257,5,Chambani PHCU,gLLxrtO5kLI,DHIS2
+zanzi_5_258,5,Gamba PHCU,zMcsbyZWfNd,DHIS2
+zanzi_5_259,5,Konde PHCU+,sT5AIJE4HJ4,DHIS2
+zanzi_5_260,5,Ghana PHCU,zNXljXYETWk,DHIS2
+zanzi_5_261,5,Matemwe PHCU+,oOZUrhve5Ri,DHIS2
+zanzi_5_262,5,Maryam Clinic,tAs3a8A54PN,DHIS2
+zanzi_5_263,5,Marumbi PHCU,supTMmQOP9P,DHIS2
+zanzi_5_264,5,Marie Stopes Private Hospital,Kf3GxDU4YcU,DHIS2
+zanzi_5_265,5,Makunduchi Cottage Hospital,iIgAamGMW9z,DHIS2
+zanzi_5_266,5,Makoongwe PHCU,vQKX6N1q9zy,DHIS2
+zanzi_5_267,5,Makongeni PHCU+,ZYNr16hTmK6,DHIS2
+zanzi_5_268,5,Makombeni PHCU,drc3Yl7X85d,DHIS2
+zanzi_5_269,5,Kundi Dispensary,FMcRWJDF9IY,DHIS2
+zanzi_5_270,5,KVZ mtoni,qitYIGPQS8k,DHIS2
+zanzi_5_271,5,MAT Clinic,NwppVAyz0Bi,DHIS2
+zanzi_5_272,5,Kwamchina Dispensary,CQwg1baKOTj,DHIS2
+zanzi_5_273,5,Latifa Clinic,e9tnB84NwxI,DHIS2
+zanzi_5_274,5,M&J Dispensary,T1cZCGWWKHa,DHIS2
+zanzi_5_275,5,Makao Makuu JKU,BBMRYEsJvZ9,DHIS2
+zanzi_5_276,5,Makangale PHCU+,GhgEZALJAFD,DHIS2
+zanzi_5_277,5,Mahonda PHCU+,YN9YOtsbfgu,DHIS2
+zanzi_5_278,5,Mahonda Pembe Dispensary,YcqLqK6mAr1,DHIS2
+zanzi_5_279,5,Mahonda Medical Centre,Ji4I5GAPwBX,DHIS2
+zanzi_5_280,5,Magogoni PHCU+,SO3Voe7DVx2,DHIS2
+zanzi_5_281,5,Mafunzo PHCU,abMh6HdPI0f,DHIS2
+zanzi_5_282,5,Kwamtipura PHCU,FfXvy3cscec,DHIS2
+zanzi_5_283,5,Mafunzo - Wete,CxNeKStaypR,DHIS2
+zanzi_5_284,5,Machui PHCU,k0p9iIYEKKL,DHIS2
+zanzi_5_285,5,Zuha dispensary,kgCw7U5HQBq,DHIS2
+zanzi_5_286,5,Mawimbini Dispensary,LlPBuwCmujl,DHIS2
+zanzi_5_287,5,MAYDA Health charitable foundation,c9ebB8aDskX,DHIS2
+zanzi_5_288,5,Maziwa Ng'ombe PHCU,d1wzJJDHiuf,DHIS2
+zanzi_5_289,5,Mbuzini Dispensary,r2l5LYEZzQx,DHIS2
+zanzi_5_290,5,Mbuzini PHCU,Pz7GmPMz5Co,DHIS2
+zanzi_6_1,6,Tawaqal Orthopedic Clinic,BcKPSq25tFg,DHIS2
+zanzi_6_2,6,Chake chake Dental Clinic,tOSURf9RCgy,DHIS2
+zanzi_6_3,6,Chake chake CTC Laboratory,JFHuaugTGLR,DHIS2
+zanzi_6_4,6,Vitongoji Cardiac clinic,I820khljvEk,DHIS2
+zanzi_6_5,6,Chake chake CTC clinic,F3DF39easir,DHIS2
+zanzi_6_6,6,AMRH Dental Clinic,TbDdMFDHEAC,DHIS2
+zanzi_6_7,6,AMRH Diabetic Clinic,jHSlJcDgYEz,DHIS2
+zanzi_6_8,6,AMRH ENT Clinic,V6QaLerz8cB,DHIS2
+zanzi_6_9,6,AMRH Eye Clinic,VicJEoUaYhm,DHIS2
+zanzi_6_10,6,AMRH Female Gen. Ward,YGS7jCJEyHs,DHIS2
+zanzi_6_11,6,AMRH G.B.V Clinic,p9NUo6GQ7AZ,DHIS2
+zanzi_6_12,6,AMRH HIV Testing & Counseling,BJMWIdIr56G,DHIS2
+zanzi_6_13,6,AMRH IRCH,V3JqtV7TCfZ,DHIS2
+zanzi_6_14,6,AMRH CTC Laboratory,z1UZYpyEq7V,DHIS2
+zanzi_6_15,6,AMRH Cardiac Clinic,MvvDwfo8N0r,DHIS2
+zanzi_6_16,6,Micheweni GBV,GfwhPbCNNxD,DHIS2
+zanzi_6_17,6,Vitongoji Dental Clinic,wTcUE9eKaJd,DHIS2
+zanzi_6_18,6,AMRH Laboratory,hRrBjkFA3pL,DHIS2
+zanzi_6_19,6,Vitongoji Diabetic Clinic,b7mki4Pv5m6,DHIS2
+zanzi_6_20,6,Tawaqal OPD ,JL9SvILttYn,DHIS2
+zanzi_6_21,6,Tawaqal Neonatal Ward,cFSOc5e1ebN,DHIS2
+zanzi_6_22,6,Tawaqal Minor Theatre,VQ9ObKaiQbF,DHIS2
+zanzi_6_23,6,Tawaqal Maternity,vGdlgldKsZg,DHIS2
+zanzi_6_24,6,Tawaqal Major Theatre,xrP25TFA0Re,DHIS2
+zanzi_6_25,6,Tawaqal Laboratory,yuNY4Cms1XR,DHIS2
+zanzi_6_26,6,Tawaqal IRCH,dl0VAfIw8oL,DHIS2
+zanzi_6_27,6,Micheweni HIV Testing & Counseling,NW2lTCUakNA,DHIS2
+zanzi_6_28,6,Tawaqal ENT Clinic,byVYmF1gvDn,DHIS2
+zanzi_6_29,6,Tawaqal Dental,I2yLjTSG9Qj,DHIS2
+zanzi_6_30,6,Chake chake ENT Clinic,buEjRxy56i8,DHIS2
+zanzi_6_31,6,Vitongoji CTC Clinic,lv1n8LkZesg,DHIS2
+zanzi_6_32,6,Chake  chake Diabetic Clinic,VNxGmXDx6Ln,DHIS2
+zanzi_6_33,6,AMRH Major Theatre,hTNEh3qtNJO,DHIS2
+zanzi_6_34,6,AMRH Maternity,JgcnyYhdKQQ,DHIS2
+zanzi_6_35,6,Makunduchi STI Clinic,nEeB8u5GPt6,DHIS2
+zanzi_6_36,6,Makunduchi Psychiatric Clinic,jSfVbASlf3R,DHIS2
+zanzi_6_37,6,Makunduchi PEP,JhqJ7JdZlUb,DHIS2
+zanzi_6_38,6,Makunduchi Paediatric Ward,OMWXo8g11Ub,DHIS2
+zanzi_6_39,6,Makunduchi OPD ,Lb9fGmuY0wv,DHIS2
+zanzi_6_40,6,Makunduchi Neonatal Ward,Dv3dOhLmbkw,DHIS2
+zanzi_6_41,6,MIcheweni Cardiac Clinic,aQMR7PPbJ4R,DHIS2
+zanzi_6_42,6,Makunduchi NCD,Qc2wQw97Oyw,DHIS2
+zanzi_6_43,6,Micheweni CTC clinic,Q7zG4f569gl,DHIS2
+zanzi_6_44,6,Micheweni CTC Laboratory,WItOrzLsOkd,DHIS2
+zanzi_6_45,6,Micheweni Dental Clinic,v7IDhkWSoKS,DHIS2
+zanzi_6_46,6,Micheweni Diabetic Clinic,xUMzcuf3jta,DHIS2
+zanzi_6_47,6,Micheweni ENT Clinic,vDKhdZEj20E,DHIS2
+zanzi_6_48,6,Micheweni Eye Clinic,WcMf7sjl1LV,DHIS2
+zanzi_6_49,6,Micheweni Female Gen. Ward,hvAkvrVw5HQ,DHIS2
+zanzi_6_50,6,Makunduchi TB & Leprosy Clinic,oZG5TWnxSs3,DHIS2
+zanzi_6_51,6,Makunduchi Ultrasound,eGYVFyM5ZSU,DHIS2
+zanzi_6_52,6,Makunduchi X-Rays,XWbMKftZsPg,DHIS2
+zanzi_6_53,6,AMRH YFS,v6IbDWv51Bw,DHIS2
+zanzi_6_54,6,AMRH Minor Theatre,hnS621uPo5g,DHIS2
+zanzi_6_55,6,AMRH MRI,Ny0rIjWFmSk,DHIS2
+zanzi_6_56,6,AMRH NCD,OxoURlBGekZ,DHIS2
+zanzi_6_57,6,AMRH Neonatal Ward,Jua5LMW62Bp,DHIS2
+zanzi_6_58,6,AMRH Obs & Gynae,Kbdlibrbi6J,DHIS2
+zanzi_6_59,6,AMRH OPD,riO9FQj9CPP,DHIS2
+zanzi_6_60,6,AMRH Orthopedic,qE3zW1M1OJv,DHIS2
+zanzi_6_61,6,AMRH Male Gen.  Ward,nNGjyl6aTVc,DHIS2
+zanzi_6_62,6,AMRH Paediatric Gen. Ward,lsdRKnfCzUL,DHIS2
+zanzi_6_63,6,Chake chake Cardiac Clinic,pysqlufHWLZ,DHIS2
+zanzi_6_64,6,AMRH Psychiatric Clinic,Tw2oyOzmPIM,DHIS2
+zanzi_6_65,6,AMRH STI Clinic,iJ3d5eMO4e0,DHIS2
+zanzi_6_66,6,AMRH Surgical OPD,iOTgqPoN9nx,DHIS2
+zanzi_6_67,6,AMRH TB & Leprosy,zZdCPhvno5g,DHIS2
+zanzi_6_68,6,AMRH Ultrasound,I4Dk4iMliKl,DHIS2
+zanzi_6_69,6,AMRH X-Rays,Qs0deb3OI0H,DHIS2
+zanzi_6_70,6,AMRH PEP,HlGTOIjg5Qv,DHIS2
+zanzi_6_71,6,AMRH Physiotherapy and rehabilitation Clinic,VHLLOhuXyYh,DHIS2
+zanzi_6_72,6,Vitongoji Male Gen.Ward,LmK5BAtS8SV,DHIS2
+zanzi_6_73,6,Vitongoji Female Gen.Ward,rmMh6W67dOq,DHIS2
+zanzi_6_74,6,Matemwe Dental,fux7Jx7A3Ds,DHIS2
+zanzi_6_75,6,Al-Rahma Laboratory Report,nEbAo1oC3ao,DHIS2
+zanzi_6_76,6,Al-Rahma Major Theatre,c0oUTBrgBA8,DHIS2
+zanzi_6_77,6,Al-Rahma Male Gen. Ward,lKpdsRIAiQH,DHIS2
+zanzi_6_78,6,Wete X-Rays,FDSEXlpoUAG,DHIS2
+zanzi_6_79,6,Wete Ultrasound,V1yQRAj7kS2,DHIS2
+zanzi_6_80,6,Wete TB & Leprosy Clinic,kCbTIGouW0o,DHIS2
+zanzi_6_81,6,Wete Surgical OPD,nLorCyAFjRd,DHIS2
+zanzi_6_82,6,Wete STI Clinic,mRXgaydHzG4,DHIS2
+zanzi_6_83,6,Wete Skin clinic,AxihYOcep3v,DHIS2
+zanzi_6_84,6,Wete Psychiatric Clinic ,wdy524V0RGH,DHIS2
+zanzi_6_85,6,Wete Physiotherapy & Rehabilitation,OqtTvTE5CUQ,DHIS2
+zanzi_6_86,6,Wete PEP,S6dNxW3mYis,DHIS2
+zanzi_6_87,6,Wete Paediatric Gen. Ward,ay91vuEBKfI,DHIS2
+zanzi_6_88,6,Wete OPD,igzhzCUbNtg,DHIS2
+zanzi_6_89,6,Wete Obs & gynae,QpDnylgN9P8,DHIS2
+zanzi_6_90,6,Wete Neonatal Ward,TutX9xomgBF,DHIS2
+zanzi_6_91,6,Al-Rahma HIV Clinic,EgTqUXB0zlf,DHIS2
+zanzi_6_92,6,Wete NCD,UQYEGyRDf3y,DHIS2
+zanzi_6_93,6,Al-Rahma Gynae Clinic,HkJcbLyq1Ja,DHIS2
+zanzi_6_94,6,Al-Rahma Eye Clinic,hLdaqK3j6Jm,DHIS2
+zanzi_6_95,6,ZM-JWTZ TB & Leprosy,SGHJUek0Bbg,DHIS2
+zanzi_6_96,6,ZM-JWTZ STI/RTI,cmBCZ7hD56g,DHIS2
+zanzi_6_97,6,ZM-JWTZ PEP,j8xFSx2Fhxh,DHIS2
+zanzi_6_98,6,ZM-JWTZ OPD,auQ1GeiLE3r,DHIS2
+zanzi_6_99,6,ZM-JWTZ Maternity,mqslGIPd4ZG,DHIS2
+zanzi_6_100,6,ZM-JWTZ Male gen. Ward,Q8UFLc3LXRS,DHIS2
+zanzi_6_101,6,ZM-JWTZ Laboratory,f4XCi64LqEP,DHIS2
+zanzi_6_102,6,ZM-JWTZ IRCH,rFRLKAsThxE,DHIS2
+zanzi_6_103,6,ZM-JWTZ HIV testing & counseling ,x8wTX4nBrTj,DHIS2
+zanzi_6_104,6,ZM-JWTZ Female gen. Ward,Mcf5vyHY4a4,DHIS2
+zanzi_6_105,6,ZM-JWTZ Dental Clinic,yZdSC7l28ev,DHIS2
+zanzi_6_106,6,Matemwe Laboratory,M2493qXsDBm,DHIS2
+zanzi_6_107,6,Al-Rahma CARDIAC CLINIC,gG8xoiwZ3es,DHIS2
+zanzi_6_108,6,Al-Rahma Care and Treatment Clinic,j4J4uMe2VYJ,DHIS2
+zanzi_6_109,6,Al-Rahma CTC laboratory,lsS4EqmvN8Z,DHIS2
+zanzi_6_110,6,Al-Rahma Dental Clinic,DTnYpI119I3,DHIS2
+zanzi_6_111,6,Al-Rahma Diabetic Clinic,S6OLONfJ7vz,DHIS2
+zanzi_6_112,6,Al-Rahma Female Gen. Ward,jRbTl7Ioddi,DHIS2
+zanzi_6_113,6,Wete Minor Theatre,blpRLJEvIEz,DHIS2
+zanzi_6_114,6,Wete Maternity,bk4MlrShfGt,DHIS2
+zanzi_6_115,6,Wete Male Gen. Ward,eV9HwcgfJbD,DHIS2
+zanzi_6_116,6,Al-Rahma STI Clinic,xPYvd2cYakm,DHIS2
+zanzi_6_117,6,Al-Rahma TB & Leprosy,ID4vGSoyNls,DHIS2
+zanzi_6_118,6,Vitongoji X-ray clinic,DoUi1YVyKAs,DHIS2
+zanzi_6_119,6,Vitongoji TB & Leprosy,v8hD7jZ2pA3,DHIS2
+zanzi_6_120,6,Vitongoji STI,tcatixL3J7o,DHIS2
+zanzi_6_121,6,Vitongoji Psychiatric clinic,TsZX0M5OWDB,DHIS2
+zanzi_6_122,6,Vitongoji Paediatric Gen. Ward,X0sUGfWwVpO,DHIS2
+zanzi_6_123,6,Vitongoji OPD,RbpgpjyVoqo,DHIS2
+zanzi_6_124,6,Vitongoji NCD,oFASiSZI3L7,DHIS2
+zanzi_6_125,6,Vitongoji Minor theatre,MKhuDB9SdFm,DHIS2
+zanzi_6_126,6,Vitongoji Maternity,ZupNlLs8228,DHIS2
+zanzi_6_127,6,Tasakhtaa X-Ray,vtCGlfI9hjT,DHIS2
+zanzi_6_128,6,Vitongoji Major theatre,S4irdZkQ5hx,DHIS2
+zanzi_6_129,6,Vitongoji Laboratory,lq6hNocUsEL,DHIS2
+zanzi_6_130,6,Vitongoji IRCH,jIXMvWOEe4U,DHIS2
+zanzi_6_131,6,Vitongoji HIV Testing & Counseling,hp28O8m6Qko,DHIS2
+zanzi_6_132,6,Vitongoji GBV,MeVA92Kt1RQ,DHIS2
+zanzi_6_133,6,Al-Rahma Skin Diseases Clinic,X3RNRPTettp,DHIS2
+zanzi_6_134,6,Al-Rahma Paediatric Medical Clinic,iRJ55q9WVIL,DHIS2
+zanzi_6_135,6,Al-Rahma Paediatric Gen. Ward,YQBQ75D3MUh,DHIS2
+zanzi_6_136,6,Al-Rahma Orthopedic Clinic,zQPCTYVuRh8,DHIS2
+zanzi_6_137,6,Wete Major Theatre,Wp2nOiayFcS,DHIS2
+zanzi_6_138,6,Wete Laboratory,YjySbTjJ6bo,DHIS2
+zanzi_6_139,6,Wete IRCH,JRMaXSbTIWa,DHIS2
+zanzi_6_140,6,Wete HIV Testing & Counseling,eJLpEPjxvWQ,DHIS2
+zanzi_6_141,6,Wete GBV,v2k4BLGNYMF,DHIS2
+zanzi_6_142,6,Wete Female Gen. Ward,ndpbJu3fgoJ,DHIS2
+zanzi_6_143,6,Wete Eye Ward,Hhai9sg8ec7,DHIS2
+zanzi_6_144,6,Wete Eye Theatre ,eepOG1kwUmM,DHIS2
+zanzi_6_145,6,Vitongoji Eye Clinic,Vbl2stJPaKI,DHIS2
+zanzi_6_146,6,Wete Eye Clinic,I9HPdsRowi3,DHIS2
+zanzi_6_147,6,Al-Rahma Maternity,imMDcRsL2pT,DHIS2
+zanzi_6_148,6,Wete Diabetic Clinic,zqHEHqUegIz,DHIS2
+zanzi_6_149,6,Wete Dental Clinic,EBgtd6iVH4w,DHIS2
+zanzi_6_150,6,Wete CTC Laboratory,tVcRpBion1t,DHIS2
+zanzi_6_151,6,Wete CTC Clinic,wXnkYIwJSOz,DHIS2
+zanzi_6_152,6,Wete Cardiac Clinic,Ler6cY6tD0T,DHIS2
+zanzi_6_153,6,Al-Rahma MINOR THEATRE,dkP2FGLuNrK,DHIS2
+zanzi_6_154,6,Al-Rahma OPD,tFuWaoBICcP,DHIS2
+zanzi_6_155,6,Wete ENT Clinic,ztfRpOyNcHt,DHIS2
+zanzi_6_156,6,Tasakhtaa Surgical OPD Clinic,QKGlV0Xm0BL,DHIS2
+zanzi_6_157,6,MMH Oncology Ward,Hp1aBd6gPeF,DHIS2
+zanzi_6_158,6,Tasakhtaa Paediatric Gen. Ward,Jsh5tCnqV4Q,DHIS2
+zanzi_6_159,6,MMH HIV Testing & counseling ,cCLTG29xRML,DHIS2
+zanzi_6_160,6,KIvunge CTC Clinic,Mcuq5EolFDy,DHIS2
+zanzi_6_161,6,Kivunge CTC Laboratory,VEBgn6ZVPeV,DHIS2
+zanzi_6_162,6,Kivunge Dental Clinic,Y5dklVfileY,DHIS2
+zanzi_6_163,6,Kivunge Diabetic Clinc,xyoT3R1HOW8,DHIS2
+zanzi_6_164,6,Kivunge ENT Clinic,bTJPhcq17wQ,DHIS2
+zanzi_6_165,6,Kivunge Eye Clinic,XsSBeBr4EXi,DHIS2
+zanzi_6_166,6,Kivunge Female General Ward,clHEIty4Yxo,DHIS2
+zanzi_6_167,6,Kivunge GBV,PjXjqUqzFZG,DHIS2
+zanzi_6_168,6,Kivunge HIV Testing & Counseling,ev90t7EhvQk,DHIS2
+zanzi_6_169,6,Kivunge IRCH ,K7MUXWVswAO,DHIS2
+zanzi_6_170,6,Kivunge Laboratory,VW6z0w0YgoF,DHIS2
+zanzi_6_171,6,Kivunge Major Theatre,cTVtpskKLoR,DHIS2
+zanzi_6_172,6,Kivunge Male Gen. Ward,vhoguS67pJx,DHIS2
+zanzi_6_173,6,Kivunge Maternity ward,lgvkER1cxWx,DHIS2
+zanzi_6_174,6,Kivunge Minor Theatre,zak1NvLHOPZ,DHIS2
+zanzi_6_175,6,Kivunge NCD,hkP47VrwNpr,DHIS2
+zanzi_6_176,6,Kivunge Cardiac Clinic,gzvN0mH6hOB,DHIS2
+zanzi_6_177,6,Kivunge Neonatal Ward,CjOq0aPTmmh,DHIS2
+zanzi_6_178,6,MMH Gynae Clinic,Xm2PT9Ug0AF,DHIS2
+zanzi_6_179,6,MMH First Track,uaEo0aBHqDA,DHIS2
+zanzi_6_180,6,MMH CTC clinic,nen8v5n841t,DHIS2
+zanzi_6_181,6,MMH CTC Laboratory,hGWI1b1rwJI,DHIS2
+zanzi_6_182,6,MMH Dental Clinic,PgT4hHpkmkD,DHIS2
+zanzi_6_183,6,MMH Diabetic Clinic,w8JkthJDNR0,DHIS2
+zanzi_6_184,6,MMH Dialysis Department ,cLq4J6ajJGk,DHIS2
+zanzi_6_185,6,MMH Emergency Department ,V3xg5T6HsF7,DHIS2
+zanzi_6_186,6,MMH Endoscopy Clinic,bLeuNuPnitj,DHIS2
+zanzi_6_187,6,MMH ENT Clinic ,k7RV5nSbd88,DHIS2
+zanzi_6_188,6,MMH ENT Theatre,guaKmgUxyUs,DHIS2
+zanzi_6_189,6,MMH ENT Ward,sz29IuDwfnJ,DHIS2
+zanzi_6_190,6,MMH Eye Clinic,cvXX8qtmRJP,DHIS2
+zanzi_6_191,6,MMH Eye Refraction Clinic,m36cKPkxQPS,DHIS2
+zanzi_6_192,6,MMH Eye Theatre,cF8U2FZQHR6,DHIS2
+zanzi_6_193,6,MMH Eye Ward,TJq2la1Mv6h,DHIS2
+zanzi_6_194,6,MMH Female Medical Ward,ARrIB4nI7Gm,DHIS2
+zanzi_6_195,6,MMH Female Surgical General Ward,pYXrbjZ9Kb5,DHIS2
+zanzi_6_196,6,MMH Female Surgical Gynae Ward,SLxfNBRsHGa,DHIS2
+zanzi_6_197,6,MMH GBV,eXpP9oqFHwj,DHIS2
+zanzi_6_198,6,MMH Cot Ward B,y7EtcZV8cg8,DHIS2
+zanzi_6_199,6,Kivunge OPD,Lyavh7Avi2N,DHIS2
+zanzi_6_200,6,Kivunge PEP,m74jYlXSyvi,DHIS2
+zanzi_6_201,6,KMKM TB & Leprosy,kZvzeBotoMw,DHIS2
+zanzi_6_202,6,MMH Neonatal Ward,s3XtD6ENf2z,DHIS2
+zanzi_6_203,6,KMKM YFS,S2uRO3L7yIl,DHIS2
+zanzi_6_204,6,MMH Neuro surgical Ward,nq8KnMWHlFe,DHIS2
+zanzi_6_205,6,MMH Neurosugery Clinic,OMLtM3cnRW1,DHIS2
+zanzi_6_206,6,MMH Neursugery Theatre/Operations or Procedures,AWL0X28sIt7,DHIS2
+zanzi_6_207,6,MMH New Mapinduzi Ward,ouHuin43fS3,DHIS2
+zanzi_6_208,6,MMH Obstetric Clinic ,gMFIcMYhV3w,DHIS2
+zanzi_6_209,6,MMH X-Rays,HNoGGQ0CoY6,DHIS2
+zanzi_6_210,6,MMH Ultrasound,BGPnJkTroMF,DHIS2
+zanzi_6_211,6,MMH TB & Leprosy,AEGzjjLRXBU,DHIS2
+zanzi_6_212,6,MMH Surgical OPD,JU4y3Wih51T,DHIS2
+zanzi_6_213,6,MMH STI Clinic,I2GCQ4nhNsg,DHIS2
+zanzi_6_214,6,MMH Skin diseases Clinic,gOKGgGtEn0b,DHIS2
+zanzi_6_215,6,MMH Physiotherapy and Rehabilitation Clinic,rdInqR28pIc,DHIS2
+zanzi_6_216,6,MMH Orthopedic Clinic,cOYwjYaJE8D,DHIS2
+zanzi_6_217,6,MMH OPD,FjGAYzY9hpZ,DHIS2
+zanzi_6_218,6,KMKM STI clinic,OPmMHeRRNXD,DHIS2
+zanzi_6_219,6,Kivunge Paediatric Gen. Ward,uEMCrX6BTc7,DHIS2
+zanzi_6_220,6,KMKM OPD,fkrYHBWx9Sh,DHIS2
+zanzi_6_221,6,MMH MRI,VASUnG1LCHR,DHIS2
+zanzi_6_222,6,Kivunge Psychiatric Clinic ,nDmW9kJ7i0M,DHIS2
+zanzi_6_223,6,Kivunge STI Clinic,zin6xMFFZgg,DHIS2
+zanzi_6_224,6,Kivunge TB & Leprosy Clinic,ViFlVOkYfbX,DHIS2
+zanzi_6_225,6,Kivunge Ultrasound,Wu2NMxxfaAz,DHIS2
+zanzi_6_226,6,Kivunge X-Rays,fVLUs0DNw1Z,DHIS2
+zanzi_6_227,6,MMH ICU ,AAiSU29GA3e,DHIS2
+zanzi_6_228,6,MMH IRCH,wp9ro4NESWV,DHIS2
+zanzi_6_229,6,MMH Major Theatre,iF7mTH1O85E,DHIS2
+zanzi_6_230,6,MMH Male Medical Ward,HWmNU6rxgcv,DHIS2
+zanzi_6_231,6,MMH Male Surgical III-IV Ward,L56AJYkNyqF,DHIS2
+zanzi_6_232,6,MMH Male Surgical Ward I-II,gNvDndq79wQ,DHIS2
+zanzi_6_233,6,KMKM Dental clinic,hbPEknc0HNF,DHIS2
+zanzi_6_234,6,KMKM IRCH,CPsxyRPnZ1w,DHIS2
+zanzi_6_235,6,MMH Maternity,kRqul4gKGua,DHIS2
+zanzi_6_236,6,KMKM Laboratory,d6uBfjozQxS,DHIS2
+zanzi_6_237,6,MMH Minor Theatre,WHDcZFeBma4,DHIS2
+zanzi_6_238,6,KMKM MATERNITY WARD,q76NVg7G1EZ,DHIS2
+zanzi_6_239,6,KMKM NCD,YetAGzlmor8,DHIS2
+zanzi_6_240,6,Tasakhtaa Paediatric Medical Clinic,BnT8Jl6q2Z6,DHIS2
+zanzi_6_241,6,MMH Cot Ward A-down,H8AashbEJxv,DHIS2
+zanzi_6_242,6,MMH Cardiac Clinic,KwMeJE8Hx47,DHIS2
+zanzi_6_243,6,Chake chake Major Theatre,iArqrS6z704,DHIS2
+zanzi_6_244,6,Chake chake Male general ward,i5Tm1bkI8GP,DHIS2
+zanzi_6_245,6,Chake Chake Maternity,rsI63aQ7DjB,DHIS2
+zanzi_6_246,6,Chake chake Minor Theatre,rJKVmGM2J3C,DHIS2
+zanzi_6_247,6,Chake chake NCD Clinic,K1SttScawqV,DHIS2
+zanzi_6_248,6,Chake chake Neonatal Ward,FpsHhVJDUko,DHIS2
+zanzi_6_249,6,Chake chake OPD,B7HZSnJj6F0,DHIS2
+zanzi_6_250,6,Chake chake Paediatric Gen.Ward,Wrxl2wn6qFW,DHIS2
+zanzi_6_251,6,Chake chake PEP,ljU0mkhLR0U,DHIS2
+zanzi_6_252,6,Chake chake Physiotherapy & Rehabilitation Clinic,hnFGq9KFBId,DHIS2
+zanzi_6_253,6,Chake chake Psychiatric Clinic  ,J3cMkStZyOs,DHIS2
+zanzi_6_254,6,Chake chake Refraction Clinic,V9RCjyBx88L,DHIS2
+zanzi_6_255,6,Chake chake Skin diseases,zc7wgZQOZvi,DHIS2
+zanzi_6_256,6,Chake Chake STI clinic,w9QTccCacD9,DHIS2
+zanzi_6_257,6,Chake chake Surgical OPD,DELWEuvGvN8,DHIS2
+zanzi_6_258,6,Chake chake TB & Leprosy,yu32W17ffVi,DHIS2
+zanzi_6_259,6,Chake chake TB ward,ySpbuW8hBsV,DHIS2
+zanzi_6_260,6,Chake chake Laboratory,a1qHRBlsTX6,DHIS2
+zanzi_6_261,6,Chake chake Ultrasound,YBRVpdwfSpF,DHIS2
+zanzi_6_262,6,Chake chake IRCH,U4yCGSc8Qsx,DHIS2
+zanzi_6_263,6,Chake chake Gynae clinic,tm9c4HPPual,DHIS2
+zanzi_6_264,6,Tasakhtaa Orthopedic clinic,v44JcJTJv2X,DHIS2
+zanzi_6_265,6,Tasakhtaa OPD,OON0WPxVYEQ,DHIS2
+zanzi_6_266,6,Tasakhtaa Obs & Gynae clinic,CcjxK8SRc7m,DHIS2
+zanzi_6_267,6,Tasakhtaa Maternity ward,mymg1phy2GM,DHIS2
+zanzi_6_268,6,Tasakhtaa Male Surgical Ward,gkUw0etHNw1,DHIS2
+zanzi_6_269,6,Tasakhtaa Male Medical Ward,kClIntnXVvy,DHIS2
+zanzi_6_270,6,Tasakhtaa Major Theatre,AMHmzeagQHt,DHIS2
+zanzi_6_271,6,MMH Oncology Clinic,MjmFmkRkNq3,DHIS2
+zanzi_6_272,6,Tasakhtaa IRCH,g5Xcc36QvOj,DHIS2
+zanzi_6_273,6,Tasakhtaa ICU,v7Th1httiRQ,DHIS2
+zanzi_6_274,6,Chake chake Eye Clinic,aOVsXj5bH9q,DHIS2
+zanzi_6_275,6,Tasakhtaa Female Surgical Gen. Ward,M6sLHBGqh6L,DHIS2
+zanzi_6_276,6,Tasakhtaa Female Medical Ward,B9ygKwNTqaQ,DHIS2
+zanzi_6_277,6,Tasakhtaa Eye Clinic,Wke2rOMauW5,DHIS2
+zanzi_6_278,6,Tasakhtaa Dental clinic,OkU4vYjR4id,DHIS2
+zanzi_6_279,6,Chake Chake Female Gen. Ward,MVuzG9a5EjZ,DHIS2
+zanzi_6_280,6,Chake chake G.B.V,Dkpo5j3CTiE,DHIS2
+zanzi_6_281,6,Chake chake HIV Testing & Counseling,FKi2Iwi93Or,DHIS2
+zanzi_6_282,6,MMH Cot ward A - Up,yQPeTivqJtP,DHIS2
+zanzi_6_283,6,Chake chake X-ray,qg1ORqmYLZd,DHIS2
+zanzi_6_284,6,Micheweni IRCH,dNiajHXEVps,DHIS2
+zanzi_6_285,6,Makunduchi GBV,bEDEXStTiNs,DHIS2
+zanzi_6_286,6,Makunduchi Female Gen. Wards,YRTMIBmWgEq,DHIS2
+zanzi_6_287,6,Makunduchi Eye Clinic,kJWP6Aj4vi8,DHIS2
+zanzi_6_288,6,Makunduchi Diabetic Clinc,o0Y93QPJHA0,DHIS2
+zanzi_6_289,6,Makunduchi Dental Clinic,IKAU5QlE864,DHIS2
+zanzi_6_290,6,Makunduchi CTC laboratory,XbDzsYsGn8N,DHIS2
+zanzi_6_291,6,Makunduchi CTC CLINIC,RjfFTqr11dp,DHIS2
+zanzi_6_292,6,Makunduchi Cardiac Clinic,nAmqLNWsgRj,DHIS2
+zanzi_6_293,6,M/Ladu STI,qC6UYZg6ADt,DHIS2
+zanzi_6_294,6,M/Ladu OPD,phtpKto5poB,DHIS2
+zanzi_6_295,6,M/Ladu Maternity,uvHrcVav2XI,DHIS2
+zanzi_6_296,6,M/Ladu IRCH,EJS6ckNaUjN,DHIS2
+zanzi_6_297,6,Nungwi Laboratory,FZPAQh2w3Kj,DHIS2
+zanzi_6_298,6,Nungwi Dental,aDQM89FJNKa,DHIS2
+zanzi_6_299,6,M/ladu HIV Testing & counseling,ZB7uY24iyeD,DHIS2
+zanzi_6_300,6,M/Ladu CTC Laboratory,wS6e6XiqL3t,DHIS2
+zanzi_6_301,6,MMH Acupuncture Clinic,Z3mTIJAq9il,DHIS2
+zanzi_6_302,6,Makunduchi HIV Testing & Counseling,ruIIPAQngPS,DHIS2
+zanzi_6_303,6,Chake ckake Male Gen. Ward,Mq3jrG6UiDO,DHIS2
+zanzi_6_304,6,Makunduchi IRCH,bjnlKayCmxw,DHIS2
+zanzi_6_305,6,Makunduchi Major Theatre,SCtUXYcZ3ej,DHIS2
+zanzi_6_306,6,Micheweni Laboratory,QHKa5wfWoJC,DHIS2
+zanzi_6_307,6,Micheweni Major Theatre,PxaV0tilfaP,DHIS2
+zanzi_6_308,6,Micheweni Male Gen. Ward,soZq4qGdmlq,DHIS2
+zanzi_6_309,6,Micheweni Maternity,IWq28huQy7G,DHIS2
+zanzi_6_310,6,Micheweni Minor Theatre,Ct8KuzgoDvH,DHIS2
+zanzi_6_311,6,Micheweni NCD,SAUWPBkmRM5,DHIS2
+zanzi_6_312,6,Micheweni Neonatal Ward,xz5dLWnJr8o,DHIS2
+zanzi_6_313,6,Micheweni OPD,eJHdDy4uNSZ,DHIS2
+zanzi_6_314,6,Micheweni Paediatric General Ward ,bduUn503oPE,DHIS2
+zanzi_6_315,6,Micheweni PEP,nOg9ld9zAcP,DHIS2
+zanzi_6_316,6,Micheweni STI Clinic,nN55hTTdfS4,DHIS2
+zanzi_6_317,6,Micheweni TB & Leprosy Clinic,yc1cToQM6hC,DHIS2
+zanzi_6_318,6,Micheweni Ultrasound,h5r1tonN0Bs,DHIS2
+zanzi_6_319,6,MIcheweni X-Rays,ECS7WmcsMBl,DHIS2
+zanzi_6_320,6,Makunduchi Minor Theater,swNREQKG8Hh,DHIS2
+zanzi_6_321,6,Makunduchi Maternity ,qnGc6hSipQD,DHIS2
+zanzi_6_322,6,Makunduchi Male General Ward,zWcRgsxtS8Q,DHIS2
+zanzi_6_323,6,Makunduchi Laboratory,Iy4IpMfmUHQ,DHIS2
+zanzi_6_324,6,Tasakhtaa Laboratory,RUNo5TuMSBJ,DHIS2

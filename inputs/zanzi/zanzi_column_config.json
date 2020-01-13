@@ -1,0 +1,50 @@
+[
+{
+    "id": "X9gsL0aUNB2",
+    "name": "ANC First contact before 12 weeks(a) ",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "w2d1lv1wNMY",
+    "name": "ANC clients tested for HIV ( 1 st test)",
+    "mapping": "ancrt_tested",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Tju8l2j5Yh5",
+    "name": "Previously known HIV +ve before ANC",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "c5B6r1lc5Vp",
+    "name": "ANC clients tested HIV-positive (1 st test)",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "wmSpSpahHKq",
+    "name": "Already taking ART before ANC",
+    "mapping": "ancrt_already_art",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "L4QICR4Kagk",
+    "name": "ANC First contact 12 weeks and above(b) ",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+}
+]
