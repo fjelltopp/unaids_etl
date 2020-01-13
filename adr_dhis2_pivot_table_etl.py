@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 from requests.auth import HTTPBasicAuth
 from urllib.parse import urljoin
 
+import credentials
+
 etl.LOGGER = etl.logging.get_logger(log_name="DHIS2 pivot table pull", log_group="etl")
 
 
@@ -289,6 +291,7 @@ if __name__ == '__main__':
     EXPORT_NAME = os.environ.get('OUTPUT_DIR_NAME', 'default')
     OUTPUT_DIR_NAME = f"output/{EXPORT_NAME}"
     DHIS2_URL = os.getenv("DHIS2_URL")
+    credentials.read_credentials(os.getenv("DHIS2_CREDENTIALS_FILE"))
     DHIS2_USERNAME = os.getenv("DHIS2_USERNAME")
     DHIS2_PASSWORD = os.getenv("DHIS2_PASSWORD")
     PROGRAM_DATA = os.getenv('PROGRAM_DATA')

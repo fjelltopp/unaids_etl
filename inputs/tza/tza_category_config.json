@@ -1,0 +1,192 @@
+[
+{
+    "id": "lVnpcptMtAD",
+    "name": ">= 20",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "UVLU1Njotu4",
+    "name": "< 20",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "RdYpP9qHk8Y",
+    "name": "KE, 25-49",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "LcGP12QcuN2",
+    "name": "KE, >= 50",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "nehCW5s6Hx4",
+    "name": "ME, < 1",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "w4WibVM4kWc",
+    "name": "ME, >= 50",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "ZRSSGOzZeT0",
+    "name": "ME, >15",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "z9VAozP1BEu",
+    "name": "KE, >15",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "IPlzO8n4mTM",
+    "name": "KE, 20 - 24",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "IR5epaaFjxT",
+    "name": "KE, < 1",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "YpFuX3wm6r8",
+    "name": "KE, 1-4",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "cmlhcvPcdol",
+    "name": "KE, 10 -14",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "Xns0ysCNhcv",
+    "name": "ME, 10 -14",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "ttFf9vc6pnB",
+    "name": "ME, 1-4",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "DNqn8VIZxhn",
+    "name": "ME, 5-14",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "pZgEhWO2R2W",
+    "name": "KE, Miaka 5-9",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "k3TqmSh7Iaw",
+    "name": "KE, 15 - 19",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "vWP9fZr7uhQ",
+    "name": "ME, 15 - 19",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "aGBeRPJK1sS",
+    "name": "ME, 20 - 24",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "eRJteTfX3mD",
+    "name": "ME, 25-49",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "Oua3ZLWhBIg",
+    "name": "KE, 5-14",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "hXe7HBGnRa9",
+    "name": "ME, Miaka 5-9",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "KmmKuXofUzA",
+    "name": "KE",
+    "mapping": {
+        "age_group": "00+",
+        "sex": "female"
+    }
+},
+{
+    "id": "OKxxCNhyCrd",
+    "name": "ME",
+    "mapping": {
+        "age_group": "00+",
+        "sex": "male"
+    }
+}
+]

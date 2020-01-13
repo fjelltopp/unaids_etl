@@ -1,0 +1,131 @@
+[
+{
+    "id": "uR9wPGGggMU",
+    "name": "Tested - Initial test in ANC ",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "DpvJm9w528G",
+    "name": "Repeat test (ANC, L&D, PNC)",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "de87z8nMhQU",
+    "name": "Tested - Initial  test in PNC (< 6 weeks)",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "USfPOPAeN16",
+    "name": "default",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "TrigYoG4FXb",
+    "name": "20+ years, 3rd Trimester",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "Z6wKW0r674x",
+    "name": "20+ years, 2nd Trimester",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "Zr5VTXnUM4b",
+    "name": "<20 years, 3rd Trimester",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "pGCuOck1WsR",
+    "name": "<20 years, 2nd Trimester",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "KGIRGjlPgrq",
+    "name": "On ART at 1st ANC visit",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "N4MPvl4DHTj",
+    "name": "Started on ART in L&D",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "OfNFmREOKOD",
+    "name": "Started on ART in ANC (Option B+)",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "snwLRdi9LDc",
+    "name": "Tested - Initial  test in L&D",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "hMeuPCfMjY3",
+    "name": "Started on ART in PNC (within 72 hours)",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "ZQH8UzASmZY",
+    "name": "20+ years, 1st Trimester",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "QsBECdbzg5J",
+    "name": "<20 years, 1st Trimester",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+},
+{
+    "id": "FbQySi4EF2g",
+    "name": "Started ART from (after 72hrs but < 6 weeks)",
+    "remove": "True",
+    "mapping": {
+        "age_group": "",
+        "sex": ""
+    }
+}
+]
