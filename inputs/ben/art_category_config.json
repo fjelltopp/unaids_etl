@@ -1,0 +1,66 @@
+[
+{
+    "id": "PkHsPfXZTEH",
+    "name": "M., 15 à 24 ans",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "fIUqJuFW8pJ",
+    "name": "M., 50 ans et plus",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "wF39dQlBFl7",
+    "name": "F., 25 à 49 ans",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "dih290grUz8",
+    "name": "F., 50 ans et plus",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "ZDwOStRsO4C",
+    "name": "F., 15 à 24 ans",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "YCF7NRm1CDE",
+    "name": "M., 25 à 49 ans",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "tOxWriCkLAR",
+    "name": "F., 0-14 ans",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "hp7vhRQzHcn",
+    "name": "M., 0-14 ans",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+}
+]

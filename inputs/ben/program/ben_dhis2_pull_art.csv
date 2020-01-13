@@ -1,0 +1,685 @@
+area_id,area_name,year,age_group,sex,current_art
+ben_3_75,Abomey,2017,00-14,both,39
+ben_3_75,Abomey,2017,15+,female,698
+ben_3_75,Abomey,2017,15+,male,240
+ben_3_75,Abomey,2018,00-14,both,50
+ben_3_75,Abomey,2018,15+,female,702
+ben_3_75,Abomey,2018,15+,male,258
+ben_3_75,Abomey,2019,00-14,both,52
+ben_3_75,Abomey,2019,15+,female,727
+ben_3_75,Abomey,2019,15+,male,267
+ben_3_73,Abomey-Calavi (Com),2017,00-14,both,82
+ben_3_73,Abomey-Calavi (Com),2017,15+,female,1081
+ben_3_73,Abomey-Calavi (Com),2017,15+,male,440
+ben_3_73,Abomey-Calavi (Com),2018,00-14,both,103
+ben_3_73,Abomey-Calavi (Com),2018,15+,female,1394
+ben_3_73,Abomey-Calavi (Com),2018,15+,male,570
+ben_3_73,Abomey-Calavi (Com),2019,00-14,both,114
+ben_3_73,Abomey-Calavi (Com),2019,15+,female,1564
+ben_3_73,Abomey-Calavi (Com),2019,15+,male,632
+ben_3_78,Adja-Ouèrè (Com),2017,15+,female,8
+ben_3_78,Adja-Ouèrè (Com),2017,15+,male,6
+ben_3_78,Adja-Ouèrè (Com),2018,15+,female,15
+ben_3_78,Adja-Ouèrè (Com),2018,15+,male,6
+ben_3_78,Adja-Ouèrè (Com),2019,15+,female,20
+ben_3_78,Adja-Ouèrè (Com),2019,15+,male,9
+ben_3_26,Adjarra,2017,00-14,both,9
+ben_3_26,Adjarra,2017,15+,female,151
+ben_3_26,Adjarra,2017,15+,male,50
+ben_3_26,Adjarra,2018,00-14,both,6
+ben_3_26,Adjarra,2018,15+,female,155
+ben_3_26,Adjarra,2018,15+,male,46
+ben_3_26,Adjarra,2019,00-14,both,5
+ben_3_26,Adjarra,2019,15+,female,159
+ben_3_26,Adjarra,2019,15+,male,45
+ben_3_31,Adjohoun (Com),2017,00-14,both,5
+ben_3_31,Adjohoun (Com),2017,15+,female,70
+ben_3_31,Adjohoun (Com),2017,15+,male,33
+ben_3_31,Adjohoun (Com),2018,00-14,both,7
+ben_3_31,Adjohoun (Com),2018,15+,female,87
+ben_3_31,Adjohoun (Com),2018,15+,male,46
+ben_3_31,Adjohoun (Com),2019,00-14,both,10
+ben_3_31,Adjohoun (Com),2019,15+,female,92
+ben_3_31,Adjohoun (Com),2019,15+,male,52
+ben_3_63,Agbangnizoun (Com),2017,00-14,both,82
+ben_3_63,Agbangnizoun (Com),2017,15+,female,728
+ben_3_63,Agbangnizoun (Com),2017,15+,male,329
+ben_3_63,Agbangnizoun (Com),2018,00-14,both,70
+ben_3_63,Agbangnizoun (Com),2018,15+,female,690
+ben_3_63,Agbangnizoun (Com),2018,15+,male,301
+ben_3_63,Agbangnizoun (Com),2019,00-14,both,74
+ben_3_63,Agbangnizoun (Com),2019,15+,female,745
+ben_3_63,Agbangnizoun (Com),2019,15+,male,319
+ben_3_32,Akpro-Missereté (Com),2017,00-14,both,2
+ben_3_32,Akpro-Missereté (Com),2017,15+,female,78
+ben_3_32,Akpro-Missereté (Com),2017,15+,male,37
+ben_3_32,Akpro-Missereté (Com),2018,00-14,both,3
+ben_3_32,Akpro-Missereté (Com),2018,15+,female,45
+ben_3_32,Akpro-Missereté (Com),2018,15+,male,90
+ben_3_32,Akpro-Missereté (Com),2019,00-14,both,5
+ben_3_32,Akpro-Missereté (Com),2019,15+,female,69
+ben_3_32,Akpro-Missereté (Com),2019,15+,male,93
+ben_3_3,Allada,2017,00-14,both,6
+ben_3_3,Allada,2017,15+,female,289
+ben_3_3,Allada,2017,15+,male,183
+ben_3_3,Allada,2018,00-14,both,9
+ben_3_3,Allada,2018,15+,female,348
+ben_3_3,Allada,2018,15+,male,193
+ben_3_3,Allada,2019,00-14,both,7
+ben_3_3,Allada,2019,15+,female,402
+ben_3_3,Allada,2019,15+,male,212
+ben_3_29,Aplahoué (Com),2017,00-14,both,6
+ben_3_29,Aplahoué (Com),2017,15+,female,190
+ben_3_29,Aplahoué (Com),2017,15+,male,82
+ben_3_29,Aplahoué (Com),2018,00-14,both,9
+ben_3_29,Aplahoué (Com),2018,15+,female,235
+ben_3_29,Aplahoué (Com),2018,15+,male,130
+ben_3_29,Aplahoué (Com),2019,00-14,both,14
+ben_3_29,Aplahoué (Com),2019,15+,female,253
+ben_3_29,Aplahoué (Com),2019,15+,male,134
+ben_3_70,Athieme (Com),2017,00-14,both,1
+ben_3_70,Athieme (Com),2017,15+,female,61
+ben_3_70,Athieme (Com),2017,15+,male,31
+ben_3_70,Athieme (Com),2018,00-14,both,1
+ben_3_70,Athieme (Com),2018,15+,female,70
+ben_3_70,Athieme (Com),2018,15+,male,37
+ben_3_70,Athieme (Com),2019,00-14,both,1
+ben_3_70,Athieme (Com),2019,15+,female,76
+ben_3_70,Athieme (Com),2019,15+,male,39
+ben_3_46,Avrankou (Com),2017,00-14,both,9
+ben_3_46,Avrankou (Com),2017,15+,female,154
+ben_3_46,Avrankou (Com),2017,15+,male,59
+ben_3_46,Avrankou (Com),2018,00-14,both,13
+ben_3_46,Avrankou (Com),2018,15+,female,168
+ben_3_46,Avrankou (Com),2018,15+,male,74
+ben_3_46,Avrankou (Com),2019,00-14,both,12
+ben_3_46,Avrankou (Com),2019,15+,female,173
+ben_3_46,Avrankou (Com),2019,15+,male,75
+ben_3_23,Banikoara (Com),2017,00-14,both,7
+ben_3_23,Banikoara (Com),2017,15+,female,153
+ben_3_23,Banikoara (Com),2017,15+,male,47
+ben_3_23,Banikoara (Com),2018,00-14,both,9
+ben_3_23,Banikoara (Com),2018,15+,female,179
+ben_3_23,Banikoara (Com),2018,15+,male,57
+ben_3_23,Banikoara (Com),2019,00-14,both,8
+ben_3_23,Banikoara (Com),2019,15+,female,194
+ben_3_23,Banikoara (Com),2019,15+,male,65
+ben_3_21,Bante (Com),2017,15+,female,56
+ben_3_21,Bante (Com),2017,15+,male,15
+ben_3_21,Bante (Com),2018,15+,female,75
+ben_3_21,Bante (Com),2018,15+,male,21
+ben_3_21,Bante (Com),2019,00-14,both,2
+ben_3_21,Bante (Com),2019,15+,female,88
+ben_3_21,Bante (Com),2019,15+,male,17
+ben_3_5,Bassila (Com),2017,00-14,both,16
+ben_3_5,Bassila (Com),2017,15+,female,359
+ben_3_5,Bassila (Com),2017,15+,male,149
+ben_3_5,Bassila (Com),2018,00-14,both,19
+ben_3_5,Bassila (Com),2018,15+,female,405
+ben_3_5,Bassila (Com),2018,15+,male,163
+ben_3_5,Bassila (Com),2019,00-14,both,20
+ben_3_5,Bassila (Com),2019,15+,female,434
+ben_3_5,Bassila (Com),2019,15+,male,171
+ben_3_61,Bembèrèkè (Com),2017,00-14,both,32
+ben_3_61,Bembèrèkè (Com),2017,15+,female,287
+ben_3_61,Bembèrèkè (Com),2017,15+,male,97
+ben_3_61,Bembèrèkè (Com),2018,00-14,both,39
+ben_3_61,Bembèrèkè (Com),2018,15+,female,318
+ben_3_61,Bembèrèkè (Com),2018,15+,male,102
+ben_3_61,Bembèrèkè (Com),2019,00-14,both,43
+ben_3_61,Bembèrèkè (Com),2019,15+,female,330
+ben_3_61,Bembèrèkè (Com),2019,15+,male,106
+ben_3_39,Bohicon,2017,00-14,both,3
+ben_3_39,Bohicon,2017,15+,female,33
+ben_3_39,Bohicon,2017,15+,male,19
+ben_3_39,Bohicon,2018,00-14,both,9
+ben_3_39,Bohicon,2018,15+,female,69
+ben_3_39,Bohicon,2018,15+,male,30
+ben_3_39,Bohicon,2019,00-14,both,13
+ben_3_39,Bohicon,2019,15+,female,102
+ben_3_39,Bohicon,2019,15+,male,37
+ben_3_37,Bonou (Com),2017,15+,female,9
+ben_3_37,Bonou (Com),2017,15+,male,1
+ben_3_37,Bonou (Com),2018,00-14,both,2
+ben_3_37,Bonou (Com),2018,15+,female,14
+ben_3_37,Bonou (Com),2018,15+,male,1
+ben_3_37,Bonou (Com),2019,00-14,both,2
+ben_3_37,Bonou (Com),2019,15+,female,15
+ben_3_37,Bonou (Com),2019,15+,male,2
+ben_3_35,Bopa (Com),2017,15+,female,69
+ben_3_35,Bopa (Com),2017,15+,male,26
+ben_3_35,Bopa (Com),2018,00-14,both,4
+ben_3_35,Bopa (Com),2018,15+,female,98
+ben_3_35,Bopa (Com),2018,15+,male,35
+ben_3_35,Bopa (Com),2019,00-14,both,4
+ben_3_35,Bopa (Com),2019,15+,female,93
+ben_3_35,Bopa (Com),2019,15+,male,31
+ben_3_19,Boukoumbe (Com),2017,00-14,both,7
+ben_3_19,Boukoumbe (Com),2017,15+,female,101
+ben_3_19,Boukoumbe (Com),2017,15+,male,98
+ben_3_19,Boukoumbe (Com),2018,00-14,both,8
+ben_3_19,Boukoumbe (Com),2018,15+,female,124
+ben_3_19,Boukoumbe (Com),2018,15+,male,106
+ben_3_19,Boukoumbe (Com),2019,00-14,both,7
+ben_3_19,Boukoumbe (Com),2019,15+,female,146
+ben_3_19,Boukoumbe (Com),2019,15+,male,114
+ben_3_14,Cobly,2017,15+,female,42
+ben_3_14,Cobly,2017,15+,male,21
+ben_3_14,Cobly,2018,00-14,both,1
+ben_3_14,Cobly,2018,15+,female,48
+ben_3_14,Cobly,2018,15+,male,26
+ben_3_14,Cobly,2019,00-14,both,1
+ben_3_14,Cobly,2019,15+,female,53
+ben_3_14,Cobly,2019,15+,male,31
+ben_3_1,Come (Com),2017,00-14,both,36
+ben_3_1,Come (Com),2017,15+,female,466
+ben_3_1,Come (Com),2017,15+,male,197
+ben_3_1,Come (Com),2018,00-14,both,41
+ben_3_1,Come (Com),2018,15+,female,479
+ben_3_1,Come (Com),2018,15+,male,207
+ben_3_1,Come (Com),2019,00-14,both,44
+ben_3_1,Come (Com),2019,15+,female,497
+ben_3_1,Come (Com),2019,15+,male,216
+ben_3_4,Copargo (Com),2017,00-14,both,1
+ben_3_4,Copargo (Com),2017,15+,female,10
+ben_3_4,Copargo (Com),2017,15+,male,15
+ben_3_4,Copargo (Com),2018,00-14,both,1
+ben_3_4,Copargo (Com),2018,15+,female,11
+ben_3_4,Copargo (Com),2018,15+,male,21
+ben_3_4,Copargo (Com),2019,00-14,both,2
+ben_3_4,Copargo (Com),2019,15+,female,17
+ben_3_4,Copargo (Com),2019,15+,male,19
+ben_3_9,Cotonou I,2017,00-14,both,32
+ben_3_9,Cotonou I,2017,15+,female,757
+ben_3_9,Cotonou I,2017,15+,male,233
+ben_3_9,Cotonou I,2018,00-14,both,41
+ben_3_9,Cotonou I,2018,15+,female,821
+ben_3_9,Cotonou I,2018,15+,male,230
+ben_3_9,Cotonou I,2019,00-14,both,41
+ben_3_9,Cotonou I,2019,15+,female,827
+ben_3_9,Cotonou I,2019,15+,male,239
+ben_3_69,Cotonou II,2017,15+,female,8
+ben_3_69,Cotonou II,2017,15+,male,12
+ben_3_69,Cotonou II,2018,15+,female,11
+ben_3_69,Cotonou II,2018,15+,male,16
+ben_3_69,Cotonou II,2019,15+,female,17
+ben_3_69,Cotonou II,2019,15+,male,12
+ben_3_50,Cotonou III,2017,00-14,both,199
+ben_3_50,Cotonou III,2017,15+,female,2680
+ben_3_50,Cotonou III,2017,15+,male,1022
+ben_3_50,Cotonou III,2018,00-14,both,213
+ben_3_50,Cotonou III,2018,15+,female,2883
+ben_3_50,Cotonou III,2018,15+,male,1063
+ben_3_50,Cotonou III,2019,00-14,both,214
+ben_3_50,Cotonou III,2019,15+,female,2917
+ben_3_50,Cotonou III,2019,15+,male,1071
+ben_3_54,Cotonou V,2017,00-14,both,94
+ben_3_54,Cotonou V,2017,15+,female,1968
+ben_3_54,Cotonou V,2017,15+,male,859
+ben_3_54,Cotonou V,2018,00-14,both,128
+ben_3_54,Cotonou V,2018,15+,female,2217
+ben_3_54,Cotonou V,2018,15+,male,984
+ben_3_54,Cotonou V,2019,00-14,both,136
+ben_3_54,Cotonou V,2019,15+,female,2383
+ben_3_54,Cotonou V,2019,15+,male,1034
+ben_3_60,Cotonou VI,2017,00-14,both,312
+ben_3_60,Cotonou VI,2017,15+,female,4568
+ben_3_60,Cotonou VI,2017,15+,male,1805
+ben_3_60,Cotonou VI,2018,00-14,both,295
+ben_3_60,Cotonou VI,2018,15+,female,4266
+ben_3_60,Cotonou VI,2018,15+,male,1705
+ben_3_60,Cotonou VI,2019,00-14,both,303
+ben_3_60,Cotonou VI,2019,15+,female,4384
+ben_3_60,Cotonou VI,2019,15+,male,1801
+ben_3_67,Covè (Com),2017,00-14,both,7
+ben_3_67,Covè (Com),2017,15+,female,75
+ben_3_67,Covè (Com),2017,15+,male,32
+ben_3_67,Covè (Com),2018,00-14,both,8
+ben_3_67,Covè (Com),2018,15+,female,91
+ben_3_67,Covè (Com),2018,15+,male,43
+ben_3_67,Covè (Com),2019,00-14,both,9
+ben_3_67,Covè (Com),2019,15+,female,88
+ben_3_67,Covè (Com),2019,15+,male,43
+ben_3_33,Dangbo (Com),2017,00-14,both,52
+ben_3_33,Dangbo (Com),2017,15+,female,482
+ben_3_33,Dangbo (Com),2017,15+,male,198
+ben_3_33,Dangbo (Com),2018,00-14,both,50
+ben_3_33,Dangbo (Com),2018,15+,female,477
+ben_3_33,Dangbo (Com),2018,15+,male,203
+ben_3_33,Dangbo (Com),2019,00-14,both,60
+ben_3_33,Dangbo (Com),2019,15+,female,483
+ben_3_33,Dangbo (Com),2019,15+,male,214
+ben_3_8,Dassa,2017,00-14,both,18
+ben_3_8,Dassa,2017,15+,female,234
+ben_3_8,Dassa,2017,15+,male,102
+ben_3_8,Dassa,2018,00-14,both,24
+ben_3_8,Dassa,2018,15+,female,295
+ben_3_8,Dassa,2018,15+,male,117
+ben_3_8,Dassa,2019,00-14,both,27
+ben_3_8,Dassa,2019,15+,female,313
+ben_3_8,Dassa,2019,15+,male,128
+ben_3_71,Djakotome,2017,00-14,both,32
+ben_3_71,Djakotome,2017,15+,female,514
+ben_3_71,Djakotome,2017,15+,male,294
+ben_3_71,Djakotome,2018,00-14,both,37
+ben_3_71,Djakotome,2018,15+,female,566
+ben_3_71,Djakotome,2018,15+,male,324
+ben_3_71,Djakotome,2019,00-14,both,44
+ben_3_71,Djakotome,2019,15+,female,605
+ben_3_71,Djakotome,2019,15+,male,339
+ben_3_11,Djidja (Com),2017,00-14,both,7
+ben_3_11,Djidja (Com),2017,15+,female,49
+ben_3_11,Djidja (Com),2017,15+,male,17
+ben_3_11,Djidja (Com),2018,00-14,both,4
+ben_3_11,Djidja (Com),2018,15+,female,59
+ben_3_11,Djidja (Com),2018,15+,male,25
+ben_3_11,Djidja (Com),2019,00-14,both,4
+ben_3_11,Djidja (Com),2019,15+,female,61
+ben_3_11,Djidja (Com),2019,15+,male,28
+ben_3_58,Djougou,2017,00-14,both,64
+ben_3_58,Djougou,2017,15+,female,958
+ben_3_58,Djougou,2017,15+,male,270
+ben_3_58,Djougou,2018,00-14,both,75
+ben_3_58,Djougou,2018,15+,female,1086
+ben_3_58,Djougou,2018,15+,male,292
+ben_3_58,Djougou,2019,00-14,both,78
+ben_3_58,Djougou,2019,15+,female,1149
+ben_3_58,Djougou,2019,15+,male,311
+ben_3_2,Dogbo (Com),2017,00-14,both,37
+ben_3_2,Dogbo (Com),2017,15+,female,705
+ben_3_2,Dogbo (Com),2017,15+,male,289
+ben_3_2,Dogbo (Com),2018,00-14,both,38
+ben_3_2,Dogbo (Com),2018,15+,female,728
+ben_3_2,Dogbo (Com),2018,15+,male,301
+ben_3_2,Dogbo (Com),2019,00-14,both,43
+ben_3_2,Dogbo (Com),2019,15+,female,745
+ben_3_2,Dogbo (Com),2019,15+,male,305
+ben_3_42,Glazoue (Com),2017,00-14,both,2
+ben_3_42,Glazoue (Com),2017,15+,female,62
+ben_3_42,Glazoue (Com),2017,15+,male,19
+ben_3_42,Glazoue (Com),2018,00-14,both,5
+ben_3_42,Glazoue (Com),2018,15+,female,86
+ben_3_42,Glazoue (Com),2018,15+,male,36
+ben_3_42,Glazoue (Com),2019,00-14,both,6
+ben_3_42,Glazoue (Com),2019,15+,female,83
+ben_3_42,Glazoue (Com),2019,15+,male,35
+ben_3_48,Gogounou (Com),2017,15+,female,11
+ben_3_48,Gogounou (Com),2017,15+,male,7
+ben_3_48,Gogounou (Com),2018,00-14,both,1
+ben_3_48,Gogounou (Com),2018,15+,female,12
+ben_3_48,Gogounou (Com),2018,15+,male,7
+ben_3_48,Gogounou (Com),2019,00-14,both,1
+ben_3_48,Gogounou (Com),2019,15+,female,14
+ben_3_48,Gogounou (Com),2019,15+,male,7
+ben_3_43,Grand-Popo (Com),2017,00-14,both,4
+ben_3_43,Grand-Popo (Com),2017,15+,female,47
+ben_3_43,Grand-Popo (Com),2017,15+,male,26
+ben_3_43,Grand-Popo (Com),2018,00-14,both,7
+ben_3_43,Grand-Popo (Com),2018,15+,female,86
+ben_3_43,Grand-Popo (Com),2018,15+,male,40
+ben_3_43,Grand-Popo (Com),2019,00-14,both,9
+ben_3_43,Grand-Popo (Com),2019,15+,female,100
+ben_3_43,Grand-Popo (Com),2019,15+,male,46
+ben_3_13,Houeyogbe (Com),2017,00-14,both,7
+ben_3_13,Houeyogbe (Com),2017,15+,female,151
+ben_3_13,Houeyogbe (Com),2017,15+,male,67
+ben_3_13,Houeyogbe (Com),2018,00-14,both,8
+ben_3_13,Houeyogbe (Com),2018,15+,female,175
+ben_3_13,Houeyogbe (Com),2018,15+,male,65
+ben_3_13,Houeyogbe (Com),2019,00-14,both,13
+ben_3_13,Houeyogbe (Com),2019,15+,female,188
+ben_3_13,Houeyogbe (Com),2019,15+,male,68
+ben_3_25,Ifangni (Com),2017,15+,female,45
+ben_3_25,Ifangni (Com),2017,15+,male,28
+ben_3_25,Ifangni (Com),2018,15+,female,59
+ben_3_25,Ifangni (Com),2018,15+,male,38
+ben_3_25,Ifangni (Com),2019,00-14,both,1
+ben_3_25,Ifangni (Com),2019,15+,female,61
+ben_3_25,Ifangni (Com),2019,15+,male,40
+ben_3_72,Kalale (Com),2017,00-14,both,1
+ben_3_72,Kalale (Com),2017,15+,female,24
+ben_3_72,Kalale (Com),2017,15+,male,9
+ben_3_72,Kalale (Com),2018,00-14,both,3
+ben_3_72,Kalale (Com),2018,15+,female,22
+ben_3_72,Kalale (Com),2018,15+,male,10
+ben_3_72,Kalale (Com),2019,00-14,both,3
+ben_3_72,Kalale (Com),2019,15+,female,23
+ben_3_72,Kalale (Com),2019,15+,male,9
+ben_3_76,Kandi,2017,00-14,both,10
+ben_3_76,Kandi,2017,15+,female,192
+ben_3_76,Kandi,2017,15+,male,66
+ben_3_76,Kandi,2018,00-14,both,13
+ben_3_76,Kandi,2018,15+,female,228
+ben_3_76,Kandi,2018,15+,male,84
+ben_3_76,Kandi,2019,00-14,both,14
+ben_3_76,Kandi,2019,15+,female,235
+ben_3_76,Kandi,2019,15+,male,91
+ben_3_82,Karimama (Com),2017,00-14,both,1
+ben_3_82,Karimama (Com),2017,15+,female,11
+ben_3_82,Karimama (Com),2017,15+,male,2
+ben_3_82,Karimama (Com),2018,00-14,both,4
+ben_3_82,Karimama (Com),2018,15+,female,2
+ben_3_82,Karimama (Com),2018,15+,male,2
+ben_3_82,Karimama (Com),2019,00-14,both,2
+ben_3_82,Karimama (Com),2019,15+,female,5
+ben_3_82,Karimama (Com),2019,15+,male,2
+ben_3_16,Klouékanmè (Com),2017,00-14,both,10
+ben_3_16,Klouékanmè (Com),2017,15+,female,204
+ben_3_16,Klouékanmè (Com),2017,15+,male,111
+ben_3_16,Klouékanmè (Com),2018,00-14,both,16
+ben_3_16,Klouékanmè (Com),2018,15+,female,236
+ben_3_16,Klouékanmè (Com),2018,15+,male,136
+ben_3_16,Klouékanmè (Com),2019,00-14,both,22
+ben_3_16,Klouékanmè (Com),2019,15+,female,249
+ben_3_16,Klouékanmè (Com),2019,15+,male,140
+ben_3_24,Kouande( Com),2017,00-14,both,4
+ben_3_24,Kouande( Com),2017,15+,female,41
+ben_3_24,Kouande( Com),2017,15+,male,15
+ben_3_24,Kouande( Com),2018,00-14,both,4
+ben_3_24,Kouande( Com),2018,15+,female,66
+ben_3_24,Kouande( Com),2018,15+,male,31
+ben_3_24,Kouande( Com),2019,00-14,both,6
+ben_3_24,Kouande( Com),2019,15+,female,79
+ben_3_24,Kouande( Com),2019,15+,male,41
+ben_3_30,Kpomasse (Com),2017,15+,female,23
+ben_3_30,Kpomasse (Com),2017,15+,male,14
+ben_3_30,Kpomasse (Com),2018,15+,female,33
+ben_3_30,Kpomasse (Com),2018,15+,male,12
+ben_3_30,Kpomasse (Com),2019,15+,female,33
+ben_3_30,Kpomasse (Com),2019,15+,male,12
+ben_3_28,Kérou (Com),2017,15+,female,30
+ben_3_28,Kérou (Com),2017,15+,male,12
+ben_3_28,Kérou (Com),2018,00-14,both,2
+ben_3_28,Kérou (Com),2018,15+,female,54
+ben_3_28,Kérou (Com),2018,15+,male,25
+ben_3_28,Kérou (Com),2019,00-14,both,2
+ben_3_28,Kérou (Com),2019,15+,female,64
+ben_3_28,Kérou (Com),2019,15+,male,28
+ben_3_27,Kétou (Com),2017,15+,female,114
+ben_3_27,Kétou (Com),2017,15+,male,35
+ben_3_27,Kétou (Com),2018,15+,female,126
+ben_3_27,Kétou (Com),2018,15+,male,36
+ben_3_27,Kétou (Com),2019,00-14,both,1
+ben_3_27,Kétou (Com),2019,15+,female,133
+ben_3_27,Kétou (Com),2019,15+,male,40
+ben_3_22,Lalo (Com),2017,00-14,both,4
+ben_3_22,Lalo (Com),2017,15+,female,69
+ben_3_22,Lalo (Com),2017,15+,male,30
+ben_3_22,Lalo (Com),2018,00-14,both,6
+ben_3_22,Lalo (Com),2018,15+,female,94
+ben_3_22,Lalo (Com),2018,15+,male,43
+ben_3_22,Lalo (Com),2019,00-14,both,6
+ben_3_22,Lalo (Com),2019,15+,female,104
+ben_3_22,Lalo (Com),2019,15+,male,50
+ben_3_10,Lokossa (Com),2017,00-14,both,33
+ben_3_10,Lokossa (Com),2017,15+,female,518
+ben_3_10,Lokossa (Com),2017,15+,male,246
+ben_3_10,Lokossa (Com),2018,00-14,both,36
+ben_3_10,Lokossa (Com),2018,15+,female,595
+ben_3_10,Lokossa (Com),2018,15+,male,260
+ben_3_10,Lokossa (Com),2019,00-14,both,40
+ben_3_10,Lokossa (Com),2019,15+,female,622
+ben_3_10,Lokossa (Com),2019,15+,male,273
+ben_3_57,Malanville (Com),2017,00-14,both,1
+ben_3_57,Malanville (Com),2017,15+,female,64
+ben_3_57,Malanville (Com),2017,15+,male,26
+ben_3_57,Malanville (Com),2018,15+,female,78
+ben_3_57,Malanville (Com),2018,15+,male,28
+ben_3_57,Malanville (Com),2019,15+,female,80
+ben_3_57,Malanville (Com),2019,15+,male,32
+ben_3_64,Matéri,2017,15+,female,22
+ben_3_64,Matéri,2017,15+,male,10
+ben_3_64,Matéri,2018,15+,female,45
+ben_3_64,Matéri,2018,15+,male,24
+ben_3_64,Matéri,2019,15+,female,71
+ben_3_64,Matéri,2019,15+,male,40
+ben_3_47,N'Dali (Com),2017,00-14,both,6
+ben_3_47,N'Dali (Com),2017,15+,female,315
+ben_3_47,N'Dali (Com),2017,15+,male,135
+ben_3_47,N'Dali (Com),2018,00-14,both,6
+ben_3_47,N'Dali (Com),2018,15+,female,363
+ben_3_47,N'Dali (Com),2018,15+,male,153
+ben_3_47,N'Dali (Com),2019,00-14,both,6
+ben_3_47,N'Dali (Com),2019,15+,female,404
+ben_3_47,N'Dali (Com),2019,15+,male,183
+ben_3_45,Natitingou,2017,00-14,both,51
+ben_3_45,Natitingou,2017,15+,female,613
+ben_3_45,Natitingou,2017,15+,male,327
+ben_3_45,Natitingou,2018,00-14,both,61
+ben_3_45,Natitingou,2018,15+,female,764
+ben_3_45,Natitingou,2018,15+,male,452
+ben_3_45,Natitingou,2019,00-14,both,68
+ben_3_45,Natitingou,2019,15+,female,842
+ben_3_45,Natitingou,2019,15+,male,516
+ben_3_49,Nikki (Com),2017,00-14,both,11
+ben_3_49,Nikki (Com),2017,15+,female,137
+ben_3_49,Nikki (Com),2017,15+,male,54
+ben_3_49,Nikki (Com),2018,00-14,both,14
+ben_3_49,Nikki (Com),2018,15+,female,158
+ben_3_49,Nikki (Com),2018,15+,male,87
+ben_3_49,Nikki (Com),2019,00-14,both,22
+ben_3_49,Nikki (Com),2019,15+,female,184
+ben_3_49,Nikki (Com),2019,15+,male,92
+ben_3_38,Ouake (Com),2017,00-14,both,4
+ben_3_38,Ouake (Com),2017,15+,female,150
+ben_3_38,Ouake (Com),2017,15+,male,50
+ben_3_38,Ouake (Com),2018,00-14,both,4
+ben_3_38,Ouake (Com),2018,15+,female,167
+ben_3_38,Ouake (Com),2018,15+,male,51
+ben_3_38,Ouake (Com),2019,00-14,both,4
+ben_3_38,Ouake (Com),2019,15+,female,185
+ben_3_38,Ouake (Com),2019,15+,male,53
+ben_3_36,Ouesse (Com),2017,00-14,both,1
+ben_3_36,Ouesse (Com),2017,15+,female,44
+ben_3_36,Ouesse (Com),2017,15+,male,28
+ben_3_36,Ouesse (Com),2018,00-14,both,2
+ben_3_36,Ouesse (Com),2018,15+,female,66
+ben_3_36,Ouesse (Com),2018,15+,male,29
+ben_3_36,Ouesse (Com),2019,00-14,both,2
+ben_3_36,Ouesse (Com),2019,15+,female,72
+ben_3_36,Ouesse (Com),2019,15+,male,36
+ben_3_41,Ouidah,2017,00-14,both,21
+ben_3_41,Ouidah,2017,15+,female,453
+ben_3_41,Ouidah,2017,15+,male,183
+ben_3_41,Ouidah,2018,00-14,both,30
+ben_3_41,Ouidah,2018,15+,female,508
+ben_3_41,Ouidah,2018,15+,male,198
+ben_3_41,Ouidah,2019,00-14,both,33
+ben_3_41,Ouidah,2019,15+,female,499
+ben_3_41,Ouidah,2019,15+,male,193
+ben_3_51,Ouinhi (Com),2017,00-14,both,1
+ben_3_51,Ouinhi (Com),2017,15+,female,6
+ben_3_51,Ouinhi (Com),2017,15+,male,2
+ben_3_51,Ouinhi (Com),2018,00-14,both,1
+ben_3_51,Ouinhi (Com),2018,15+,female,20
+ben_3_51,Ouinhi (Com),2018,15+,male,4
+ben_3_51,Ouinhi (Com),2019,15+,female,22
+ben_3_51,Ouinhi (Com),2019,15+,male,6
+ben_3_59,Parakou,2017,00-14,both,103
+ben_3_59,Parakou,2017,15+,female,1071
+ben_3_59,Parakou,2017,15+,male,429
+ben_3_59,Parakou,2018,00-14,both,131
+ben_3_59,Parakou,2018,15+,female,1277
+ben_3_59,Parakou,2018,15+,male,511
+ben_3_59,Parakou,2019,00-14,both,146
+ben_3_59,Parakou,2019,15+,female,1360
+ben_3_59,Parakou,2019,15+,male,595
+ben_3_52,Pehunco (Com),2017,00-14,both,4
+ben_3_52,Pehunco (Com),2017,15+,female,20
+ben_3_52,Pehunco (Com),2017,15+,male,7
+ben_3_52,Pehunco (Com),2018,00-14,both,3
+ben_3_52,Pehunco (Com),2018,15+,female,16
+ben_3_52,Pehunco (Com),2018,15+,male,8
+ben_3_52,Pehunco (Com),2019,00-14,both,3
+ben_3_52,Pehunco (Com),2019,15+,female,20
+ben_3_52,Pehunco (Com),2019,15+,male,9
+ben_3_81,Pobè (Com),2017,00-14,both,15
+ben_3_81,Pobè (Com),2017,15+,female,249
+ben_3_81,Pobè (Com),2017,15+,male,83
+ben_3_81,Pobè (Com),2018,00-14,both,11
+ben_3_81,Pobè (Com),2018,15+,female,319
+ben_3_81,Pobè (Com),2018,15+,male,78
+ben_3_81,Pobè (Com),2019,00-14,both,10
+ben_3_81,Pobè (Com),2019,15+,female,325
+ben_3_81,Pobè (Com),2019,15+,male,88
+ben_3_79,Porto-Novo,2017,00-14,both,148
+ben_3_79,Porto-Novo,2017,15+,female,1696
+ben_3_79,Porto-Novo,2017,15+,male,738
+ben_3_79,Porto-Novo,2018,00-14,both,160
+ben_3_79,Porto-Novo,2018,15+,female,2048
+ben_3_79,Porto-Novo,2018,15+,male,880
+ben_3_79,Porto-Novo,2019,00-14,both,156
+ben_3_79,Porto-Novo,2019,15+,female,2177
+ben_3_79,Porto-Novo,2019,15+,male,936
+ben_3_74,Pèrèrè (Com),2017,15+,female,29
+ben_3_74,Pèrèrè (Com),2017,15+,male,7
+ben_3_74,Pèrèrè (Com),2018,15+,female,37
+ben_3_74,Pèrèrè (Com),2018,15+,male,12
+ben_3_74,Pèrèrè (Com),2019,15+,female,33
+ben_3_74,Pèrèrè (Com),2019,15+,male,13
+ben_3_68,Sakete,2017,00-14,both,6
+ben_3_68,Sakete,2017,15+,female,94
+ben_3_68,Sakete,2017,15+,male,40
+ben_3_68,Sakete,2018,00-14,both,7
+ben_3_68,Sakete,2018,15+,female,105
+ben_3_68,Sakete,2018,15+,male,61
+ben_3_68,Sakete,2019,00-14,both,6
+ben_3_68,Sakete,2019,15+,female,113
+ben_3_68,Sakete,2019,15+,male,64
+ben_3_20,Savalou,2017,00-14,both,1
+ben_3_20,Savalou,2017,15+,female,161
+ben_3_20,Savalou,2017,15+,male,95
+ben_3_20,Savalou,2018,00-14,both,6
+ben_3_20,Savalou,2018,15+,female,211
+ben_3_20,Savalou,2018,15+,male,114
+ben_3_20,Savalou,2019,00-14,both,11
+ben_3_20,Savalou,2019,15+,female,228
+ben_3_20,Savalou,2019,15+,male,119
+ben_3_15,Savè,2017,00-14,both,11
+ben_3_15,Savè,2017,15+,female,81
+ben_3_15,Savè,2017,15+,male,23
+ben_3_15,Savè,2018,00-14,both,7
+ben_3_15,Savè,2018,15+,female,90
+ben_3_15,Savè,2018,15+,male,30
+ben_3_15,Savè,2019,00-14,both,8
+ben_3_15,Savè,2019,15+,female,96
+ben_3_15,Savè,2019,15+,male,30
+ben_3_12,Segbana (Com),2017,00-14,both,1
+ben_3_12,Segbana (Com),2017,15+,female,50
+ben_3_12,Segbana (Com),2017,15+,male,14
+ben_3_12,Segbana (Com),2018,00-14,both,2
+ben_3_12,Segbana (Com),2018,15+,female,44
+ben_3_12,Segbana (Com),2018,15+,male,7
+ben_3_12,Segbana (Com),2019,00-14,both,4
+ben_3_12,Segbana (Com),2019,15+,female,47
+ben_3_12,Segbana (Com),2019,15+,male,8
+ben_3_56,Seme-Kpodji (Com),2017,00-14,both,6
+ben_3_56,Seme-Kpodji (Com),2017,15+,female,185
+ben_3_56,Seme-Kpodji (Com),2017,15+,male,73
+ben_3_56,Seme-Kpodji (Com),2018,00-14,both,8
+ben_3_56,Seme-Kpodji (Com),2018,15+,female,186
+ben_3_56,Seme-Kpodji (Com),2018,15+,male,75
+ben_3_56,Seme-Kpodji (Com),2019,00-14,both,7
+ben_3_56,Seme-Kpodji (Com),2019,15+,female,239
+ben_3_56,Seme-Kpodji (Com),2019,15+,male,77
+ben_3_66,Sinende (Com),2017,15+,female,22
+ben_3_66,Sinende (Com),2017,15+,male,5
+ben_3_66,Sinende (Com),2018,15+,female,21
+ben_3_66,Sinende (Com),2018,15+,male,5
+ben_3_66,Sinende (Com),2019,00-14,both,1
+ben_3_66,Sinende (Com),2019,15+,female,22
+ben_3_66,Sinende (Com),2019,15+,male,5
+ben_3_77,So-Ava,2017,00-14,both,1
+ben_3_77,So-Ava,2017,15+,female,38
+ben_3_77,So-Ava,2017,15+,male,14
+ben_3_77,So-Ava,2018,00-14,both,1
+ben_3_77,So-Ava,2018,15+,female,65
+ben_3_77,So-Ava,2018,15+,male,19
+ben_3_77,So-Ava,2019,00-14,both,1
+ben_3_77,So-Ava,2019,15+,female,68
+ben_3_77,So-Ava,2019,15+,male,23
+ben_3_80,Tanguieta (Com),2017,00-14,both,98
+ben_3_80,Tanguieta (Com),2017,15+,female,377
+ben_3_80,Tanguieta (Com),2017,15+,male,181
+ben_3_80,Tanguieta (Com),2018,00-14,both,112
+ben_3_80,Tanguieta (Com),2018,15+,female,412
+ben_3_80,Tanguieta (Com),2018,15+,male,213
+ben_3_80,Tanguieta (Com),2019,00-14,both,119
+ben_3_80,Tanguieta (Com),2019,15+,female,434
+ben_3_80,Tanguieta (Com),2019,15+,male,221
+ben_3_40,Tchaourou (Com),2017,00-14,both,10
+ben_3_40,Tchaourou (Com),2017,15+,female,117
+ben_3_40,Tchaourou (Com),2017,15+,male,37
+ben_3_40,Tchaourou (Com),2018,00-14,both,13
+ben_3_40,Tchaourou (Com),2018,15+,female,131
+ben_3_40,Tchaourou (Com),2018,15+,male,47
+ben_3_40,Tchaourou (Com),2019,00-14,both,13
+ben_3_40,Tchaourou (Com),2019,15+,female,129
+ben_3_40,Tchaourou (Com),2019,15+,male,55
+ben_3_34,Toffo (Com),2017,15+,female,8
+ben_3_34,Toffo (Com),2017,15+,male,2
+ben_3_34,Toffo (Com),2018,00-14,both,1
+ben_3_34,Toffo (Com),2018,15+,female,6
+ben_3_34,Toffo (Com),2018,15+,male,3
+ben_3_34,Toffo (Com),2019,00-14,both,1
+ben_3_34,Toffo (Com),2019,15+,female,6
+ben_3_34,Toffo (Com),2019,15+,male,3
+ben_3_7,Tori-Bossito,2017,15+,female,9
+ben_3_7,Tori-Bossito,2017,15+,male,6
+ben_3_7,Tori-Bossito,2018,15+,female,21
+ben_3_7,Tori-Bossito,2018,15+,male,7
+ben_3_7,Tori-Bossito,2019,15+,female,25
+ben_3_7,Tori-Bossito,2019,15+,male,10
+ben_3_62,Toukountouna,2017,00-14,both,1
+ben_3_62,Toukountouna,2017,15+,female,19
+ben_3_62,Toukountouna,2017,15+,male,3
+ben_3_62,Toukountouna,2018,00-14,both,2
+ben_3_62,Toukountouna,2018,15+,female,25
+ben_3_62,Toukountouna,2018,15+,male,5
+ben_3_62,Toukountouna,2019,00-14,both,2
+ben_3_62,Toukountouna,2019,15+,female,26
+ben_3_62,Toukountouna,2019,15+,male,6
+ben_3_65,Toviklin (Com),2017,15+,female,57
+ben_3_65,Toviklin (Com),2017,15+,male,21
+ben_3_65,Toviklin (Com),2018,00-14,both,1
+ben_3_65,Toviklin (Com),2018,15+,female,70
+ben_3_65,Toviklin (Com),2018,15+,male,25
+ben_3_65,Toviklin (Com),2019,00-14,both,1
+ben_3_65,Toviklin (Com),2019,15+,female,70
+ben_3_65,Toviklin (Com),2019,15+,male,24
+ben_3_55,Za-Kpota (Com),2017,00-14,both,3
+ben_3_55,Za-Kpota (Com),2017,15+,female,85
+ben_3_55,Za-Kpota (Com),2017,15+,male,24
+ben_3_55,Za-Kpota (Com),2018,00-14,both,3
+ben_3_55,Za-Kpota (Com),2018,15+,female,90
+ben_3_55,Za-Kpota (Com),2018,15+,male,29
+ben_3_55,Za-Kpota (Com),2019,00-14,both,2
+ben_3_55,Za-Kpota (Com),2019,15+,female,92
+ben_3_55,Za-Kpota (Com),2019,15+,male,30
+ben_3_17,Zagnanado (Com),2017,00-14,both,7
+ben_3_17,Zagnanado (Com),2017,15+,female,35
+ben_3_17,Zagnanado (Com),2017,15+,male,10
+ben_3_17,Zagnanado (Com),2018,00-14,both,11
+ben_3_17,Zagnanado (Com),2018,15+,female,62
+ben_3_17,Zagnanado (Com),2018,15+,male,20
+ben_3_17,Zagnanado (Com),2019,00-14,both,13
+ben_3_17,Zagnanado (Com),2019,15+,female,80
+ben_3_17,Zagnanado (Com),2019,15+,male,37
+ben_3_6,Ze (Com),2017,00-14,both,3
+ben_3_6,Ze (Com),2017,15+,female,25
+ben_3_6,Ze (Com),2017,15+,male,10
+ben_3_6,Ze (Com),2018,00-14,both,3
+ben_3_6,Ze (Com),2018,15+,female,34
+ben_3_6,Ze (Com),2018,15+,male,11
+ben_3_6,Ze (Com),2019,00-14,both,3
+ben_3_6,Ze (Com),2019,15+,female,41
+ben_3_6,Ze (Com),2019,15+,male,12
+ben_3_18,Zogbodomey (Com),2017,00-14,both,2
+ben_3_18,Zogbodomey (Com),2017,15+,female,60
+ben_3_18,Zogbodomey (Com),2017,15+,male,20
+ben_3_18,Zogbodomey (Com),2018,00-14,both,2
+ben_3_18,Zogbodomey (Com),2018,15+,female,72
+ben_3_18,Zogbodomey (Com),2018,15+,male,26
+ben_3_18,Zogbodomey (Com),2019,00-14,both,2
+ben_3_18,Zogbodomey (Com),2019,15+,female,77
+ben_3_18,Zogbodomey (Com),2019,15+,male,32

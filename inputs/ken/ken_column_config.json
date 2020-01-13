@@ -1,0 +1,177 @@
+[
+{
+    "id": "wbJOu4h2SSz",
+    "name": "MOH 731   On ART_1-9       HV03-029",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "pR7VzBydoj3",
+    "name": "MOH 731   On ART_25+(M)         HV03-036",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "EhZQp3PTA3C",
+    "name": "MOH 731   On ART_20-24  (F)         HV03-035",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "Jbu4if6gtDp",
+    "name": "MOH 731   On ART_10-14(M)         HV03-030",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "GSEmLUnrvzj",
+    "name": "MOH 731   On ART_10-14  (F)         HV03-031",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "SJL4k6Gl53C",
+    "name": "MOH 731   On ART_<1       HV03-028",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "e93GKJTHKAX",
+    "name": "MOH 731   On ART_20-24(M)         HV03-034",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "AQsTt7jtKbt",
+    "name": "MOH 731   On ART_15-19  (F)         HV03-033",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "yNCUlEYkmyA",
+    "name": "MOH 731   On ART_25+  (F)         HV03-037",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "oOOnacUi9Jm",
+    "name": "MOH 731   On ART_15-19(M)         HV03-032",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "lJpaBye9B0H",
+    "name": "MOH 731  On HAART at 1st ANC       HV02-16",
+    "mapping": "ancrt_already_art",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "nwXS5vxrrr7",
+    "name": "MOH 731  Positive Results_ANC       HV02-11",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "oZc8MNc0nLZ",
+    "name": "MOH 731  Known Positive at 1st  ANC       HV02-10",
+    "remove": true
+},
+{
+    "id": "f9vesk5d4IY",
+    "name": "New ANC clients",
+    "mapping": "",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "TJMdle70A7X",
+    "name": "Known positive status (at entry into ANC)",
+    "mapping": "",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "uSxBUWnagGg",
+    "name": "MOH 731  1st ANC Visits       HV02-01",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "ETX9cUWF43c",
+    "name": "MOH 731  Initial test at ANC       HV02-04",
+    "mapping": "ancrt_tested",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "DrYHirleKid",
+    "name": "Antenatal Testing for HIV",
+    "mapping": "",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "GCAkHwMAWM6",
+    "name": "Antenatal Positive to HIV Test ",
+    "mapping": "",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "WNFWVHMqPv9",
+    "name": "MOH 731  Start HAART_ANC       HV02-17",
+    "mapping": "",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "qSgLzXh46n9",
+    "name": "MOH 731  Known Positive at 1st  ANC       HV02-03",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+}
+]

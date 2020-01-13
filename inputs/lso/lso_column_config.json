@@ -1,0 +1,65 @@
+[
+{
+    "id": "DtuWBCzZ3Fo",
+    "name": "ANC-15_5 ANC clients who tested HIV positive at ANC (1st test)",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "Wio8sTIzvVg",
+    "name": "ANC-01 New ANC clients",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "GLJ6cC4xXKG",
+    "name": "ANC-18_2 HIV+ ANC clients already on ART",
+    "mapping": "ancrt_already_art",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "SsMidDhCt0C",
+    "name": "ANC-15_2 ANC clients with known HIV positive status before ANC visit",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "fYrA1h45bDG",
+    "name": "ANC-15_4 Clients tested for HIV at ANC",
+    "mapping": "ancrt_tested",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "c1yU8LkbF12",
+    "name": "ANC-15_1 Clients with known HIV status before ANC visit",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "uo9PCnvIUPN",
+    "name": "ART-21 Clients already on therapy seen for ART Care (2016)",
+    "mapping": "current_art"
+},
+{
+    "id": "BEMK0jQHPBN",
+    "name": "ART-20 New clients started on ART (2016->)",
+    "mapping": "current_art"
+},
+{
+    "id": "emsyqv9XjW3",
+    "name": "ART-22 Current on ART clients who made visits in previous months (2016->)",
+    "mapping": "current_art"
+}
+]

@@ -1,0 +1,209 @@
+[
+{
+    "id": "pnN7ypcFBYf",
+    "name": "Children 5 - 9 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "VGsnt3Oww3G",
+    "name": "Adult 15-19 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "YTShkMMSYDT",
+    "name": "Infants <1 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "zVtGfzz7Ahg",
+    "name": "Children 10 - 14 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "VeJINqFDxIW",
+    "name": "Adult 25-49 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "Qns8yWfVSrB",
+    "name": "Children 10 - 14 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "ahWVMlEZpAZ",
+    "name": "Children 10 - 14 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "YFEsIiCtzUm",
+    "name": "Children 5 - 9 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "jPevxGdGnJZ",
+    "name": "Adult 15-19 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "YaIoVfajTxM",
+    "name": "Children 1 - 4 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "cNjo9fcrUbH",
+    "name": "Adult 20-24 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "nY1CfWrx4as",
+    "name": "Adult 25-49 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "hOFsL0HyRKi",
+    "name": "Children 1 - 4 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "zKR0kqV1DRz",
+    "name": "Infants <1 years currently on ART on  First Line Regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "q2U2Hg9wDaC",
+    "name": "Adult 15-19 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "O3rvmGlaDZi",
+    "name": "Adult 20-24 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "evT8cawaTxb",
+    "name": "Adult 25-49 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "ggKjAWzvkr3",
+    "name": "Children 5 - 9 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+},
+{
+    "id": "FVoAFx1K6KZ",
+    "name": "Adult >=50 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "c1F9GHtPHqD",
+    "name": "Adult >=50 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "I61H4kcSWcf",
+    "name": "Adult 20-24 years currently on ART on first line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "TeQAj89zjHQ",
+    "name": "Adult >=50 years currently on ART on second line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "15+",
+        "sex": "both"
+    }
+},
+{
+    "id": "jI2jI3s5Cc8",
+    "name": "Children 1 - 4 years currently on ART on third line regimen",
+    "mapping": "current_art",
+    "categoryMapping": {
+        "age_group": "00-15",
+        "sex": "both"
+    }
+}
+]

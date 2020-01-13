@@ -1,0 +1,137 @@
+[
+{
+    "id": "tUiK0vIsDaX",
+    "name": "default",
+    "mapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "dFXSUYTaB9Q",
+    "name": "5-9yrs, Females",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "xtPBQjEzCaq",
+    "name": "10-14yrs, Females",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "g30sdtgU9rs",
+    "name": "15-19yrs, Males",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "zhsY2KmvVJ0",
+    "name": "25-49yrs, Males",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "o53qoWTDhUA",
+    "name": "50+yrs, Males",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "fEysh0uhwJp",
+    "name": "50+yrs, Females",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "qDwV6CaJdfv",
+    "name": "1-4yrs, Females",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "AxX6TVSmFq1",
+    "name": "20-24yrs, Females",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "xJcBXZbmoo2",
+    "name": "5-9yrs, Males",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "RqyNWFW8QhK",
+    "name": "1-4yrs, Males",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "gdi5fII5DVo",
+    "name": "10-14yrs, Males",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "rj4uWoAcieB",
+    "name": "25-49yrs, Females",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "U4UvMa7NCk4",
+    "name": "0-11 Months, Females",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "AfOkhdd6iHd",
+    "name": "0-11 Months, Males",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "WYrRiJfo61g",
+    "name": "20-24yrs, Males",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "hoG9C2uI0Xs",
+    "name": "15-19yrs, Females",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+}
+]
