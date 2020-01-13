@@ -65,6 +65,7 @@ def get_dhis2_pivot_table_data(pivot_table_id, from_pickle=False):
     df.to_pickle(pt_pickle_path)
     return df
 
+
 @etl.decorators.log_start_and_finalisation("export category config")
 def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
     categories_names = df['categoryOptionCombo'].replace(category_combos.set_index('id')['name'])
@@ -124,6 +125,7 @@ def export_category_config(df: pd.DataFrame) -> pd.DataFrame:
         f.write("\n]\n")
 
     return df
+
 
 @etl.decorators.log_start_and_finalisation("extract data elements names")
 def extract_data_elements_names(df: pd.DataFrame) -> pd.DataFrame:
@@ -203,7 +205,7 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     df[metadata_cols] = df[metadata_cols].fillna('')
 
-    aggregated_rows =  df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
+    aggregated_rows = df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
     pivot = aggregated_rows.pivot(columns='dataElementName', values='value')
     semi_wide_format_df = pd.concat([aggregated_rows[metadata_cols], pivot], axis=1)
 
