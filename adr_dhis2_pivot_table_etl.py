@@ -240,8 +240,12 @@ def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
         df_count = df.groupby(['area_id', 'period', 'age_group']).count()
         any_many_to_one_mappings = df_count[df_count > 1].any().any()
 
+        # In case there are many to one location mappings, sum aggregate data and fetch name from map
         if any_many_to_one_mappings:
-            pass
+            df_grouped = df.groupby(['area_id', 'period', 'age_group']).sum()
+            df = df_grouped.reset_index(inplace=False)
+            area_id_df_grouped = area_id_df.groupby(['area_id']).min().reset_index(inplace=False)
+            df['area_name'] = df['area_id'].map(lambda x: area_id_df_grouped.set_index('area_id').at[x, 'map_name'])
 
     return df
 
