@@ -236,21 +236,31 @@ def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
             mapping_column_name = 'dhis2_id'
         df['area_id'] = df['area_id'].replace(area_id_df.set_index(mapping_column_name)['area_id'])
 
-        # check if the DataFrame has duplicate mappings
-        df_count = df.groupby(['area_id', 'period', 'age_group']).count()
-        any_many_to_one_mappings = df_count[df_count > 1].any().any()
+        cols = df.columns.tolist()
 
+        # check if the DataFrame has duplicate mappings
+        if 'sex' in df:
+            group_by = ['area_id', 'period', 'age_group', 'sex']
+        else:
+            group_by = ['area_id', 'period', 'age_group']
+        df_count = df.groupby(group_by).count()
+
+        any_many_to_one_mappings = df_count[df_count > 1].any().any()
         # In case there are many to one location mappings, sum aggregate data and fetch name from map
         if any_many_to_one_mappings:
-            df_grouped = df.groupby(['area_id', 'period', 'age_group']).sum()
+            df_grouped = df.groupby(group_by).sum()
             df = df_grouped.reset_index(inplace=False)
             area_id_df_grouped = area_id_df.groupby(['area_id']).min().reset_index(inplace=False)
             df['map_name'] = df['area_id'].map(lambda x: area_id_df_grouped.set_index('area_id').at[x, 'map_name'])
 
-            # Reorder DF columns to original order
-            cols = df.columns.tolist()
-            cols = [cols[0], cols[-1]] + cols[1:-1]
-            df = df[cols]
+            # Reorder DF columns to preferred order
+            if 'sex' in df:
+                cols2 = ['area_id', 'map_name', 'period', 'age_group', 'sex', 'current_art']
+            else:
+                cols2 = ['area_id', 'map_name', 'period', 'age_group', 'anc_clients', 'ancrt_known_pos', 'ancrt_already_art',
+                         'ancrt_tested', 'ancrt_test_pos']
+
+            df = df[cols2]
 
     return df
 
