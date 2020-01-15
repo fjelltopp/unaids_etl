@@ -245,7 +245,12 @@ def map_dhis2_id_area_id(df: pd.DataFrame) -> pd.DataFrame:
             df_grouped = df.groupby(['area_id', 'period', 'age_group']).sum()
             df = df_grouped.reset_index(inplace=False)
             area_id_df_grouped = area_id_df.groupby(['area_id']).min().reset_index(inplace=False)
-            df['area_name'] = df['area_id'].map(lambda x: area_id_df_grouped.set_index('area_id').at[x, 'map_name'])
+            df['map_name'] = df['area_id'].map(lambda x: area_id_df_grouped.set_index('area_id').at[x, 'map_name'])
+
+            # Reorder DF columns to original order
+            cols = df.columns.tolist()
+            cols = [cols[0], cols[-1]] + cols[1:-1]
+            df = df[cols]
 
     return df
 
