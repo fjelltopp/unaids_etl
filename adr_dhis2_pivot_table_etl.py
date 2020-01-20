@@ -191,6 +191,29 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     categories_to_remove = set([x['id'] for x in category_config if bool(x.get('remove'))])
     df = df.loc[~df['categoryOptionCombo'].isin(categories_to_remove)]
     metadata_cols = ['area_id', 'area_name', 'period']
+
+    # Restructure mapping dictionaries to support direct usage of pandas map function
+    category_maps = {}
+    for category_id in category_mapping:
+        for category_name in category_mapping[category_id]:
+            if category_name not in category_maps:
+                category_maps[category_name] = {}
+            category_maps[category_name][category_id] = category_mapping[category_id][category_name]
+
+    column_categories_maps = {}
+    for de_id in column_categories_map:
+        if column_categories_map.get(de_id, {}):
+            for de_name in column_categories_map.get(de_id, {}):
+                if de_name not in column_categories_maps:
+                    column_categories_maps[de_name] = {}
+                column_categories_maps[de_name][de_id] = column_categories_map[de_id][de_name]
+
+    for category in category_maps:
+        df[category] = df['categoryOptionCombo'].map(category_maps[category])
+
+    for column in column_categories_maps:
+        df[column] = df['dataElement'].map(column_categories_maps[column])
+
     for i, row in df.iterrows():
         category_id = row['categoryOptionCombo']
         de_id = row['dataElement']
