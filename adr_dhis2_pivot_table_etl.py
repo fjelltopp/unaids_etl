@@ -208,25 +208,19 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
                     column_categories_maps[de_name] = {}
                 column_categories_maps[de_name][de_id] = column_categories_map[de_id][de_name]
 
+    # Map DHIS2 id's according to maps created above
     for category in category_maps:
         df[category] = df['categoryOptionCombo'].map(category_maps[category])
 
+    # Fill missing category combos with data element maps in case they were created as separate data elements
     for column in column_categories_maps:
-        df[column] = df['dataElement'].map(column_categories_maps[column])
-
-    for i, row in df.iterrows():
-        category_id = row['categoryOptionCombo']
-        de_id = row['dataElement']
-        categories = column_categories_map.get(de_id) or category_mapping[category_id]
-        for c_name, c_value in categories.items():
-            if c_name not in metadata_cols:
-                metadata_cols.append(c_name)
-            df.loc[i, c_name] = c_value
+        df[column].fillna(value=df['dataElement'].map(column_categories_maps[column]),
+                          inplace=True)
 
     df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     df[metadata_cols] = df[metadata_cols].fillna('')
 
-    aggregated_rows =  df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
+    aggregated_rows = df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
     pivot = aggregated_rows.pivot(columns='dataElementName', values='value')
     semi_wide_format_df = pd.concat([aggregated_rows[metadata_cols], pivot], axis=1)
 
