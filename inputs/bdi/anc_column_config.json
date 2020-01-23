@@ -1,0 +1,42 @@
+[
+{
+    "id": "yBTldGdrNMR",
+    "name": " VIH+avant grossesse reçu en CPN1",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "o91nkHIW34N",
+    "name": " CPN_Femmes dépistées VIH",
+    "mapping": "ancrt_tested",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "nPtYwMy10We",
+    "name": " CPN1_Age de la femme",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "MsJ0YQ177rt",
+    "name": "  CPN1_Femmes déjà sous ARV",
+    "mapping": "ancrt_already_art",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+},
+{
+    "id": "eup8aCNUiAu",
+    "name": " Depistees VIH+ en CPN1 ",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "15-49"
+    }
+}
+]

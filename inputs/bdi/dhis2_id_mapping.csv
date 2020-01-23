@@ -1,0 +1,66 @@
+area_id,map_level,map_name,map_id,source
+BDI_1_1,1,Bubanza,A3u6arsTDmT,DHIS
+BDI_1_2,1,Bujumbura Mairie,sYiVgdd2VDH,DHIS
+BDI_1_3,1,Bujumbura ,LBhx9OYcHs8,DHIS
+BDI_1_4,1,Bururi,UmacZmpsldC,DHIS
+BDI_1_5,1,Cankuzo,jDFKdur6bPc,DHIS
+BDI_1_6,1,Cibitoke,a3GDyZM2uGO,DHIS
+BDI_1_7,1,Gitega,Yv1YhzqgCXR,DHIS
+BDI_1_8,1,Karusi,KQ0ppmRSvpB,DHIS
+BDI_1_9,1,Kayanza,yWktquSlu4l,DHIS
+BDI_1_10,1,Kirundo,xdrcvhufKsG,DHIS
+BDI_1_11,1,Makamba,rR3NrgHeQg7,DHIS
+BDI_1_12,1,Muramvya,PRl7Sp93UQu,DHIS
+BDI_1_13,1,Muyinga,onBBLQgOY7U,DHIS
+BDI_1_14,1,Mwaro,PqXhdmF0peI,DHIS
+BDI_1_15,1,Ngozi,ijz2536qQO7,DHIS
+BDI_1_16,1,Rumonge,ALCYpj532KE,DHIS
+BDI_1_17,1,Rutana,mh59RxSAwB2,DHIS
+BDI_1_18,1,Ruyigi,mEP3qY2t6Uw,DHIS
+BDI_2_1,2,DS Bubanza,XGzG0V4KzxM,DHIS
+BDI_2_2,2,DS Mpanda,b7R1n97ZhQg,DHIS
+BDI_2_3,2,DS Bujumbura centre,XnGz4jHfGhf,DHIS
+BDI_2_4,2,DS Bujumbura nord,I1K7lj9BxKu,DHIS
+BDI_2_5,2,DS Bujumbura sud,kMLe4XSW42y,DHIS
+BDI_2_6,2,DS Isale,QgoQp84KPAL,DHIS
+BDI_2_7,2,DS Kabezi,MhfZRdfVtWX,DHIS
+BDI_2_8,2,DS Rwibaga,Yfs7p3qNhTP,DHIS
+BDI_2_9,2,DS Bururi,KQX3sdbC1ww,DHIS
+BDI_2_10,2,DS Matana,Pa1Pg32H6Ge,DHIS
+BDI_2_11,2,DS Cankuzo,AZfOMWnB9hM,DHIS
+BDI_2_12,2,DS Murore,Ny52UZrUyjt,DHIS
+BDI_2_13,2,DS Bukinanyana,R14TsqN3a1o,DHIS
+BDI_2_14,2,DS Cibitoke,t3OSC27WjD3,DHIS
+BDI_2_15,2,DS Mabayi,PMaBY3FnYaz,DHIS
+BDI_2_16,2,DS Gitega,QGqhifEuLRm,DHIS
+BDI_2_17,2,DS Kibuye,gkElt2SqPFP,DHIS
+BDI_2_18,2,DS Mutaho,cAv6MyloDtL,DHIS
+BDI_2_19,2,DS Ryansoro,amATrWOWTpr,DHIS
+BDI_2_20,2,DS Buhiga,nIYDqmOp9Zo,DHIS
+BDI_2_21,2,DS Nyabikere,GZ6FNudTEO8,DHIS
+BDI_2_22,2,DS Gahombo,CtnlgeCTCwu,DHIS
+BDI_2_23,2,DS Kayanza,z5pKHyS9lYs,DHIS
+BDI_2_24,2,DS Musema,Xbd18YX9Szk,DHIS
+BDI_2_25,2,DS Busoni,SyxKX5ezCN4,DHIS
+BDI_2_26,2,DS Kirundo,Qa6z8K1xcwx,DHIS
+BDI_2_27,2,DS Mukenke,bqV6vTJGo5O,DHIS
+BDI_2_28,2,DS Vumbi,CYbaeem4l2R,DHIS
+BDI_2_29,2,DS Makamba,Kp3nycIlvQC,DHIS
+BDI_2_30,2,DS Nyanza-Lac,CO1slbmS2SK,DHIS
+BDI_2_31,2,DS Kiganda,CRlbhmMLccz,DHIS
+BDI_2_32,2,DS Muramvya,k5dVZj43ryx,DHIS
+BDI_2_33,2,DS Gashoho,pLYz2aAzPl3,DHIS
+BDI_2_34,2,DS Giteranyi,S0nkB9RUEbp,DHIS
+BDI_2_35,2,DS Muyinga,ZyRrrM6N6AH,DHIS
+BDI_2_36,2,DS Fota,v64d2D11vkq,DHIS
+BDI_2_37,2,DS Kibumbu,GdXjSCLXLoB,DHIS
+BDI_2_38,2,DS Buye,wE9rbaz8slr,DHIS
+BDI_2_39,2,DS Kiremba,iUvDJYbxzsP,DHIS
+BDI_2_40,2,DS Ngozi,jKJbzH0wX0A,DHIS
+BDI_2_41,2,DS Bugarama ,UDPuA5Gz1ee,DHIS
+BDI_2_42,2,DS Rumonge,t8dkyaozPOf,DHIS
+BDI_2_43,2,DS Gihofi,t27Pfqb7fi2,DHIS
+BDI_2_44,2,DS Rutana,v1JG7iLX5F9,DHIS
+BDI_2_45,2,DS Butezi,n5kf59Xz0iW,DHIS
+BDI_2_46,2,DS Kinyinya,oCd5gVoMDSU,DHIS
+BDI_2_47,2,DS Ruyigi,nxEcduPU3OY,DHIS

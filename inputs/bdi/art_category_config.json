@@ -1,0 +1,210 @@
+[
+{
+    "id": "tUTbzZl9ptF",
+    "name": "35-39ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "TbspwAXR3OD",
+    "name": "5-9 ans, F",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "hoNLYwhYjTL",
+    "name": "10-14 ans, F",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "Sxn0D250lCS",
+    "name": "30-34ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "vMR1S7Xf8A6",
+    "name": "5-9 ans, M",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "male"
+    }
+},
+{
+    "id": "gROhM9NUOYB",
+    "name": ">=50 ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "Ofxid5wo6xe",
+    "name": "25-29ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "JmsSA826ihd",
+    "name": "25-49 ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "cKXZcdLiGn5",
+    "name": "20-24 ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "PlTdJYtk9mS",
+    "name": "12-59 mois, M",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "dXWIMexqn99",
+    "name": "40-44ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "DHSRF6zTUCB",
+    "name": "40-44ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "N1Zr3qfbsCL",
+    "name": "10-14 ans, M",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "male"
+    }
+},
+{
+    "id": "GOV8QlzHstb",
+    "name": ">=50 ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "fz2nTLdb2PJ",
+    "name": "25-29ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "BXplpwIpqbT",
+    "name": "35-39ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "KhOEQgU1NFl",
+    "name": "45-49ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "SZ3Yme0kP73",
+    "name": "0-11 mois, F",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "U8aCp07FOkl",
+    "name": "0-11 mois, M",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "Hug5t6xZVoh",
+    "name": "20-24 ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "Iausicu6pk0",
+    "name": "12-59 mois, F",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "both"
+    }
+},
+{
+    "id": "jZEPKiOdkVA",
+    "name": "30-34ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "hS6Tv3YxNfR",
+    "name": "45-49ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "ZGJflSG6UwE",
+    "name": "15-19 ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "JbIbKYeils6",
+    "name": "15-19 ans, F",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "jwjJ1OTsb9O",
+    "name": "25-49 ans, M",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+}
+]
