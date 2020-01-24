@@ -233,20 +233,14 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     df[metadata_cols] = df[metadata_cols].fillna('')
 
+    # pull data elements from rows to columns
     aggregated_rows = df[metadata_cols + ['dataElementName', 'value']].groupby(metadata_cols + ['dataElementName']).sum().reset_index()
-    pivot = aggregated_rows.pivot(columns='dataElementName', values='value')
-    semi_wide_format_df = pd.concat([aggregated_rows[metadata_cols], pivot], axis=1)
+    aggregated_rows = aggregated_rows.set_index(metadata_cols + ['dataElementName']).unstack(
+        'dataElementName')
+    aggregated_rows.columns = aggregated_rows.columns.droplevel(0)
+    aggregated_rows = aggregated_rows.reset_index()
 
-    data_cols = [x for x in semi_wide_format_df if x not in set(metadata_cols)]
-
-    joined_rows = semi_wide_format_df.copy().drop_duplicates(subset=metadata_cols).set_index(metadata_cols)
-    for i, row in semi_wide_format_df.iterrows():
-        index = list(row[metadata_cols].values)
-        for col_name, val in row[data_cols].items():
-            if pd.notna(val):
-                joined_rows.loc[tuple(index), col_name] = val
-    output_df = joined_rows.reset_index()
-    return output_df
+    return aggregated_rows
 
 
 @etl.decorators.log_start_and_finalisation("trimming period strings")
