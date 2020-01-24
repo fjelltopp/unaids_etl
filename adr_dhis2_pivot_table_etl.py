@@ -211,11 +211,24 @@ def extract_categories_and_aggregate_data(df: pd.DataFrame) -> pd.DataFrame:
     # Map DHIS2 id's according to maps created above
     for category in category_maps:
         df[category] = df['categoryOptionCombo'].map(category_maps[category])
+        if category not in metadata_cols:
+            metadata_cols.append(category)
 
     # Fill missing category combos with data element maps in case they were created as separate data elements
     for column in column_categories_maps:
         df[column].fillna(value=df['dataElement'].map(column_categories_maps[column]),
                           inplace=True)
+        if column not in metadata_cols:
+            metadata_cols.append(column)
+
+    cols_to_drop = []
+    for col in metadata_cols:
+        if df[col].isna().all():
+            cols_to_drop.append(col)
+
+    df = df.drop(columns=cols_to_drop)
+    for col in cols_to_drop:
+        metadata_cols.remove(col)
 
     df['value'] = pd.to_numeric(df['value'], errors='coerce', downcast='integer')
     df[metadata_cols] = df[metadata_cols].fillna('')
