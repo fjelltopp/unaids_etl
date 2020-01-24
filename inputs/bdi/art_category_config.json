@@ -36,7 +36,7 @@
     "name": "5-9 ans, M",
     "mapping": {
         "age_group": "00-14",
-        "sex": "male"
+        "sex": "both"
     }
 },
 {
@@ -100,7 +100,7 @@
     "name": "10-14 ans, M",
     "mapping": {
         "age_group": "00-14",
-        "sex": "male"
+        "sex": "both"
     }
 },
 {
