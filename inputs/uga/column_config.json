@@ -1,0 +1,42 @@
+[
+{
+    "id": "QBz8aQNqf8x",
+    "name": "106a ART No. active on ART on 3rd line or higher ARV regimen",
+    "mapping": "current_art"
+},
+{
+    "id": "yq8MjyIhe2A",
+    "name": "106a ART No. active on ART on 2nd line ARV regimen",
+    "mapping": "current_art"
+},
+{
+    "id": "If0pYdi5PuD",
+    "name": "106a ART No. active on ART on 1st line ARV regimen",
+    "mapping": "current_art"
+},
+{
+    "id": "mCVvMl1sIua",
+    "name": "105-2.1 Pregnant Women newly tested for HIV this pregnancy(TR & TRR)",
+    "mapping": "ancrt_tested"
+},
+{
+    "id": "EozE2KXdEw1",
+    "name": "105-2.1 Pregnant Women tested HIV+ for 1st time this pregnancy (TRR) at any visit",
+    "mapping": "ancrt_test_pos"
+},
+{
+    "id": "eGSUL2aL0zW",
+    "name": "105-2.1 A1:ANC 1st Visit for women",
+    "mapping": "anc_clients"
+},
+{
+    "id": "s8gcWSa1Sz6",
+    "name": "105-2.1b Pregnant Women who knew status before 1st ANC (HIV+(TRRK))",
+    "mapping": "ancrt_known_pos"
+},
+{
+    "id": "rEixqjKJ3ms",
+    "name": "105-2.1 A17:HIV+ Pregnant Women already on ART before 1st ANC (ART-K)",
+    "mapping": "ancrt_already_art"
+}
+]
