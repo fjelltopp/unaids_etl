@@ -1,0 +1,65 @@
+[
+{
+    "id": "C4mkXQpdvgz",
+    "name": "PNLS-4.1 Femmes enceintes connaissant leur statut sérologique VIH+ avant l'accouchement",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+},
+{
+    "id": "u4TptEuJ0ab",
+    "name": "PNLS-4.3 Femmes enceintes Conseillés et testés CPN",
+    "mapping": "[anc_clients,ancrt_tested]",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+},
+{
+    "id": "pn5WBXabVIW",
+    "name": "PNLS-4.1 Femmes enceintes VIH+ sous TAR avant la CPN1",
+    "mapping": "ancrt_already_art",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+},
+{
+    "id": "Ed63bQG5e2s",
+    "name": "PNLS-4.4 Diagnostiqués VIH+ SA/PP",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+},
+{
+    "id": "aEMhUBfFzY8",
+    "name": "PNLS-4.4 Conseillés et testés SA/PP",
+    "mapping": "[anc_clients,ancrt_tested]",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+},
+{
+    "id": "OkzjTmswTL3",
+    "name": "PNLS-4.1 Femmes enceintes connaissant leur statut sérologique VIH+ avant la CPN1",
+    "mapping": "ancrt_known_pos",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+},
+{
+    "id": "rEACPJ0KuDv",
+    "name": "PNLS-4.3 Diagnostiqués VIH+ CPN",
+    "mapping": "ancrt_test_pos",
+    "categoryMapping": {
+        "age_group": "00-49",
+        "sex": "female"
+    }
+}
+]
