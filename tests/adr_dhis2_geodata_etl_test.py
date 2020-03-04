@@ -4,9 +4,11 @@ import unittest
 import adr_dhis2_geodata_etl as geo_etl
 import pandas.util.testing as pd_test
 import pandas as pd
+from slugify import slugify
 
-class MyTestCase(unittest.TestCase):
-    def test_etl_artefacts_equal_golden_master(self):
+class GeodataETLGoldenMaster(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
         df = geo_etl.get_dhis2_org_data_from_csv('resources/geodata/response.csv')
         geo_etl.OUTPUT_DIR_NAME = 'output'
         geo_etl.SUBTREE_ORG_NAME = False
@@ -15,19 +17,27 @@ class MyTestCase(unittest.TestCase):
 
         geo_etl.run_steps(df)
 
-        csv_filenames = [
-            "dhis2_id_mapping.csv",
-            "facility_list.csv",
-            "location_hierarchy.csv"
-        ]
-        for csv_file in csv_filenames:
-            actual_path = os.path.join('output/geodata', csv_file)
-            expected_path = os.path.join('resources/geodata', csv_file)
-            actual = pd.read_csv(actual_path)
-            expected = pd.read_csv(expected_path)
-            pd_test.assert_frame_equal(expected, actual, by_blocks=True)
-        self.assertEqual(True, True)
 
+def create_test(csv_file):
+    def do_test_expected(self):
+        actual_path = os.path.join('output/geodata', csv_file)
+        expected_path = os.path.join('resources/geodata', csv_file)
+        actual = pd.read_csv(actual_path)
+        expected = pd.read_csv(expected_path)
+        pd_test.assert_frame_equal(expected, actual, by_blocks=True)
+    return do_test_expected
+
+
+csv_filenames = [
+    "dhis2_id_mapping.csv",
+    "facility_list.csv",
+    "location_hierarchy.csv"
+]
+
+for k, csv_file in enumerate(csv_filenames):
+    test_method = create_test(csv_file)
+    test_method.__name__ = f"test_golden_master_geo_{slugify(csv_file, separator='_')}"
+    setattr(GeodataETLGoldenMaster, test_method.__name__, test_method)
 
 if __name__ == '__main__':
     unittest.main()
