@@ -320,7 +320,7 @@ if __name__ == '__main__':
             TABLE_TYPE = table['name']
             etl.LOGGER.info(f"Starting data fetch for table \"{TABLE_TYPE}\"")
             dhis2_pivot_table_id = table['dhis2_pivot_table_id']
-            out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=True)
+            out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=args.pickle)
                     .pipe(extract_data_elements_names)
                     .pipe(extract_areas_names)
                     .pipe(extract_categories_and_aggregate_data)
