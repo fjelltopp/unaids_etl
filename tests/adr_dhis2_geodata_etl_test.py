@@ -1,3 +1,4 @@
+import json
 import os
 import unittest
 
@@ -17,6 +18,12 @@ class GeodataETLGoldenMaster(unittest.TestCase):
 
         geo_etl.run_steps(df)
 
+    def test_golden_master_geo_areas_json(self):
+        with open('resources/geodata/areas.json') as f:
+            expected = json.load(f)
+        with open('output/geodata/areas.json') as f:
+            actual = json.load(f)
+        self.assertEqual(expected, actual)
 
 def create_test(csv_file):
     def do_test_expected(self):
