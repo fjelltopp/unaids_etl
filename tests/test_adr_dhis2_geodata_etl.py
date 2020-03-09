@@ -13,7 +13,7 @@ class TestGeodataETLGoldenMaster(unittest.TestCase):
     def setUpClass(cls) -> None:
         dirname = os.path.dirname(__file__)
         df = geo_etl.get_dhis2_org_data_from_csv(os.path.join(dirname, 'resources/geodata/response.csv'))
-        geo_etl.OUTPUT_DIR_NAME = 'output'
+        geo_etl.OUTPUT_DIR_NAME = os.path.join(dirname, 'output')
         geo_etl.SUBTREE_ORG_NAME = False
         geo_etl.AREAS_ADMIN_LEVEL = 2
         geo_etl.ISO_CODE = 'play'
