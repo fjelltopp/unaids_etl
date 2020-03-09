@@ -113,3 +113,4 @@ output/
 /credentials/*.*
 
 open_etl.bat
+*.bak

@@ -422,7 +422,12 @@ def validate_admin_level(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def run_pipeline():
-    (__get_init_df()
+    df_ = __get_init_df()
+    run_steps(df_)
+
+
+def run_steps(df_):
+    (df_
      .pipe(extract_location_subtree)
      .pipe(extract_admin_level)
      .pipe(extract_geo_data)

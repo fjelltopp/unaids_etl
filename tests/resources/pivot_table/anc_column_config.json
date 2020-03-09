@@ -1,0 +1,34 @@
+[
+{
+    "id": "cYeuwXTCPkU",
+    "name": "ANC 2nd visit",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "00-49"
+    }
+},
+{
+    "id": "Jtf34kNZhzP",
+    "name": "ANC 3rd visit",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "00-49"
+    }
+},
+{
+    "id": "hfdmMSPBgLG",
+    "name": "ANC 4th or more visits",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "00-49"
+    }
+},
+{
+    "id": "fbfJHSPpUQD",
+    "name": "ANC 1st visit",
+    "mapping": "anc_clients",
+    "categoryMapping": {
+        "age_group": "00-49"
+    }
+}
+]
