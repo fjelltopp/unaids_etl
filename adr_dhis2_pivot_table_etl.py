@@ -273,6 +273,17 @@ def __get_dhis2_table_api_resource(pivot_table_id):
     return pivot_table_resource
 
 
+def run_pipeline(input_df):
+    return (input_df
+            .pipe(extract_data_elements_names)
+            .pipe(extract_areas_names)
+            .pipe(extract_categories_and_aggregate_data)
+            .pipe(sort_by_area_name)
+            .pipe(map_dhis2_id_area_id)
+            .pipe(trim_period_strings)
+            )
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pull geo data from a DHIS2 to be uploaded into ADR.')
     argv = sys.argv[1:]
@@ -320,14 +331,8 @@ if __name__ == '__main__':
             TABLE_TYPE = table['name']
             etl.LOGGER.info(f"Starting data fetch for table \"{TABLE_TYPE}\"")
             dhis2_pivot_table_id = table['dhis2_pivot_table_id']
-            out = (get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=True)
-                    .pipe(extract_data_elements_names)
-                    .pipe(extract_areas_names)
-                    .pipe(extract_categories_and_aggregate_data)
-                    .pipe(sort_by_area_name)
-                    .pipe(map_dhis2_id_area_id)
-                    .pipe(trim_period_strings)
-                   )
+            input_df = get_dhis2_pivot_table_data(dhis2_pivot_table_id, from_pickle=args.pickle)
+            out = run_pipeline(input_df)
             output_file_path = os.path.join(OUTPUT_DIR_NAME, 'program', f"{EXPORT_NAME}_dhis2_pull_{TABLE_TYPE}.csv")
             etl.LOGGER.info(f"Saving \"{TABLE_TYPE}\" data to file {output_file_path}")
             os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'program'), exist_ok=True)
