@@ -1,7 +1,13 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 install:
-  - pip install -r requirements.txt
-# command to run tests
+- pip install -r requirements.txt
 script: python -m unittest discover -s tests
+notifications:
+  slack:
+    on_success: change
+    on_failure: always
+    on_pull_requests: false
+    rooms:
+     - secure: X14OAYEzd1G2/quxPpCY4GNar5UrJpnbszLXvSpMIrMp880Qhzb2DbMMyAz9WyHpKdTu5V5yennezR1UzgVKTaAGBh+yy7sE/fYSctzaRI0k1V5fcN8nOcNuKG40Zhd7U4uB8Wj5VYT9y29whhOQ0qDM2QafFNJGo7e3v3JlVR4xHdhsks0qWAfu3ylY9EJ4gjYr7mOvFW26aA98DVRWvjlHKTTsM+DfhJalMqlJ82H9NW7rDqDxTofAPo9uv9leTpnOPWPw2WjjwU9QYqPB+cF0Lc1SAMGuBWgCVzEfZ59CVBxBoINjQCTSycc41efLaLgvI14d45R3mWYi13BbbwSiXGCy6DGmqe+ogqil2PpvRBgcWxLxsL2MTqciaTgBG8V7ffhiGSR/QwMMmSrJS3YP7sFIwWGkLyNg9ADz0t/VLSyVOOY5nuJn0wq90wvv6lCO6wzz0fS1AeYUMAtrvdrvj5Xvj0IQIVbwK9oal8hpRYL6un2JYUCudwoT6xtx2IKgVw6+bsvJVEWvMMWZYwiHikWVLl71/Yz4z/H2XkuSuZp760QSu2dre5CuGdXxlfqRDqOTwSMIhS2F3/fhSu3oEf/oeLypWblnDUeniR8tmLlIGJnGGSWabhVVQ6SHvzk/hnCAQcTYCrR18kw2vkYfeGNS8J9EpPv34tUXkKg=
