@@ -11,7 +11,8 @@ from slugify import slugify
 class TestGeodataETLGoldenMaster(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        df = geo_etl.get_dhis2_org_data_from_csv('resources/geodata/response.csv')
+        dirname = os.path.dirname(__file__)
+        df = geo_etl.get_dhis2_org_data_from_csv(os.path.join(dirname, 'resources/geodata/response.csv'))
         geo_etl.OUTPUT_DIR_NAME = 'output'
         geo_etl.SUBTREE_ORG_NAME = False
         geo_etl.AREAS_ADMIN_LEVEL = 2
@@ -20,17 +21,19 @@ class TestGeodataETLGoldenMaster(unittest.TestCase):
         geo_etl.run_steps(df)
 
     def test_golden_master_geo_areas_json(self):
-        with open('resources/geodata/areas.json') as f:
+        dirname = os.path.dirname(__file__)
+        with open(os.path.join(dirname, 'resources/geodata/areas.json')) as f:
             expected = json.load(f)
-        with open('output/geodata/areas.json') as f:
+        with open(os.path.join(dirname, 'output/geodata/areas.json')) as f:
             actual = json.load(f)
         self.assertEqual(expected, actual)
 
 
 def create_test(csv_file):
+    dirname = os.path.dirname(__file__)
     def do_test_expected(self):
-        actual_path = os.path.join('output/geodata', csv_file)
-        expected_path = os.path.join('resources/geodata', csv_file)
+        actual_path = os.path.join(dirname, 'output/geodata', csv_file)
+        expected_path = os.path.join(dirname, 'resources/geodata', csv_file)
         actual = pd.read_csv(actual_path)
         expected = pd.read_csv(expected_path)
         pd_test.assert_frame_equal(expected, actual, by_blocks=True)
