@@ -388,14 +388,10 @@ def __get_init_df():
     if args.csv:
         return get_dhis2_org_data_from_csv(args.csv, geodata_pickle)
 
-    if args.pickle:
-        if os.path.exists(geodata_pickle):
-            return get_dhis2_org_data_from_pickle(geodata_pickle)
-        else:
-            return get_dhis2_org_data(geodata_pickle)
-
+    if args.pickle and os.path.exists(geodata_pickle):
+        return get_dhis2_org_data_from_pickle(geodata_pickle)
     else:
-        return get_dhis2_org_data()
+        return get_dhis2_org_data(geodata_pickle)
 
 
 @etl.decorators.log_start_and_finalisation("extract location subtree")

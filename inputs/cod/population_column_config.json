@@ -1,0 +1,11 @@
+[
+{
+    "id": "WLSKVyA8LoY",
+    "name": "Population de l'aire de la santé",
+    "mapping": "population",
+    "categoryMapping": {
+        "age_group": "00+",
+        "sex": "both"
+    }
+}
+]

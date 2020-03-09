@@ -1,0 +1,34 @@
+[
+{
+    "id": "f5AKOFnreCH",
+    "name": "Masculin, 15+ ans",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "male"
+    }
+},
+{
+    "id": "xtKNpckrz2b",
+    "name": "Féminin, 15+ ans",
+    "mapping": {
+        "age_group": "15+",
+        "sex": "female"
+    }
+},
+{
+    "id": "aJLt6Fyr910",
+    "name": "Masculin, Moins de 15 ans",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "male"
+    }
+},
+{
+    "id": "YukkVt0VEcA",
+    "name": "Féminin, Moins de 15 ans",
+    "mapping": {
+        "age_group": "00-14",
+        "sex": "female"
+    }
+}
+]
