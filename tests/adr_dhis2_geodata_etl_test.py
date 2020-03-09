@@ -7,6 +7,7 @@ import pandas.util.testing as pd_test
 import pandas as pd
 from slugify import slugify
 
+
 class GeodataETLGoldenMaster(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -25,6 +26,7 @@ class GeodataETLGoldenMaster(unittest.TestCase):
             actual = json.load(f)
         self.assertEqual(expected, actual)
 
+
 def create_test(csv_file):
     def do_test_expected(self):
         actual_path = os.path.join('output/geodata', csv_file)
@@ -32,6 +34,7 @@ def create_test(csv_file):
         actual = pd.read_csv(actual_path)
         expected = pd.read_csv(expected_path)
         pd_test.assert_frame_equal(expected, actual, by_blocks=True)
+
     return do_test_expected
 
 

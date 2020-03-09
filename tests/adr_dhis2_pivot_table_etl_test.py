@@ -6,6 +6,7 @@ import shutil
 import adr_dhis2_pivot_table_etl as pivot_etl
 import pandas as pd
 
+
 class PivotTableETLGoldenMaster(unittest.TestCase):
 
     @classmethod
@@ -23,7 +24,7 @@ class PivotTableETLGoldenMaster(unittest.TestCase):
         pivot_etl.AREA_ID_MAP = ''
         pivot_etl.OUTPUT_DIR_NAME = 'output'
         pivot_etl.get_metadata(from_pickle=True)
-        pivot_etl.PROGRAM_DATA_COLUMN_CONFIG='resources/pivot_table/anc_column_config.json'
+        pivot_etl.PROGRAM_DATA_COLUMN_CONFIG = 'resources/pivot_table/anc_column_config.json'
         pivot_etl.PROGRAM_DATA_CATEGORY_CONFIG = 'resources/pivot_table/anc_category_config.json'
 
     def test_play_anc_pull(self):
@@ -36,6 +37,7 @@ class PivotTableETLGoldenMaster(unittest.TestCase):
         expected = pd.read_csv('resources/pivot_table/play_dhis2_pull_anc.csv')
 
         pd_test.assert_frame_equal(expected, actual, check_dtype=False)
+
 
 if __name__ == '__main__':
     unittest.main()
