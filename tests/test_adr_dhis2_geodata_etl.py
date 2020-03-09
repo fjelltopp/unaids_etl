@@ -8,7 +8,7 @@ import pandas as pd
 from slugify import slugify
 
 
-class GeodataETLGoldenMaster(unittest.TestCase):
+class TestGeodataETLGoldenMaster(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         df = geo_etl.get_dhis2_org_data_from_csv('resources/geodata/response.csv')
@@ -47,7 +47,7 @@ csv_filenames = [
 for k, csv_file in enumerate(csv_filenames):
     test_method = create_test(csv_file)
     test_method.__name__ = f"test_golden_master_geo_{slugify(csv_file, separator='_')}"
-    setattr(GeodataETLGoldenMaster, test_method.__name__, test_method)
+    setattr(TestGeodataETLGoldenMaster, test_method.__name__, test_method)
 
 if __name__ == '__main__':
     unittest.main()

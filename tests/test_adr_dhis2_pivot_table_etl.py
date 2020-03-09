@@ -7,7 +7,7 @@ import adr_dhis2_pivot_table_etl as pivot_etl
 import pandas as pd
 
 
-class PivotTableETLGoldenMaster(unittest.TestCase):
+class TestPivotTableETLGoldenMaster(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
