@@ -21,15 +21,13 @@ from dotenv import load_dotenv
 
 import credentials
 
-etl.LOGGER = etl.logging.get_logger(log_name="DHIS2 geo data pull", log_group="dhis2_geo_etl")
+log = etl.logging.get_logger(log_name="DHIS2 geo data pull", log_group="dhis2_geo_etl")
+etl.LOGGER = log
 
 
 @etl.decorators.log_start_and_finalisation("get dhis2 org data")
 def get_dhis2_org_data(pickle_path=None):
-    dhis2_url = os.environ.get("DHIS2_URL")
-    credentials.read_credentials(os.environ.get("DHIS2_CREDENTIALS_FILE"))
-    username = os.environ.get("DHIS2_USERNAME")
-    password = os.environ.get("DHIS2_PASSWORD")
+    dhis2_url, password, username = __get_dhis2_connection_details()
     org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates"
     r = requests.get(urljoin(dhis2_url, org_resource_url), auth=HTTPBasicAuth(username, password))
     etl.requests_util.check_if_response_is_ok(r)
@@ -38,6 +36,14 @@ def get_dhis2_org_data(pickle_path=None):
     if pickle_path:
         df.to_pickle(pickle_path)
     return df
+
+
+def __get_dhis2_connection_details():
+    dhis2_url = os.environ.get("DHIS2_URL")
+    credentials.read_credentials(os.environ.get("DHIS2_CREDENTIALS_FILE"))
+    username = os.environ.get("DHIS2_USERNAME")
+    password = os.environ.get("DHIS2_PASSWORD")
+    return dhis2_url, password, username
 
 
 @etl.decorators.log_start_and_finalisation("get dhis2 org data from local pickle file")
@@ -80,7 +86,7 @@ def extract_geo_data(df):
         if bool(os.environ.get("FLIP_COORDS")):
             df['geoshape'] = df['geoshape'].apply(__flip_coordinates)
         df['geoshape'] = df.apply(__flatten, axis=1)
-    else:
+    elif 'geometry' in list(df):
         # deal with WKT geometry
         def __extract_geoshape(row):
             if not pd.isnull(row['geometry']):
@@ -98,6 +104,9 @@ def extract_geo_data(df):
         df['lat'] = ''
         df['long'] = ''
         return df.apply(__extract_geoshape, axis=1)
+    else:
+        df['lat'] = ''
+        df['long'] = ''
 
     return df
 
@@ -171,6 +180,7 @@ def extract_admin_level(df: pd.DataFrame) -> pd.DataFrame:
 @etl.decorators.log_start_and_finalisation("extract parent")
 def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
+
     def get_parent_id(path):
         if len(path) < 1:
             return ''
@@ -253,7 +263,7 @@ def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
 @etl.decorators.log_start_and_finalisation("save dhis2 ids")
 def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'admin_level', 'name', 'dhis2_id']]
-    dhis2_ids['map_source'] = "DHIS2"
+    dhis2_ids = dhis2_ids.assign(map_source="DHIS2")
     dhis2_ids.columns = ["area_id", "map_level", "map_name", "map_id", "map_source"]
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
@@ -276,31 +286,59 @@ def save_ids_mapping(df: pd.DataFrame) -> pd.DataFrame:
 def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
     incorrect_geojson_areas = defaultdict(list)
     features = []
-    for level in range(1, AREAS_ADMIN_LEVEL + 1):
-        is_geojson = 'geojson' in list(df)
-        area_level_df = df[df['admin_level'] == level]
-        if not is_geojson:
-            valid_area_df = area_level_df[area_level_df['geoshape'].apply(lambda x: len(x)) > 0]
-            for i, area in valid_area_df.iterrows():
-                features.append({
-                    "type": "Feature",
-                    "geometry": __prepare_geometry(area),
-                    "properties": __prepare_properties(area)
-                })
-            error_area_df = area_level_df[area_level_df['geoshape'].apply(lambda x: len(x)) == 0]
-            for i, area in error_area_df.iterrows():
-                incorrect_geojson_areas[f"admin_{level}"].append(__prepare_properties_error(area))
-        else:
-            area_df = area_level_df[['id', 'name', 'admin_level', 'geojson', 'dhis2_id']]
-            for i, area in area_df.iterrows():
-                try:
-                    item_gj = json.loads(area['geojson'])
-                except json.decoder.JSONDecodeError:
-                    incorrect_geojson_areas[f"admin_{level}"].append( __prepare_properties_error(area))
-                    continue
-                item_gj['properties'] = __prepare_properties(area)
-                features.append(item_gj)
-    geojson_str = {
+    is_geojson = 'geojson' in list(df)
+    is_geoshape = 'geoshape' in list(df)
+    if not is_geojson and not is_geoshape:
+        dhis2_url, password, username = __get_dhis2_connection_details()
+        levels = '&'.join([f'level={x}' for x in range(1, AREAS_ADMIN_LEVEL + 1)])
+        geojson_r_url = f"organisationUnits.geojson?{levels}"
+        r = requests.get(urljoin(dhis2_url, geojson_r_url), auth=HTTPBasicAuth(username, password))
+        etl.requests_util.check_if_response_is_ok(r)
+        dhis2_geojson = json.loads(r.text)
+        for feature in dhis2_geojson['features']:
+            _dhis2_id = feature['id']
+            try:
+                area = df.loc[df['dhis2_id'] == _dhis2_id].iloc[0]
+            except IndexError:
+                log.error(f"Failed to process area {_dhis2_id}")
+                continue
+            _new_feature = {
+                'type': feature['type'],
+                'geometry': {
+                    'type': feature['geometry']['type'],
+                    'coordinates': feature['geometry']['coordinates']
+                },
+                "properties": __prepare_properties(area)
+            }
+            features.append(_new_feature)
+    else:
+        for level in range(1, AREAS_ADMIN_LEVEL + 1):
+            area_level_df = df[df['admin_level'] == level]
+            if is_geoshape:
+                valid_area_df = area_level_df[area_level_df['geoshape'].apply(lambda x: len(x)) > 0]
+                for i, area in valid_area_df.iterrows():
+                    features.append({
+                        "type": "Feature",
+                        "geometry": __prepare_geometry(area),
+                        "properties": __prepare_properties(area)
+                    })
+                error_area_df = area_level_df[area_level_df['geoshape'].apply(lambda x: len(x)) == 0]
+                for i, area in error_area_df.iterrows():
+                    incorrect_geojson_areas[f"admin_{level}"].append(__prepare_properties_error(area))
+            elif is_geojson:
+                area_df = area_level_df[['id', 'name', 'admin_level', 'geojson', 'dhis2_id']]
+                for i, area in area_df.iterrows():
+                    try:
+                        item_gj = json.loads(area['geojson'])
+                    except json.decoder.JSONDecodeError:
+                        incorrect_geojson_areas[f"admin_{level}"].append(__prepare_properties_error(area))
+                        continue
+                    item_gj['properties'] = __prepare_properties(area)
+                    features.append(item_gj)
+            else:
+                log.warning("Couldn't get any geographic boundaries for this configuration. The area.json output"
+                          "will be empty.")
+    area_geojson = {
         "type": "FeatureCollection",
         "features": features
     }
@@ -308,7 +346,7 @@ def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
     with open(f'{OUTPUT_DIR_NAME}/geodata/areas.json', 'w') as f:
-        f.write(json.dumps(geojson_str))
+        f.write(json.dumps(area_geojson))
 
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata_errors')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata_errors'))
@@ -354,13 +392,13 @@ def __convert_str_to_list(df, column_name):
 
 
 def __prepare_geometry(area: pd.Series) -> dict:
-    type = area['featureType']
-    if type == 'MULTI_POLYGON':
-        type = 'MultiPolygon'
+    _type = area['featureType']
+    if _type == 'MULTI_POLYGON':
+        _type = 'MultiPolygon'
     else:
-        type = 'Polygon'
+        _type = 'Polygon'
     return {
-        "type": type,
+        "type": _type,
         "coordinates": area['geoshape']
     }
 
@@ -369,7 +407,7 @@ def __prepare_properties(area: pd.Series) -> dict:
     return {
         "area_id": str(area['id']),
         "area_name": area['name'],
-        "area_level": area['admin_level']
+        "area_level": str(area['admin_level'])
     }
 
 
@@ -407,8 +445,8 @@ def extract_location_subtree(df: pd.DataFrame) -> pd.DataFrame:
     root_id = root_candidates.iloc[0]['id']
     subtree_indexes = df.path.apply(lambda x: root_id in x)
     df = df.loc[subtree_indexes]
-    lstrip_path_colum = f"/{root_id}" + df['path'].str.split(root_id, expand=True)[1]
-    df['path'] = lstrip_path_colum
+    lstrip_path_column = f"/{root_id}" + df['path'].str.split(root_id, expand=True)[1]
+    df['path'] = lstrip_path_column
     return df
 
 
