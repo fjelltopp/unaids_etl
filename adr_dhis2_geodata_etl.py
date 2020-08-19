@@ -254,7 +254,7 @@ def save_facilities_list(df: pd.DataFrame) -> pd.DataFrame:
 @etl.decorators.log_start_and_finalisation("save dhis2 ids")
 def save_dhis2_ids(df: pd.DataFrame) -> pd.DataFrame:
     dhis2_ids = df[['id', 'admin_level', 'name', 'dhis2_id']]
-    dhis2_ids['map_source'] = "DHIS2"
+    dhis2_ids = dhis2_ids.assign(map_source="DHIS2")
     dhis2_ids.columns = ["area_id", "map_level", "map_name", "map_id", "map_source"]
     if not os.path.exists(os.path.join(OUTPUT_DIR_NAME, 'geodata')):
         os.makedirs(os.path.join(OUTPUT_DIR_NAME, 'geodata'))
