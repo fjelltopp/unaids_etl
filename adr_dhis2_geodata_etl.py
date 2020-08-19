@@ -171,6 +171,7 @@ def extract_admin_level(df: pd.DataFrame) -> pd.DataFrame:
 @etl.decorators.log_start_and_finalisation("extract parent")
 def extract_parent(df: pd.DataFrame) -> pd.DataFrame:
     paths: pd.Series = df['path'].str.lstrip('/').str.split('/')
+
     def get_parent_id(path):
         if len(path) < 1:
             return ''
@@ -296,7 +297,7 @@ def save_area_geometries(df: pd.DataFrame) -> pd.DataFrame:
                 try:
                     item_gj = json.loads(area['geojson'])
                 except json.decoder.JSONDecodeError:
-                    incorrect_geojson_areas[f"admin_{level}"].append( __prepare_properties_error(area))
+                    incorrect_geojson_areas[f"admin_{level}"].append(__prepare_properties_error(area))
                     continue
                 item_gj['properties'] = __prepare_properties(area)
                 features.append(item_gj)
@@ -354,13 +355,13 @@ def __convert_str_to_list(df, column_name):
 
 
 def __prepare_geometry(area: pd.Series) -> dict:
-    type = area['featureType']
-    if type == 'MULTI_POLYGON':
-        type = 'MultiPolygon'
+    _type = area['featureType']
+    if _type == 'MULTI_POLYGON':
+        _type = 'MultiPolygon'
     else:
-        type = 'Polygon'
+        _type = 'Polygon'
     return {
-        "type": type,
+        "type": _type,
         "coordinates": area['geoshape']
     }
 
@@ -407,8 +408,8 @@ def extract_location_subtree(df: pd.DataFrame) -> pd.DataFrame:
     root_id = root_candidates.iloc[0]['id']
     subtree_indexes = df.path.apply(lambda x: root_id in x)
     df = df.loc[subtree_indexes]
-    lstrip_path_colum = f"/{root_id}" + df['path'].str.split(root_id, expand=True)[1]
-    df['path'] = lstrip_path_colum
+    lstrip_path_column = f"/{root_id}" + df['path'].str.split(root_id, expand=True)[1]
+    df['path'] = lstrip_path_column
     return df
 
 
