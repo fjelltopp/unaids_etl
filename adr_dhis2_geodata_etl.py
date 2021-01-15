@@ -30,7 +30,11 @@ def get_dhis2_org_data(pickle_path=None):
     dhis2_url, password, username = __get_dhis2_connection_details()
     org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates"
     r = requests.get(urljoin(dhis2_url, org_resource_url), auth=HTTPBasicAuth(username, password))
-    etl.requests_util.check_if_response_is_ok(r)
+    try:
+        etl.requests_util.check_if_response_is_ok(r)
+    except ConnectionError:
+        raise ConnectionError("Failed to get organisation data from DHIS2."
+                              " Make sure the URL is correct and ends with '/api/'.")
     f = io.StringIO(r.text)
     df = pd.read_csv(f)
     if pickle_path:
