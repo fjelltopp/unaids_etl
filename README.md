@@ -48,7 +48,6 @@ ETL scripts to be used in UNAIDS. There are two scripts in the repo:
         DHIS2_USERNAME=admin
         DHIS2_PASSWORD=district
         ```
-```
 1. Running the script
     ```
     python adr_dhis2_geodata_etl.py -e path_to/play.env
