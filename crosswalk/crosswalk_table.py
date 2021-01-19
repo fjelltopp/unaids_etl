@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from unidecode import unidecode
 
 import pandas as pd
 from pandas.io.json import json_normalize
@@ -92,12 +93,10 @@ def exact_matching_mapping():
 
 
 def into_ascii_only_series(in_series):
-    return in_series.str.encode('ascii', 'ignore').str.decode('ascii')
-
+    return in_series.apply(unidecode)
 
 def ascii_only(input_string):
-    return input_string.encode('ascii', 'ignore').decode('ascii')
-
+    return unidecode(input_string)
 
 if __name__ == '__main__':
     string_matching_mapping()
