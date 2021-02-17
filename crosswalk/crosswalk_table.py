@@ -92,11 +92,22 @@ def exact_matching_mapping():
     area_id_map_df.to_csv(output_path, index=False)
 
 
+def unify_string(input_):
+    return (
+        unidecode(input_)
+            .replace(' ', '')
+            .replace('-', '')
+            .lower()
+    )
+
+
 def into_ascii_only_series(in_series):
-    return in_series.apply(unidecode)
+    return in_series.apply(unify_string)
+
 
 def ascii_only(input_string):
-    return unidecode(input_string)
+    return unify_string(input_string)
+
 
 if __name__ == '__main__':
     string_matching_mapping()
