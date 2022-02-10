@@ -1,16 +1,13 @@
 import json
 from pathlib import Path
-from unidecode import unidecode
 
 import pandas as pd
 from pandas.io.json import json_normalize
 
 ADR_LEVEL = 3
 DHIS2_LEVEL = 2
-COUNTRY = 'cod'
-GEOJSON_FILENAME = 'cod_areas.geojson'
-REMOVE_NAME_PREFIX = True
-REMOVE_NAME_SUFFIX = " Zone de Santé"
+COUNTRY = 'ken'
+GEOJSON_FILENAME = 'ken_areas_subcounty.geojson'
 
 root_path = Path('/home/tomek/work/fjelltopp/unaids_etl/')
 geojson_path = root_path / f'inputs/{COUNTRY}/{GEOJSON_FILENAME}'
@@ -29,11 +26,10 @@ districts_df = df[df['map_level'] == DHIS2_LEVEL]
 names_ids_df = districts_df[['map_name', 'map_id']]
 names_ids_df.columns = ["name", "dhis2_id"]
 
-# with open(root_path / 'inputs/ethiopia/country_team_mapping.csv') as f:
-#     country_team_mapping_df = pd.read_csv(f, header=2)
-# country_team_mapping_df = country_team_mapping_df[['organisationunitname', 'MapZoneName']]
-# country_team_mapping_df.columns = ['name', 'adr_name']
-country_team_mapping_df = pd.DataFrame(columns=['name'])
+with open(root_path / 'inputs/ethiopia/country_team_mapping.csv') as f:
+    country_team_mapping_df = pd.read_csv(f, header=2)
+country_team_mapping_df = country_team_mapping_df[['organisationunitname', 'MapZoneName']]
+country_team_mapping_df.columns = ['name', 'adr_name']
 
 
 def string_matching_mapping():
@@ -42,15 +38,14 @@ def string_matching_mapping():
     for i, row in adr_df.iterrows():
         naomi_name = row['name']
         naomi_id = row['area_id']
-        matches = names_ids_df[
-            into_ascii_only_series(names_ids_df['name']) == ascii_only(naomi_name)
-        ]
+        names_ids_df['name'].str.contains(naomi_name)
+        matches = names_ids_df[names_ids_df['name'].str.contains(naomi_name)]
         matches.columns = ['map_name', 'map_id']
         if matches.empty:
-            area_id_map_df = area_id_map_df.append({
-                'area_id': naomi_id,
-                'area_name': naomi_name,
-            }, ignore_index=True)
+            # area_id_map_df = area_id_map_df.append({
+            #     'area_id': naomi_id,
+            #     'area_name': naomi_name,
+            # }, ignore_index=True)
             continue
         matches['area_id'] = naomi_id
         matches['area_name'] = naomi_name
@@ -63,10 +58,7 @@ def string_matching_mapping():
     for i, row in missing_dhis2_ids.iterrows():
         dhis2_id = row['map_id']
         dhis2_name = row['map_name']
-        matches = country_team_mapping_df[
-            into_ascii_only_series(country_team_mapping_df['name'])
-                .str.contains(ascii_only(dhis2_name), case=False)
-        ]
+        matches = country_team_mapping_df[country_team_mapping_df['name'].str.contains(dhis2_name)]
         if matches.empty:
             area_id_map_df = area_id_map_df.append(row, ignore_index=True)
             continue
@@ -81,12 +73,9 @@ def string_matching_mapping():
     area_id_map_df['map_source'] = "dhis2"
     area_id_map_df['map_level'] = ADR_LEVEL
     area_id_map_df = area_id_map_df[output_columns]
-    area_id_map_df['area_id'] = area_id_map_df['area_id'].fillna(COUNTRY.upper())
+    area_id_map_df['area_id'] = area_id_map_df['area_id'].fillna('ETH')
     area_id_map_df = area_id_map_df.fillna('')
     area_id_map_df.sort_values(by='area_id', inplace=True)
-
-    area_id_map_df = remove_duplicates(area_id_map_df)
-
     area_id_map_df.to_csv(output_path, index=False)
 
 
@@ -94,37 +83,6 @@ def exact_matching_mapping():
     names_ids_df['name_short'] = names_ids_df['name'].str.replace(' District', '')
     area_id_map_df = adr_df.set_index("name").join(names_ids_df.set_index("name_short"))
     area_id_map_df.to_csv(output_path, index=False)
-
-def remove_duplicates(df_in_):
-    # TODO:
-    return df_in_
-
-def unify_string(input_):
-    return (
-        unidecode(input_)
-            .replace(' ', '')
-            .replace('-', '')
-            .lower()
-    )
-
-def trim_input(input_):
-    result = input_
-    if REMOVE_NAME_PREFIX:
-        result = ' '.join(result.split(' ')[1:])
-    if REMOVE_NAME_SUFFIX:
-        if type(REMOVE_NAME_SUFFIX) == bool:
-            result = ' '.join(result.split(' ')[:-1])
-        else:
-            result = result.removesuffix(REMOVE_NAME_SUFFIX)
-    return result
-
-def into_ascii_only_series(in_series):
-    return in_series.apply(trim_input).apply(unify_string)
-
-
-def ascii_only(input_string):
-    return unify_string(input_string)
-
 
 if __name__ == '__main__':
     string_matching_mapping()
