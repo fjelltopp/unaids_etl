@@ -5,7 +5,8 @@ import json
 import os
 import io
 import sys
-from collections import Sequence, defaultdict
+from collections.abc import Sequence
+from collections import defaultdict
 from urllib.parse import urljoin
 
 from itertools import chain, count
