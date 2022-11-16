@@ -29,7 +29,7 @@ etl.LOGGER = log
 @etl.decorators.log_start_and_finalisation("get dhis2 org data")
 def get_dhis2_org_data(pickle_path=None):
     dhis2_url, password, username = __get_dhis2_connection_details()
-    org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates"
+    org_resource_url = "organisationUnits.csv?paging=false&includeDescendants=true&includeAncestors=true&withinUserHierarchy=true&fields=id,name,displayName,shortName,path,ancestors,featureType,coordinates,geometry"
     r = requests.get(urljoin(dhis2_url, org_resource_url), auth=HTTPBasicAuth(username, password))
     try:
         etl.requests_util.check_if_response_is_ok(r)
